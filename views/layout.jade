@@ -1,7 +1,24 @@
 doctype html
 html
   head
-    title= title
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title MalJusT Template
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    header(class="header")
+      div(class="brand")
+        a(href="/" class="brand-logo") MalJusT Template
+          img(src="y-themes-logo-blue.png" alt="" width="100px")
+        div(class="nav-burger" id="nav-burger")
+          img(src="hamburger-button.png" alt="Menu")
+        div(class="nav-cancel is-active" id="nav-cancel")
+          img(src="cancel-button.png" alt="Cancel")
+
+      nav(class="nav is-active" id="nav")
+        a(href="services" class="nav-link") Services
+        a(href="about" class="nav-link") About
+        a(href="contact" class="nav-link") Contact
+    script(src="../public/javascripts/main.js")
     block content

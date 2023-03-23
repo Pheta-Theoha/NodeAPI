@@ -1,8 +1,120 @@
 body {
+  background-color: url(/public/images/hero-bg.jpg);
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+#nav {
+  font-size: large;
+  border-radius: 10px;
+  padding: 10px;
+  border-width: 5px;
+}
+
+
+/* start of navbar stylesheets */
+* {
+  box-sizing: border-box;
+}
+
+body {
+margin: 0;
+font-family: 'Open Sans', sans-serif;
+}
+
+.header {
+  padding:0px 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+/* Logo Section       */
+.brand {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 20px 5px;
+
+}
+.brand-logo {
+  font-family: lucida calligraphy;
+  text-decoration: none;
+  font-size: xx-large;
+  color: #7692ad;
+}
+/* End of Logo Section     */
+/*    Nav links        */
+.nav {
+  background-color: #364fc7;
+  padding: 10px 30px;
+}
+.nav-link {
+  text-decoration: none;
+  display: block;
+  padding:10px;
+  color: #fff;
+  margin-bottom: 5px;
+}
+.nav-link:hover {
+  text-decoration:none;
+  opacity: 0.9;
+}
+.is-active {
+  display: none;
+}
+.nav-burger {
+  position: fixed;
+  right: 20px;
+}
+.nav-cancel{
+  position: fixed;
+  right: 260px;
+}
+
+.nav {
+  position: fixed;
+  right: 0;
+}
+
+@media (max-width: 767px) {
+ .nav {
+    height: 100vh;
+    padding-top: 40px;
+  }
+}
+
+/* Hide nav links on screens with width below 768px  */
+@media (min-width: 768px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-burger {
+    display: none;
+  }
+
+  /*  Desktop  Nav links        */
+  .nav {
+    display: block;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    background-color: #fff;
+  }
+  .nav-link {
+    text-decoration: none;
+    display: inline-block;
+    padding: 20px 15px;
+    color: #212529;
+  }
+  /*   End of Nav links        */
+}
+
+body {
+  background-color: url(/public/images/hero-bg.jpg);
 }
