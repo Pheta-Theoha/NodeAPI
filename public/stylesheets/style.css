@@ -1,11 +1,34 @@
 body {
-  background-color: url(/public/images/hero-bg.jpg);
-  padding: 50px;
+  background-color: #42464b;
+  padding: 25px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+#body {
+  padding-left: 50px;
+}
+
+#text {
+  column-count: 2;
+}
+
+.admin {
+  background-color: #42464b;
+}
+
+#admin {
+  border-color:#00B7FF;
+  border-style: solid;
+  border-radius: 20px;
+  font-size: xx-large;
+  padding: 7px;
+  background-color:#465b6e;
+}
+
+p {
+  font-size: large;
+  color: #000000;
+  font-weight: 600;
 }
 
 #nav {
@@ -13,6 +36,9 @@ a {
   border-radius: 10px;
   padding: 10px;
   border-width: 5px;
+  padding-right: 40px;
+  background-color: #42464b;
+  color: #fff;
 }
 
 
@@ -22,8 +48,9 @@ a {
 }
 
 body {
-margin: 0;
-font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-image: url("/public/images/hero-bg.jpg");
 }
 
 .header {
@@ -31,6 +58,7 @@ font-family: 'Open Sans', sans-serif;
   display: flex;
   justify-content: space-between;
   width: 100%;
+  background-color: #42464b;
 }
 /* Logo Section       */
 .brand {
@@ -43,21 +71,25 @@ font-family: 'Open Sans', sans-serif;
 .brand-logo {
   font-family: lucida calligraphy;
   text-decoration: none;
-  font-size: xx-large;
+  font-size: 40px;
   color: #7692ad;
+  padding-left: 30px;
 }
 /* End of Logo Section     */
 /*    Nav links        */
 .nav {
-  background-color: #364fc7;
+  background-color: #42464b;
   padding: 10px 30px;
 }
 .nav-link {
   text-decoration: none;
   display: block;
   padding:10px;
-  color: #fff;
   margin-bottom: 5px;
+}
+.path-nav {
+  font-weight: bold;
+  color: #fff;
 }
 .nav-link:hover {
   text-decoration:none;
@@ -113,8 +145,4 @@ font-family: 'Open Sans', sans-serif;
     color: #212529;
   }
   /*   End of Nav links        */
-}
-
-body {
-  background-color: url(/public/images/hero-bg.jpg);
 }

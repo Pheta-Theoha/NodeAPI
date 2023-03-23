@@ -21,4 +21,8 @@ router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'MalJusT Template' });
 });
 
+router.get('/admin', function(req, res, next) {
+  res.render('admin', { title: 'MalJusT Template' });
+});
+
 module.exports = router;
