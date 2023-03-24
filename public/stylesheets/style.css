@@ -25,6 +25,11 @@ body {
   background-color:#465b6e;
 }
 
+#admin:hover {
+  font-size: 40px;
+  color: #00B7FF;
+}
+
 p {
   font-size: large;
   color: #000000;
@@ -41,6 +46,97 @@ p {
   color: #fff;
 }
 
+form {
+  margin-top: 100px;
+  text-align: center;
+  font-size: x-large;
+  border-style: solid;
+  border-radius: 20px;
+  padding-top: 25px;
+  padding-bottom: 30px;
+  background-color: #53565a;
+}
+
+#form {
+  margin-left: 450px;
+  margin-right: 450px;
+}
+
+#close {
+  margin-left: 350px;
+  text-decoration: none;
+  color: #000000;
+  font-size: xx-large;
+}
+
+.input {
+  background-color: #212529;
+  font-size: x-large;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.submit {
+  font-size: xx-large;
+  margin-top: 10px;
+  background-color: #212529;
+  border-radius: 10px;
+  border-style: solid;
+}
+
+.submit:hover {
+  color: #00B7FF;
+}
+
+#p1 {
+  margin-left: 15px;
+}
+
+#p2 {
+  margin-left: 15px;
+}
+
+.service {
+  margin-top: 30px;
+}
+
+.sev-div {
+  column-count: 2;
+  column-width: 20px;
+}
+
+.service1 {
+  border-style: solid;
+  border-radius: 20px;
+  margin-right: 700px;
+  margin-left: 50px;
+  background-color: #71767c;
+}
+
+.service2 {
+  border-style: solid;
+  border-radius: 20px;
+  margin-right: 50px;
+  margin-left: 700px;
+  background-color: #71767c;
+}
+
+.service3 {
+  border-style: solid;
+  border-radius: 20px;
+  margin-right: 700px;
+  margin-left: 50px;
+  background-color: #71767c;
+}
+.service4 {
+  border-style: solid;
+  border-radius: 20px;
+  margin-right: 700px;
+  margin-left: 50px;
+  background-color: #71767c;
+}
 
 /* start of navbar stylesheets */
 * {
@@ -51,6 +147,11 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   background-image: url("/public/images/hero-bg.jpg");
+}
+
+.forgotPassword {
+  text-decoration: underline;
+  color: #00B7FF;
 }
 
 .header {
@@ -91,6 +192,12 @@ body {
   font-weight: bold;
   color: #fff;
 }
+
+.path-nav:hover {
+  color: #00B7FF;
+  font-size: x-large;
+}
+
 .nav-link:hover {
   text-decoration:none;
   opacity: 0.9;

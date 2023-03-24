@@ -7,7 +7,18 @@ html
     div(class="admin")
       a(href="/" class="brand-logo" id="admin-logo") 
         b MalJusT Template
-    div 
-      form 
+    div(id="form")
+      form
+        b 
+          a(href="/" id="close") X
+        br
+        input(type="text", placeholder="Username" class="input")
+        br
+        input(type="password", placeholder="Password" class="input")
+        br
+        input(type="submit" value="Submit" class="submit")
+        <br>
+        <br>
+        a("/renewPassword" class="forgotPassword") Forgot Password 
 
 block content
