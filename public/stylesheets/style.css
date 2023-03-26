@@ -1,3 +1,55 @@
+/* Admin access styling */
+.dd {
+  position: relative;
+  display: inline-block;
+}
+
+.dd-btn {
+  /* padding: 15px; */
+  text-align: center;
+  background-color: #42464b;
+  border: none;
+  /* width: 300px; */
+  color: #fff;
+}
+
+.dd-btn:hover {
+  color: #00B7FF;
+}
+
+.dd-content {
+  position: absolute;
+  width: 110%;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.60);
+  height: 0px;
+  transition: height 1s;
+  overflow: hidden;
+  background-color:#465b6e;
+  text-align: left;
+  border-radius: 10px;
+}
+
+.dd-link:hover {
+  font-size: x-large;
+  color: #00B7FF;
+}
+
+.dd:hover > .dd-content{
+  position: absolute;
+  height: 220px;
+  padding-right: 15px;
+  width: 110%;
+}
+
+.dd-content > a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: black;
+}
+
+/* End of admin access styling */
+
 body {
   background-color: #42464b;
   padding: 25px;
@@ -5,11 +57,21 @@ body {
 }
 
 #body {
-  padding-left: 50px;
+  border-style: groove;
+  border-color: #00B7FF;
+  border-radius: 20px;
+  margin-right: 70px;
+  margin-left: 50px;
+  padding-bottom: 40px;
+  background-color: #71767c;
+  background-image: url("/public/images/hero-bg.jpg");
+  box-shadow: 5px 4px #1c1c1d;
 }
 
 #text {
-  column-count: 2;
+  margin-left: 40px;
+  margin-right: 40px;
+  text-align: justify;
 }
 
 .admin {
@@ -28,6 +90,7 @@ body {
 #admin:hover {
   font-size: 40px;
   color: #00B7FF;
+  background-color:#59728a;
 }
 
 p {
@@ -69,6 +132,11 @@ form {
   font-size: xx-large;
 }
 
+#close:hover {
+  color:#00B7FF;
+  font-size: 40px;
+}
+
 .input {
   background-color: #212529;
   font-size: x-large;
@@ -96,46 +164,73 @@ form {
 
 #p2 {
   margin-left: 15px;
+  margin-bottom: auto;
+} 
+
+#sev-link {
+  margin-left: 160px;
+  font-size: x-large;
+  color: #00B7FF;
+  padding-bottom: 10px;
+  text-decoration: none;
+}
+
+#sev-link:hover {
+  color: #80c8e4;
+  font-size: 25px;
 }
 
 .service {
   margin-top: 30px;
-}
-
-.sev-div {
   column-count: 2;
-  column-width: 20px;
 }
 
 .service1 {
   border-style: solid;
   border-radius: 20px;
-  margin-right: 700px;
+  margin-right: 70px;
   margin-left: 50px;
   background-color: #71767c;
+  background-image: url("/public/images/hero-bg.jpg");
+  box-shadow: 5px 4px #1c1c1d;
 }
 
 .service2 {
   border-style: solid;
   border-radius: 20px;
   margin-right: 50px;
-  margin-left: 700px;
+  margin-left: 70px;
   background-color: #71767c;
+  padding-bottom: 10px;
+  box-shadow: 5px 4px #1c1c1d;
 }
 
-.service3 {
-  border-style: solid;
+.home1 {
+  border-style: groove;
+  border-color: #00B7FF;
   border-radius: 20px;
-  margin-right: 700px;
+  margin-right: 70px;
   margin-left: 50px;
   background-color: #71767c;
+  background-image: url("/public/images/hero-bg.jpg");
+  box-shadow: 5px 4px #1c1c1d;
+  margin-bottom: 40px;
 }
-.service4 {
-  border-style: solid;
+
+.home2 {
+  border-style: groove;
+  border-color: #00B7FF;
   border-radius: 20px;
-  margin-right: 700px;
-  margin-left: 50px;
+  margin-right: 50px;
+  margin-left: 70px;
   background-color: #71767c;
+  padding-bottom: 10px;
+  box-shadow: 5px 4px #1c1c1d;
+}
+
+.home {
+  margin-top: 30px;
+  column-count: 2;
 }
 
 /* start of navbar stylesheets */
@@ -147,6 +242,25 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   background-image: url("/public/images/hero-bg.jpg");
+}
+
+h1 {
+  text-align: center;
+}
+
+#about {
+  text-shadow: 2px 2px #3994b8;
+}
+
+#contact {
+  text-shadow: 2px 2px #3994b8;
+}
+
+.welcome {
+  text-align: center;
+  font-size: 40px;
+  text-shadow: 2px 2px #3994b8;
+  padding-bottom: 10px;
 }
 
 .forgotPassword {
@@ -172,10 +286,17 @@ body {
 .brand-logo {
   font-family: lucida calligraphy;
   text-decoration: none;
-  font-size: 40px;
+  font-size: 45px;
   color: #7692ad;
   padding-left: 30px;
+  /* text-shadow: 1px 1px #657d94; */
 }
+
+.brand-logo:hover {
+  color: #88a4be;
+  font-size: 46px;
+}
+
 /* End of Logo Section     */
 /*    Nav links        */
 .nav {

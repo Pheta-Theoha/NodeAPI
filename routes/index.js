@@ -18,11 +18,20 @@ router.get('/services', function(req, res, next) {
 
 //Get contact page
 router.get('/contact', function(req, res, next) {
-  res.render('contact', { title: 'MalJusT Template' });
+  res.render('contact', { title: 'Reach Out' });
 });
 
 router.get('/admin', function(req, res, next) {
   res.render('admin', { title: 'MalJusT Template' });
 });
+
+router.get('/newPassword', function(req, res, next) {
+  res.render('newPassword', { title: 'MalJusT Template' });
+});
+
+router.get('/adminHome', function(req, res, next) {
+  res.render('admin/adminHome', { title: 'MalJusT Template' });
+});
+
 
 module.exports = router;
