@@ -36,7 +36,7 @@
 
 .dd:hover > .dd-content{
   position: absolute;
-  height: 220px;
+  height: 290px;
   padding-right: 15px;
   width: 110%;
 }
@@ -46,6 +46,7 @@
   padding: 15px;
   text-decoration: none;
   color: black;
+  width: 120%;
 }
 
 /* End of admin access styling */

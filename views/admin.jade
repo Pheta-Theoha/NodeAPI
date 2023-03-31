@@ -4,11 +4,12 @@ html
     title MalJust Template
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    //- script(src="/javascripts/mainForm.js") 
     div(class="admin")
       a(href="/" class="brand-logo" id="admin-logo") 
         b MalJusT Template
     div(id="form")
-      form
+      form(id="myform" action="/admin/adminHome" method="get")
         b 
           a(href="/" id="close") X
         br

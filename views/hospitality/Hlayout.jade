@@ -6,8 +6,8 @@ html
   body
     header(class="header")
       div(class="brand")
-        a(href="/adminHome" class="brand-logo") 
-          b MalJusT Template
+        a(href="/hospitality/HHome" class="brand-logo") 
+          b MalJusT <br>Hospitality System
           //- img(src="y-themes-logo-blue.png" alt="" width="100px")
         div(class="nav-burger" id="nav-burger")
           img(src="hamburger-button.png" alt="Menu")
@@ -15,18 +15,9 @@ html
           img(src="cancel-button.png" alt="Cancel")
 
       nav(class="nav is-active" id="nav")
-        div(class="dd") 
-          a(href="services" class="nav-link" class="dd-btn")
-            b Templates
-          div(class="dd-content")
-            a(href="/voting/vHome" class="dd-link") Voting System
-            a(href="/hospitality/HHome" class="dd-link") Hospitality System
-            a(href="#" class="dd-link") Student Registration
-            a(href="#" class="dd-link") Tourism Management
         a(href="services" class="nav-link" class="path-nav") Services
         a(href="about" class="nav-link" class="path-nav") About
         a(href="contact" class="nav-link" class="path-nav") Contact
-        a(href="/admin" class="nav-link" id="admin") Logout
     script(src="../public/javascripts/main.js")
     block content
 

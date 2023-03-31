@@ -21,6 +21,8 @@ router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'Reach Out' });
 });
 
+
+//Admin routes
 router.get('/admin', function(req, res, next) {
   res.render('admin', { title: 'MalJusT Template' });
 });
@@ -29,9 +31,26 @@ router.get('/newPassword', function(req, res, next) {
   res.render('newPassword', { title: 'MalJusT Template' });
 });
 
-router.get('/adminHome', function(req, res, next) {
+router.get('/admin/adminHome', function(req, res, next) {
   res.render('admin/adminHome', { title: 'MalJusT Template' });
 });
 
+//Voting system routes
+router.get('/voting/vHome', function(req, res, next) {
+  res.render('voting/vHome', { title: 'MalJusT Template' });
+});
+
+router.get('/vHome', function(req, res, next) {
+  res.render('/vHome', { title: 'MalJusT Template' });
+});
+
+//Hospitality system routes
+router.get('hospitality/HHome', function(req, res, next) {
+  res.render('hospitality/HHome', { title: 'MalJusT Template' });
+});
+
+router.get('/HHome', function(req, res, next) {
+  res.render('/HHome', { title: 'MalJusT Template' });
+});
 
 module.exports = router;
