@@ -4,6 +4,7 @@ html
     title MalJusT Template
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    div(class="loader loader--hidden")
     header(class="header")
       div(class="brand")
         a(href="/" class="brand-logo") 
@@ -19,7 +20,7 @@ html
         a(href="about" class="nav-link" class="path-nav") About
         a(href="contact" class="nav-link" class="path-nav") Contact
         a(href="admin" class="nav-link" id="admin") Admin
-    script(src="../public/javascripts/main.js")
+    //- script(src="../public/javascripts/main.js")
     block content
 
     //- include footer

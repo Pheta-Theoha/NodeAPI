@@ -1,3 +1,7 @@
+// window.addEventListener("load", () => {
+//   document.querySelector(".loader").classList.add("loader--hidden")
+// });
+
 const navCancel = document.getElementById("nav-cancel");
 const navBurger = document.getElementById("nav-burger");
 const nav = document.getElementById("nav");
