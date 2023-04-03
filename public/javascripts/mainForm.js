@@ -1,1 +1,0 @@
-document.getElementById("myForm").action = "/admin/adminHome.layout";

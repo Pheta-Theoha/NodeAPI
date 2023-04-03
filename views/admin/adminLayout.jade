@@ -3,6 +3,11 @@ html
   head
     title MalJusT Template
     link(rel='stylesheet', href='/stylesheets/style.css')
+    //- script(src="./public/javascripts/main.js")
+    script
+      document.addEventListener('DOMContentLoaded', ()=> {
+        alert("Working");
+      })
   body
     header(class="header")
       div(class="brand")
@@ -16,18 +21,17 @@ html
 
       nav(class="nav is-active" id="nav")
         div(class="dd") 
-          a(href="services" class="nav-link" class="dd-btn")
+          a(href="adminServices" class="nav-link" class="dd-btn")
             b Templates
           div(class="dd-content")
             a(href="/voting/vHome" class="dd-link") Voting System
-            a(href="hospitality/hHome" class="dd-link") Hospitality System
-            a(href="#" class="dd-link") Student Registration
-            a(href="#" class="dd-link") Tourism Management
+            a(href="/hospitality/hHome" class="dd-link") Hospitality System
+            a(href="/studentReg/shome" class="dd-link") Student Registration
+            a(href="/tourismMan/thome" class="dd-link") Tourism Management
         a(href="adminServices" class="nav-link" class="path-nav") Services
-        a(href="about" class="nav-link" class="path-nav") About
+        a(href="adminAbout" class="nav-link" class="path-nav") About
         a(href="contact" class="nav-link" class="path-nav") Contact
         a(href="/admin" class="nav-link" id="admin") Logout
-    script(src="../public/javascripts/main.js")
     block content
 
     //- include footer

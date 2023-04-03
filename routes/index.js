@@ -44,6 +44,10 @@ router.get('/admin/adminServices', function(req, res, next) {
   res.render('admin/adminServices', { title: 'MalJusT Template' });
 });
 
+router.get('/admin/adminAbout', function(req, res, next) {
+  res.render('admin/adminAbout', { title: 'MalJusT Template' });
+});
+
 router.get('/adminHome', function(req, res, next) {
   res.render('adminHome', { title: 'MalJusT Template' });
 });
@@ -69,8 +73,46 @@ router.get('/voting/vContact', function(req, res, next) {
   res.render('voting/vContact', { title: 'MalJusT Template' });
 });
 //Hospitality system routes
-router.get('hospitality/hHome', function(req, res, next) {
+router.get('/hospitality/hHome', function(req, res, next) {
   res.render('hospitality/hHome', { title: 'MalJusT Template' });
+});
+
+router.get('/hospitality/hservices', function(req, res, next) {
+  res.render('hospitality/hservices', { title: 'MalJusT Template' });
+});
+
+router.get('/hospitality/habout', function(req, res, next) {
+  res.render('hospitality/habout', { title: 'MalJusT Template' });
+});
+
+router.get('/hospitality/hcontact', function(req, res, next) {
+  res.render('hospitality/hcontact', { title: 'MalJusT Template' });
+});
+
+router.get('/hHome', function(req, res, next) {
+  res.render('/hHome', { title: 'MalJusT Template' });
+});
+
+//Student registration routes
+router.get('/studentReg/shome', function(req, res, next) {
+  res.render('studentReg/shome', { title: 'MalJusT Template' });
+});
+
+//tourism management routes
+router.get('/tourismMan/tHome', function(req, res, next) {
+  res.render('tourismMan/tHome', { title: 'MalJusT Template' });
+});
+
+router.get('/tourismMan/tservices', function(req, res, next) {
+  res.render('tourismMan/tservices', { title: 'MalJusT Template' });
+});
+
+router.get('/tourismMan/tabout', function(req, res, next) {
+  res.render('tourismMan/tabout', { title: 'MalJusT Template' });
+});
+
+router.get('/tourismMan/tcontact', function(req, res, next) {
+  res.render('tourismMan/tcontact', { title: 'MalJusT Template' });
 });
 
 router.get('/hHome', function(req, res, next) {
