@@ -3,3 +3,34 @@ extends slayout
 block content
   div(id="Vbody")
     h1(class="welcome") Welcome to MalJusT Student Registration
+    h3(class="welcome2") Please fill the form below to register
+    form(action="#" class="studentForm" id="studentForm")
+      input(type="text" placeholder="First Name" class="studentInput" required)
+      <br> 
+      input(type="text" placeholder="Last Name" class="studentInput" required)
+      <br> 
+      input(type="text" placeholder="Student #" class="studentInput" required) 
+      <br>
+      label Enrolment Date
+      input(type="date" placeholder="Date of Birth" class="studentInput" required) 
+      <br>
+      input(type="text" placeholder="Programme" class="studentInput" required) 
+      <br>
+      input(type="number" placeholder="Year of study" class="studentInput" required) 
+      <br>
+      input(type="number" placeholder="# of modules" class="studentInput" required) 
+      <br>
+      input(type="text" placeholder="Modules to be repeated" class="studentInput" required) 
+      <br>
+      label Full time enrolled 
+      input(type="checkbox" placeholder="Full time enrol" class="studentInput")
+      <br> 
+      input(type="submit" class="studentInput" class="submit" id="submit") 
+    
+    script.
+      inputs = document.getElementByClassName('studentInput');
+      form = document.getElementById("studentForm");
+      document.addEventListener('submit', ()=> {
+        alert("Registered");
+        inputs.value = null;
+      })

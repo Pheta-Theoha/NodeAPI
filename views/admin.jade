@@ -13,13 +13,35 @@ html
         b 
           a(href="/" id="close") X
         br
-        input(type="text", placeholder="Username" class="input" required)
+        input(type="text", placeholder="Username" class="input" id="username" required)
         br
-        input(type="password", placeholder="Password" class="input" required)
+        input(type="password", placeholder="Password" class="input" id="password" required)
         br
-        input(type="submit" value="Submit" class="submit" onsubmit ="admin/adminLayout")
+        input(type="submit" value="Submit" class="submit" id="submit")
         <br>
         <br>
         a(href="/newPassword" class="forgotPassword") Forgot Password 
+        script.
+          username = document.getElementById("username");
+          password = document.getElementById("password");
+          form = document.getElementById("myform");
+          button = document.getElementById("submit");
+          var submits = 0;
+          document.addEventListener('submit', ()=> {
+            if(username.value !== 'admin' || password.value !== 'User@2023'){
+              form.action = "#";
+              username.value = password.value = null;
+              submits++;
+              if(submits > 3){
+                alert("Too many atempts, account blocked!");
+                button.setAttribute('disabled', true);
+              }else{
+                alert("Invalid credentials!");
+              }
+            }else {
+              alert("Welcome to the administrator site");
+              form.action = "/admin/adminHome";
+            }
+          });
 
 block content

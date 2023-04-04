@@ -98,6 +98,18 @@ router.get('/studentReg/shome', function(req, res, next) {
   res.render('studentReg/shome', { title: 'MalJusT Template' });
 });
 
+router.get('/studentReg/sabout', function(req, res, next) {
+  res.render('studentReg/sabout', { title: 'MalJusT Template' });
+});
+
+router.get('/studentReg/sservices', function(req, res, next) {
+  res.render('studentReg/sservices', { title: 'MalJusT Template' });
+});
+
+router.get('/studentReg/scontact', function(req, res, next) {
+  res.render('studentReg/scontact', { title: 'MalJusT Template' });
+});
+
 //tourism management routes
 router.get('/tourismMan/tHome', function(req, res, next) {
   res.render('tourismMan/tHome', { title: 'MalJusT Template' });
@@ -113,10 +125,6 @@ router.get('/tourismMan/tabout', function(req, res, next) {
 
 router.get('/tourismMan/tcontact', function(req, res, next) {
   res.render('tourismMan/tcontact', { title: 'MalJusT Template' });
-});
-
-router.get('/hHome', function(req, res, next) {
-  res.render('/hHome', { title: 'MalJusT Template' });
 });
 
 module.exports = router;
