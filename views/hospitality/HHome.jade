@@ -3,5 +3,67 @@ extends hlayout
 block content
   div(id="Vbody")
     h1(class="welcome") Welcome to the MalJusT Hospitality System
-      textarea(rows="11" cols="89" placeholder="Type your hospitality system home page information here..." id="bodyText")
-      button(class="save") Save
+      h3(class="welcome2") Please fill the form below to admit a patient
+    form(action="#" class="studentForm" id="studentForm")
+      input(type="text" placeholder="First Name" class="studentInput" required)
+      <br> 
+      input(type="text" placeholder="Last Name" class="studentInput" required)
+      <br> 
+      input(type="text" placeholder="Blood type" class="studentInput" required) 
+      <br>
+      label Date of Birth: &nbsp;&nbsp;&nbsp
+      input(type="date" placeholder="Date of Birth" class="studentInput" required) 
+      <br>
+      input(type="text" placeholder="Medical Condition" class="studentInput" required) 
+      <br>
+      input(type="number" placeholder="Urgency 1-10" class="studentInput" required) 
+      <br>
+      //- Number of medications the patient is currently taking (ie, diabities and blood pressure medication - 2)
+      input(type="number" placeholder="# of current medication" class="studentInput" required) 
+      <br>
+      label Overnight admitted 
+      input(type="checkbox" class="studentInput") 
+      <br>
+      label Diebetic 
+      input(type="checkbox" class="studentInput")
+      
+      <br>
+      div(class='file-upload')
+        input(type="file", name="myFile", id="myFile" class="file-upload__input" required)
+        button(type="button" class="file-upload__button") Medical records
+        span(class="file-upload__label") No file selected
+        script.
+          Array.prototype.forEach.call(document.querySelectorAll('.file-upload__button'), function (button) {
+            const hiddenInput = button.parentElement.querySelector('.file-upload__input');
+            const label = button.parentElement.querySelector('.file-upload__label');
+            const defaultLabelText = "No file selected";
+
+            //set default text for label
+            label.textContext = defaultLabelText;
+            label.title = defaultLabelText;
+
+            button.addEventListener('click', function () {
+              hiddenInput.click();
+            })
+
+            hiddenInput.addEventListener('change', function() {
+              const filenameList = Array.prototype.map.call(hiddenInput.files, function (file) {
+                return file.name;
+              });
+
+              label.textContent = filenameList || defaultLabelText;
+              label.title = label.textContent;
+            })
+
+          }); //For internet explorer support
+          //- document.querySelectorAll('.file-upload__button').forEach();
+      <br>
+      <br> 
+      input(type="submit" class="studentInput" class="submit" id="submit")
+    script.
+      inputs = document.getElementByClassName('studentInput');
+      form = document.getElementById("studentForm");
+      document.addEventListener('submit', ()=> {
+        alert("Registered");
+        inputs.value = null;
+      })

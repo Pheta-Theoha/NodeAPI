@@ -24,9 +24,40 @@ block content
       <br>
       label Full time enrolled 
       input(type="checkbox" placeholder="Full time enrol" class="studentInput")
+      
+      <br>
+      div(class='file-upload')
+        input(type="file", name="myFile", id="myFile" class="file-upload__input" required)
+        button(type="button" class="file-upload__button") Upload results
+        span(class="file-upload__label") No file selected
+        script.
+          Array.prototype.forEach.call(document.querySelectorAll('.file-upload__button'), function (button) {
+            const hiddenInput = button.parentElement.querySelector('.file-upload__input');
+            const label = button.parentElement.querySelector('.file-upload__label');
+            const defaultLabelText = "No file selected";
+
+            //set default text for label
+            label.textContext = defaultLabelText;
+            label.title = defaultLabelText;
+
+            button.addEventListener('click', function () {
+              hiddenInput.click();
+            })
+
+            hiddenInput.addEventListener('change', function() {
+              const filenameList = Array.prototype.map.call(hiddenInput.files, function (file) {
+                return file.name;
+              });
+
+              label.textContent = filenameList || defaultLabelText;
+              label.title = label.textContent;
+            })
+
+          }); //For internet explorer support
+          //- document.querySelectorAll('.file-upload__button').forEach();
+      <br>
       <br> 
-      input(type="submit" class="studentInput" class="submit" id="submit") 
-    
+      input(type="submit" class="studentInput" class="submit" id="submit")
     script.
       inputs = document.getElementByClassName('studentInput');
       form = document.getElementById("studentForm");

@@ -26,6 +26,10 @@ router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'Reach Out' });
 });
 
+// router.get('/hero-bg.jpg', function(req, res, next) {
+//   res.render('hero-bg.jpg', { title: 'Reach Out' });
+// });
+
 
 //Admin routes
 router.get('/admin', function(req, res, next) {

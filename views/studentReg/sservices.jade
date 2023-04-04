@@ -3,5 +3,12 @@ extends slayout
 block content
   div(id="Vbody")
     h1(class="welcome") Services
-      textarea(rows="11" cols="89" placeholder="Type your registration services page information here..." id="bodyText")
-      button(class="save") Save
+      //- textarea(rows="11" cols="89" placeholder="Type your registration services page information here..." id="bodyText")
+      h2(id="bodyText" contenteditable="true").
+       ALL OF THIS TEXT IS EDITABLE, CHANGE IT!!!!!!!<br>###############################################<br>
+       <i>Type your registration services page information here...<br>###############################################<br>
+       <i>It should include all the information about the services<br>###############################################<br>
+       <i>you wish to provide to the viewers (in this case, students)<br>###############################################<br>
+       <i>then save the final text that will be displayed on the website<br>###############################################<br>
+      button(class="save" onclick="getElementById('bodyText').setAttribute('contenteditable', 'false')") Save
+      button(class="edit" onclick="getElementById('bodyText').setAttribute('contenteditable', 'true')") Edit
