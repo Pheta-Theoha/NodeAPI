@@ -13,7 +13,7 @@ html
         b 
           a(href="/" id="close") X
         br
-        input(type="text", placeholder="Username" class="input" id="username" required)
+        input(type="text", placeholder="Username" class="input" id="username" autofocus required)
         br
         input(type="password", placeholder="Password" class="input" id="password" required)
         br
@@ -39,7 +39,7 @@ html
                 alert("Invalid credentials!");
               }
             }else {
-              alert("Welcome!");
+              alert("                                                 Welcome!");
               form.action = "/admin/adminHome";
             }
           });

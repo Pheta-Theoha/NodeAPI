@@ -516,12 +516,37 @@ h1 {
   margin-bottom: 20px;
 }
 
+.votingForm {
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
 .studentInput {
   background-color: #989da3;
   color: #000000;
   font-size: larger;
   border-radius: 5px;
+}
 
+.studentInput:focus {
+  border: #00B7FF;
+  border-style: solid;
+}
+
+.publicStatement {
+  background-color: #b8bcc2;
+  border-color: #000000;
+  border-radius: 10px;
+  color: #000;
+  font-size: larger;
+  resize: none;
+}
+
+.publicStatement:focus {
+  border-style: solid;
+  border-color: #00B7FF;
 }
 
 /* label {
@@ -565,3 +590,10 @@ h1 {
   white-space: nowrap;
 }
 
+#mypdf {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 440px;
+  height: 370px;
+}

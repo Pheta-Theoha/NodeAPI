@@ -11,6 +11,10 @@ router.get('/t&c', function(req, res, next) {
   res.render('t&c', { title: 'MalJusT Template' });
 });
 
+router.get('/p.pdf', function(req, res, next) {
+  res.render('p.pdf', { title: 'MalJusT Template' });
+});
+
 //Get about page
 router.get('/about', function(req, res, next) {
   res.render('about', { title: 'MalJusT Template' });
