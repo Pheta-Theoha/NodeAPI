@@ -5,9 +5,19 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     //- script(src="/javascripts/mainForm.js") 
-    div(class="admin")
-      a(href="/" class="brand-logo" id="admin-logo") 
-        b MalJusT Template
+    div(class="loader loader--hidden")
+    header(class="header")
+      div(class="brand")
+        a(href="/" class="brand-logo") 
+          b MalJusT Template
+          //- img(src="y-themes-logo-blue.png" alt="" width="100px")
+        div(class="nav-burger" id="nav-burger")
+          img(src="hamburger-button.png" alt="Menu")
+        div(class="nav-cancel is-active" id="nav-cancel")
+          img(src="cancel-button.png" alt="Cancel")
+
+      nav(class="nav is-active" id="nav")
+        a(href="super/super" class="nav-link" id="superadmin") Super Admin
     div(id="form")
       form(id="myform" action="/admin/adminHome" method="get")
         b 

@@ -1,0 +1,48 @@
+doctype html
+html
+  head
+    title MalJust Template
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    //- script(src="/javascripts/mainForm.js") 
+    div(id="logo") 
+        div(class="loader loader--hidden")
+            header(class="sheader")
+                div(class="brand")
+                    a(href="/" class="sbrand-logo") 
+                        b MalJusT Template
+          //- img(src="y-themes-logo-blue.png" alt="" width="100px")
+    div(id="form")
+      form(id="myform" action="/admin/adminHome" method="get")
+        b 
+          a(href="/" id="sclose") X
+        br
+        input(type="password", placeholder="Private key" class="sinput" id="spassword" autofocus required)
+        br
+        input(type="submit" value="Submit" class="ssubmit" id="ssubmit")
+        <br>
+        script.
+          password = document.getElementById("spassword");
+          form = document.getElementById("myform");
+          button = document.getElementById("ssubmit");
+          var submits = 0;
+          var attempts = 3;
+          document.addEventListener('submit', ()=> {
+            if(password.value !== 'superAdmin'){
+              form.action = "#";
+              password.value = null;
+              submits++;
+              attempts--;
+              if(submits >= 3){
+                alert("Too many atempts, access blocked!");
+                button.setAttribute('disabled', true);
+              }else{
+                alert(`Incorrect: ${attempts} attemps remaining`);
+              }
+            }else {
+              alert("                                                 Welcome!");
+              form.action = "superAdminHome";
+            }
+          });
+
+block content

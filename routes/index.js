@@ -34,6 +34,38 @@ router.get('/contact', function(req, res, next) {
 //   res.render('hero-bg.jpg', { title: 'Reach Out' });
 // });
 
+//SuperAdmin routes
+router.get('/super', function(req, res, next) {
+  res.render('super', { title: 'MalJusT Template' });
+});
+
+router.get('/super/super', function(req, res, next) {
+  res.render('super/super', { title: 'MalJusT Template' });
+});
+
+router.get('/super/superAdminHome', function(req, res, next) {
+  res.render('super/superAdminHome', { title: 'MalJusT Template' });
+});
+
+router.get('superAdminHome', function(req, res, next) {
+  res.render('superAdminHome', { title: 'MalJusT Template' });
+});
+
+router.get('/super/users', function(req, res, next) {
+  res.render('super/users', { title: 'MalJusT Template' });
+});
+
+router.get('/super/nodes', function(req, res, next) {
+  res.render('super/nodes', { title: 'MalJusT Template' });
+}); 
+
+router.get('/super/institutions', function(req, res, next) {
+  res.render('super/institutions', { title: 'MalJusT Template' });
+});
+
+router.get('/super/logs&docs', function(req, res, next) {
+  res.render('super/logs&docs', { title: 'MalJusT Template' });
+});
 
 //Admin routes
 router.get('/admin', function(req, res, next) {
