@@ -1,1 +1,45 @@
 extends superlayout
+
+block content
+  div(id="sbody")
+    h1(class="welcome" style="text-shadow: 2px 2px #b83939") Logs & Documentation
+    h2(class="welcome3" style="font-size: 30px; text-shadow: 2px 2px #b83939") Documentation
+      h3(class="welcome2") Please fill the form below to document all changes made
+    form(action="/superAdminHome" class="votingForm" id="studentForm" method="get")
+      input(type="text" placeholder="User ID" class="sInput" autofocus required)
+      label &nbsp;&nbsp;&nbsp; Date of entry &nbsp;&nbsp;
+      input(type="date" class="sInput" required)
+      <br>
+      input(type="number" placeholder="Clearance level" class="sInput" required)
+      label &nbsp;&nbsp;&nbsp; Time of entry &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      input(type="time" placeholder="Candidate Last Name" class="sInput" required)
+      <br>
+      input(type="text" placeholder="User position/title" class="sInput" required)
+      label &nbsp;&nbsp;&nbsp;&nbsp; Time of exit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      input(type="time" class="sInput" required)
+      
+      <br>
+      <br>  
+      textarea(cols="55" rows="10" placeholder="Detailed information about all the modifications made are recorded here!" class="spublicStatement" required)
+      <br> 
+      input(type="submit" class="studentInput" class="ssubmit" id="submit")
+
+    div 
+        h2(class="welcome3" style="font-size: 30px; text-shadow: 2px 2px #b83939") Logs
+        div(class="votingForm" id="studentForm" style="border-style: solid; border-radius: 10px; background-color: #53565a;")
+            p(id="sInput") Logs
+
+
+    script.
+      inputs = document.getElementsByClassName('studentInput');
+      form = document.getElementById("studentForm");
+      document.addEventListener('submit', ()=> {
+        alert("Registered");
+        inputs.value = null;
+      })
+
+      form = document.getElementById("publicStatement");
+      button = document.getElementById("ssubmit");
+      document.addEventListener('submit', ()=> {
+        alert(form.value);
+      });

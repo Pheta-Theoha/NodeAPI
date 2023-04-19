@@ -545,7 +545,7 @@ h1 {
 
 .brand-logo:hover {
   color: #88b3be;
-  font-size: 56px;
+  font-size: 48px;
 }
 
 .sbrand-logo:hover {
@@ -704,6 +704,18 @@ h1 {
   border-style: solid;
 }
 
+.sInput {
+  background-color: #989da3;
+  color: #000000;
+  font-size: larger;
+  border-radius: 5px;
+}
+
+.sInput:focus {
+  border: #ff0000;
+  border-style: solid;
+}
+
 .publicStatement {
   background-color: #b8bcc2;
   border-color: #000000;
@@ -716,6 +728,22 @@ h1 {
 .publicStatement:focus {
   border-style: solid;
   border-color: #00B7FF;
+  border-width: 3px;
+}
+
+.spublicStatement {
+  background-color: #b8bcc2;
+  border-color: #000000;
+  border-radius: 10px;
+  color: #000;
+  font-size: larger;
+  resize: none;
+}
+
+.spublicStatement:focus {
+  border-style: solid;
+  border-color: #ff0000;
+  border-width: 3px;
 }
 
 /* label {
