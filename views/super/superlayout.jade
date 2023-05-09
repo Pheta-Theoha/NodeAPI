@@ -3,6 +3,7 @@ html
   head
     title MalJusT Template
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href="https://fonts.googleapis.com/icon?family=Material+Icons")
   body
     header(class="ssheader")
       div(class="brand")
@@ -19,7 +20,7 @@ html
         a(href="/super/nodes" class="nav-link" class="spath-nav") Nodes
         a(href="/super/institutions" class="nav-link" class="spath-nav") Institutions
         a(href="/super/logs&docs" class="nav-link" class="spath-nav") Logs & Docs
-        a(href="/admin" class="nav-link" id="slogout") Logout
+        a(href="/admin" class="nav-link" id="slogout" class='material-icons') logout
     //- script(src="../public/javascripts/main.js")
     block content
 

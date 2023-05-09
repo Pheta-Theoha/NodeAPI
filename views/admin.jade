@@ -3,6 +3,7 @@ html
   head
     title MalJust Template
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href="https://fonts.googleapis.com/icon?family=Material+Icons")
   body
     //- script(src="/javascripts/mainForm.js") 
     div(class="loader loader--hidden")
@@ -21,7 +22,7 @@ html
     div(id="form")
       form(id="myform" action="/admin/adminHome" method="get")
         b 
-          a(href="/" id="close") X
+          a(href="/" id="close" class="material-icons") close
         br
         input(type="text", placeholder="Username" class="input" id="username" autofocus required)
         br
