@@ -2,13 +2,37 @@ extends vlayout
 
 block content
   div(id="Vbody")
-    h1(class="welcome") Candidates
-      h2(id="bodyText" contenteditable="true").
-        ALL OF THIS TEXT IS EDITABLE, CHANGE IT!!!!!!!<br>###############################################<br>
-        <i>Type your registration services page information here...<br>###############################################<br>
-        <i>It should include all the information about the services<br>###############################################<br>
-        <i>you wish to provide to the viewers (in this case, candidates)<br>###############################################<br>
-        <i>then save the final text that will be displayed on the website<br>###############################################<br>
-      button(class="save" onclick="getElementById('bodyText').setAttribute('contenteditable', 'false')") Save
-      button(class="edit" onclick="getElementById('bodyText').setAttribute('contenteditable', 'true')") Edit
+    div(class="Vbody1")
+      h1(class="welcome") Candidates
+        div(id="sbody2") 
+          div(class="sHome1")
+            h1(class="swelcome" id="demo") 
+              a(href="#" style="text-Decoration: none; color: black;") Candidate #1
+          div(class="sHome1")
+            h1(class="swelcome" id="demo") 
+              a(href="#" style="text-Decoration: none; color: black;") Candidate #2
+          div(class="sHome1")
+            h1(class="swelcome" id="demo") 
+              a(href="#" style="text-Decoration: none; color: black;") Candidate #3
+          div(class="sHome1")
+            h1(class="swelcome" id="demo") 
+              a(href="#" style="text-Decoration: none; color: black;") Candidate #4
+          div(class="sHome1")
+            h1(class="swelcome" id="demo") 
+              a(href="#" style="text-Decoration: none; color: black;") Candidate #5
+          div(class="sHome1")
+            h1(class="swelcome" id="demo") 
+              a(href="#" style="text-Decoration: none; color: black;") Candidate #6
+    div(class="Vbody1")
+      div(id="Vbody2")
+        h1(class="welcome") Vote Here!
+        h3(class="welcome2") Please fill the form below to vote
+        form(action="/vHome" class="votingForm" id="studentForm" method="get")
+          input(type="text" placeholder="Voter ID Number" class="studentInput" required)
+          input(type="text" placeholder="Candidate #" class="studentInput" required)
+          <br>
+          input(type="text" placeholder="Position" class="studentInput" required)
+          <br>
+          <br> 
+          input(type="submit" class="studentInput" class="Vsubmit" id="submit")
 

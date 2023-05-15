@@ -1,13 +1,49 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
+// var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose')
+var bodyParser = require('body-parser')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const { resourceLimits } = require('worker_threads');
+const MongoClient = require('mongodb').MongoClient
 
 var app = express();
+
+//Trial
+
+MongoClient.connect('mongodb://localhost:27017', (err, db) => {
+  if(err) throw err
+  Console.log('Connected to database')
+
+  db.collection('mammals').find().toArray((err, result) => {
+    if(err) throw err
+    console.log(resourceLimits)
+  })
+})
+
+
+//Experimental
+
+// mongoose.connect('mongodb://localhost:27017', {useNewUrlParser: true, useUnifinedTopology: true})
+// const db = mongoose.connection
+
+// db.on('error', (err) => {
+//   console.log(err)
+// })
+
+// db.once('open', () => {
+//   console.log('Database Connection Established!')
+// })
+
+// const app = express()
+
+// app.use(morgan('dev'))
+// app.use(bodyParser.urlencoded({extended: true}))
+// app.use(bodyParser.json())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -16,7 +52,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter); // route to handle requests to the home page

@@ -58,7 +58,7 @@
 /* body styling - for non-superAdmins*/
 body {
   /* background-color: #42464b; */
-  background-image: url('hero-bg2.jpg');
+  background-image: url('privileged-access.jpg');
   padding: 25px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -167,7 +167,7 @@ form {
   padding-top: 25px;
   padding-bottom: 30px;
   /* background-color: #53565a; */
-  background-color: #93adcf5d;
+  background-color: #cf93935d;
 }
 
 .sform {
@@ -271,6 +271,10 @@ form {
   background-color: #7c7171;
   box-shadow: 5px 4px #1d1c1c;
   margin-bottom: 40px;
+}
+
+#sbody2 {
+  column-count: 3;
 }
 
 .sHome2 {

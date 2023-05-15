@@ -12,7 +12,9 @@ block content
       <br> 
       input(type="text" placeholder="Student #" class="studentInput" required) 
       <br>
-      label Enrolment Date
+      label(style="font-size: 23px;")
+        b.
+          Enrolment Date
       input(type="date" placeholder="Date of Birth" class="studentInput" required) 
       <br>
       input(type="text" placeholder="Programme" class="studentInput" required) 
@@ -23,14 +25,18 @@ block content
       <br>
       input(type="text" placeholder="Modules to be repeated" class="studentInput" required) 
       <br>
-      label Full time enrolled 
+      label
+      b.
+        Full time enrolled 
       input(type="checkbox" placeholder="Full time enrol" class="studentInput")
       
       <br>
       div(class='file-upload')
         input(type="file", name="myFile", id="myFile" class="file-upload__input" required)
         button(type="button" class="file-upload__button") Upload results
-        span(class="file-upload__label") No file selected
+        span(class="file-upload__label")
+        b.
+          No file selected
         script.
           Array.prototype.forEach.call(document.querySelectorAll('.file-upload__button'), function (button) {
             const hiddenInput = button.parentElement.querySelector('.file-upload__input');

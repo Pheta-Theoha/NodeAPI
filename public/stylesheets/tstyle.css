@@ -58,7 +58,7 @@
 /* body styling - for non-superAdmins*/
 body {
   /* background-color: #42464b; */
-  background-image: url('hero-bg2.jpg');
+  background-image: url('tourism.jpg');
   padding: 25px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -71,17 +71,6 @@ body {
   margin-left: 50px;
   padding-bottom: 40px;
   background-color: #93adcf5d;
-  box-shadow: 5px 4px #1c1c1d;
-}
-
-#sbody {
-  border-style: groove;
-  border-color: #ff0000;
-  border-radius: 20px;
-  margin-right: 70px;
-  margin-left: 50px;
-  padding-bottom: 40px;
-  background-color: #71767c4d;
   box-shadow: 5px 4px #1c1c1d;
 }
 
@@ -104,7 +93,7 @@ body {
   margin-left: 50px;
   margin-top: 20px;
   padding-bottom: 10px;
-  background-color: #a8b7c9;
+  background-color: #a8b7c9d0;
   box-shadow: 5px 4px #1c1c1d;
   font-size: x-large;
   font-weight: bold;
@@ -170,9 +159,9 @@ form {
   background-color: #93adcf5d;
 }
 
-.sform {
+/* .sform {
   background-color: #93adcf5d;
-}
+} */
 
 #form {
   margin-left: 450px;
@@ -186,189 +175,7 @@ form {
   font-size: xx-large;
 }
 
-/* Super admin styling */
-/* /////////////////// */
-/* /////////////////// */
-/* /////////////////// */
-/* /////////////////// */
-/* Super admin styling */
 
-#slogout {
-  border-color:#ff0000;
-  border-style: solid;
-  border-radius: 20px;
-  font-size: xx-large;
-  padding: 7px;
-  background-color:#465b6e;
-}
-
-#slogout:hover {
-  font-size: 40px;
-  color: #ff0000;
-  background-color:#59728a;
-}
-
-#superadmin {
-  border-color:#c21b1b;
-  border-style: solid;
-  border-radius: 20px;
-  font-size: xx-large;
-  padding: 7px;
-  background-color:#6e4646;
-}
-
-#superadmin:hover {
-  font-size: 40px;
-  color: #850000;
-  background-color:#9b5959;
-}
-
-#sclose {
-  margin-left: 350px;
-  text-decoration: none;
-  color: #000000;
-  font-size: xx-large;
-}
-
-#sclose:hover {
-  color:#830303;
-  font-size: 40px;
-}
-
-.sinput {
-  background-color: #212529;
-  font-size: x-large;
-  padding: 5px;
-  margin: 5px;
-  border-radius: 5px;
-  color: #fff;
-}
-
-.sinput:focus {
-  border: #ff0000;
-  /* border-block-color: #00B7FF; */
-  border-style: solid;
-}
-
-.ssubmit {
-  font-size: xx-large;
-  margin-top: 10px;
-  background-color: #292121;
-  border-radius: 10px;
-  border-style: solid;
-}
-
-.ssubmit:hover {
-  color: #ff0000;
-}
-
-.sHome1 {
-  border-style: groove;
-  border-color: #ff0000;
-  border-radius: 20px;
-  margin-right: 50px;
-  margin-left: 70px;
-  background-color: #7c7171;
-  box-shadow: 5px 4px #1d1c1c;
-  margin-bottom: 40px;
-}
-
-.sHome2 {
-  border-style: groove;
-  border-color: #ff0000;
-  border-radius: 20px;
-  margin-right: 50px;
-  margin-left: 70px;
-  background-color: #7c7171;
-  padding-bottom: 10px;
-  box-shadow: 5px 4px #1d1c1c;
-}
-
-#sAbout {
-  text-shadow: 2px 2px #b83939;
-}
-
-.sbrand-logo:hover {
-  color: #ad1e1e;
-  font-size: 56px;
-}
-
-.swelcome {
-  text-align: center;
-  font-size: 40px;
-  text-shadow: 2px 2px #39b8b8;
-  padding-bottom: 10px;
-}
-
-.sheader {
-  padding:0px 1rem;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: #42464b00;
-  padding-left: 350px;
-}
-
-.ssheader {
-  padding:0px 1rem;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: #42464b00;
-}
-
-.sbrand-logo {
-  font-family: lucida calligraphy;
-  text-decoration: none;
-  font-size: 55px;
-  color: #2b1d1d;
-  padding-left: 30px;
-  text-shadow: 2px 2px #ffffff;
-}
-
-.spath-nav {
-  font-weight: bold;
-  color: #fff;
-}
-
-.spath-nav:hover {
-  color: #ff0000;
-  font-size: x-large;
-}
-
-.spublicStatement {
-  background-color: #b8bcc2;
-  border-color: #000000;
-  border-radius: 10px;
-  color: #000;
-  font-size: larger;
-  resize: none;
-}
-
-.spublicStatement:focus {
-  border-style: solid;
-  border-color: #ff0000;
-  border-width: 3px;
-}
-
-
-.sInput {
-  background-color: #989da3;
-  color: #000000;
-  font-size: larger;
-  border-radius: 5px;
-}
-
-.sInput:focus {
-  border: #ff0000;
-  border-style: solid;
-}
-
-/* Super admin styling */
-/* /////////////////// */
-/* //////--END---///// */
-/* /////////////////// */
-/* Super admin styling */
 
 
 /* Login styling */
@@ -622,7 +429,7 @@ h1 {
 .brand-logo {
   font-family: lucida calligraphy;
   text-decoration: none;
-  font-size: 55px;
+  font-size: 45px;
   color: #212325;
   padding-left: 30px;
   /* color: linear-gradient(to right, rgb(255, 255, 255), rgb(143, 143, 143)); */
