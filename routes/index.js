@@ -1,6 +1,13 @@
 var express = require('express');
 var router = express.Router();
+const { user } = require('../controllers')
+const db = require("../models/index")
 // const sqlite3 = require('sqlite3').verbose();
+
+
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -36,21 +43,25 @@ router.get('/contact', function(req, res, next) {
 // });
 
 //SuperAdmin routes
-router.get('/super', function(req, res, next) {
-  res.render('super', { title: 'MalJusT Template' });
-});
+// router.get('/super', function(req, res, next) {
+//   res.render('super', { title: 'MalJusT Template' });
+// });
 
 router.get('/super/super', function(req, res, next) {
   res.render('super/super', { title: 'MalJusT Template' });
 });
 
 router.get('/super/superAdminHome', function(req, res, next) {
+  // res.render('super/superAdminHome', { title: 'MalJusT Template' });
+  console.log("Date:", date, "\nTime:", time);
+  next();
+}, function(req, res, next){
   res.render('super/superAdminHome', { title: 'MalJusT Template' });
 });
 
 router.get('superAdminHome', function(req, res, next) {
   res.render('superAdminHome', { title: 'MalJusT Template' });
-});
+}),
 
 router.get('/super/users', function(req, res, next) {
   res.render('super/users', { title: 'MalJusT Template' });
@@ -65,8 +76,43 @@ router.get('/super/institutions', function(req, res, next) {
 });
 
 router.get('/super/logs&docs', function(req, res, next) {
-  res.render('super/logs&docs', { title: 'MalJusT Template' });
+  res.render('super/logs&docs', { time: time });
 });
+
+router.get('/super/addUser', function(req, res, next) {
+  res.render('super/addUser', { title: 'MalJusT Template' });
+});
+
+router.get('/super/profile', function(req, res, next) {
+  res.render('super/profile', { title: 'MalJusT Template' });
+});
+
+router.get('/super/submit_form', function(req, res, next) {
+  res.render('super/submit_form', { title: 'MalJusT Template' });
+});
+
+// router.post('/super/submit_form', function(req, res) {
+//   res.render('super/submit_form', { username: req.body.adminID })
+//   // res.send(`Authorized by ${req.body.superAdminID}, Your admin id is ${req.body.adminID} and your username is ${req.body.username} and your password is ${req.body.password}!`);
+// })
+
+router.post('/super/submit_form', (req, res) => {
+  const { superAdminID, adminID, username, password } = req.body; // Assuming the name and email are sent in the request body
+
+  // Insert the new row into the 'users' table
+  const query = `INSERT INTO user (superAdminID, adminID, username, password) VALUES (?, ?, ?, ?)`;
+  db.query(query, [superAdminID, adminID, username, password], (err, result) => {
+    if (err) {
+      console.error('Error inserting row:', err);
+      res.status(500).send('Error inserting row');
+    } else {
+      res.send('Row inserted successfully');
+    }
+  });
+});
+
+
+router.post('/super/profile', user.create);
 
 //Admin routes
 router.get('/admin', function(req, res, next) {

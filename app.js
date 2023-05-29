@@ -9,45 +9,19 @@ var bodyParser = require('body-parser')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const { resourceLimits } = require('worker_threads');
-const MongoClient = require('mongodb').MongoClient
+// const MongoClient = require('mongodb').MongoClient
+const { query } = require('express-validator')
+const db = require('./models')
 
 var app = express();
-
-//Trial
-
-MongoClient.connect('mongodb://localhost:27017', (err, db) => {
-  if(err) throw err
-  Console.log('Connected to database')
-
-  db.collection('mammals').find().toArray((err, result) => {
-    if(err) throw err
-    console.log(resourceLimits)
-  })
-})
-
-
-//Experimental
-
-// mongoose.connect('mongodb://localhost:27017', {useNewUrlParser: true, useUnifinedTopology: true})
-// const db = mongoose.connection
-
-// db.on('error', (err) => {
-//   console.log(err)
-// })
-
-// db.once('open', () => {
-//   console.log('Database Connection Established!')
-// })
-
-// const app = express()
-
-// app.use(morgan('dev'))
-// app.use(bodyParser.urlencoded({extended: true}))
-// app.use(bodyParser.json())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+(async () => {
+  await db.sequelize.sync();
+})();
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -73,5 +47,24 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.use(express.json())
+
+app.use(express.urlencoded({
+  extended: true
+}));
+
+app.post('./submit_form', function(req, res) {
+  console.log(req.body)
+  const superAdminID = req.body.superAdminID;
+  const userID = req.body.userID;
+  const username = req.body.username;
+  const password = req.body.password;
+  const confirmPassword = req.body.confirmPassword;
+  // res.end();
+  res.send(req.body)
+})
+
+// app.post('')
 
 module.exports = app; 

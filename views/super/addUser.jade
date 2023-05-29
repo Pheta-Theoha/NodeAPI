@@ -1,0 +1,71 @@
+doctype html
+html
+  head
+    title MalJust Template
+    link(rel='stylesheet', href='/stylesheets/Superstyle.css')
+    link(rel='stylesheet', href="https://fonts.googleapis.com/icon?family=Material+Icons")
+  body
+    //- script(src="/javascripts/mainForm.js") 
+    div(id="logo") 
+        div(class="loader loader--hidden")
+            header(class="sheader")
+                div(class="brand")
+                    a(href="/super/users" class="sbrand-logo") 
+                        b MalJusT Template
+    div(id="form")
+      form(id="myform" action="submit_form" method="post" style="background-color: #bd7d7d69;")
+        b 
+          a(href="/super/users" id="sclose" class='material-icons') close
+        br
+        input(type="text", placeholder="Super Admin ID #" class="sinput" id="spassword" name="superAdminID" autofocus required)
+        br
+        input(type="text", placeholder="User ID #" class="sinput" id="spassword" name="adminID" required)
+        br
+        input(type="text", placeholder="Username" class="sinput" id="spassword" name="username" required)
+        br
+        input(type="password", placeholder="User Password" class="sinput" id="password1" name="password" required)
+        br
+        input(type="password", placeholder="Confirm User Password" class="sinput" id="password2" required)
+        br
+        input(type="submit" value="Add User" class="ssubmit" id="ssubmit")
+        <br>
+
+        //- script.
+        //-     password1 = document.getElementById("password1");
+        //-     password2 = document.getElementById("password2");
+        //-     form = document.getElementById("myform");
+        //-     button = document.getElementById("ssubmit");
+        //-     document.AddEventListener('submit', ()=> {
+        //-         if(password1.value !== password2.value){ 
+        //-             alert("Passwords do not match!!!");
+        //-             form.action = "#";
+        //-             //- button.setAttribute('disabled', true);
+        //-         }else if(password1.value === password2.value){
+        //-             form.action = "form_submit";
+        //-         }
+        //-     })
+        //- script.
+        //-   password = document.getElementById("spassword");
+        //-   form = document.getElementById("myform");
+        //-   button = document.getElementById("ssubmit");
+        //-   var submits = 0;
+        //-   var attempts = 3;
+        //-   document.addEventListener('submit', ()=> {
+        //-     if(password.value !== 'superAdmin'){
+        //-       form.action = "#";
+        //-       password.value = null;
+        //-       submits++;
+        //-       attempts--;
+        //-       if(submits >= 3){
+        //-         alert("Too many atempts, access blocked!");
+        //-         button.setAttribute('disabled', true);
+        //-       }else{
+        //-         alert(`Incorrect: ${attempts} attemps remaining`);
+        //-       }
+        //-     }else {
+        //-       alert("                                                 Welcome!");
+        //-       form.action = "superAdminHome";
+        //-     }
+        //-   });
+
+block content
