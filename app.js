@@ -2,9 +2,9 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 // var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose')
-var bodyParser = require('body-parser')
+var logger = require('morgan'); // used for logging HTTP requests in debugging
+// var mongoose = require('mongoose')
+var bodyParser = require('body-parser') //used to process data sent in an HTTP request body
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -54,17 +54,19 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-app.post('./submit_form', function(req, res) {
-  console.log(req.body)
-  const superAdminID = req.body.superAdminID;
-  const userID = req.body.userID;
-  const username = req.body.username;
-  const password = req.body.password;
-  const confirmPassword = req.body.confirmPassword;
-  // res.end();
-  res.send(req.body)
-})
+// app.post('./super/submit_form', function(req, res) {
+//   console.log(req.body)
+//   const superAdminID = req.body.superAdminID;
+//   const userID = req.body.userID;
+//   const username = req.body.username;
+//   const password = req.body.password;
+//   const confirmPassword = req.body.confirmPassword;
+//   // res.end();
+//   res.send(req.body)
+// })
+
+// app.get('./users');
 
 // app.post('')
 
-module.exports = app; 
+module.exports = app;

@@ -11,11 +11,6 @@ html
       div(class="brand")
         a(href="/" class="brand-logo") 
           b MalJusT Template
-          //- img(src="y-themes-logo-blue.png" alt="" width="100px")
-        div(class="nav-burger" id="nav-burger")
-          img(src="hamburger-button.png" alt="Menu")
-        div(class="nav-cancel is-active" id="nav-cancel")
-          img(src="cancel-button.png" alt="Cancel")
 
       nav(class="nav is-active" id="nav")
         a(href="super/super" class="nav-link" id="superadmin") Super Admin
@@ -32,29 +27,30 @@ html
         <br>
         <br>
         a(href="/newPassword" class="forgotPassword") Forgot Password 
-        script.
-          username = document.getElementById("username");
-          password = document.getElementById("password");
-          form = document.getElementById("myform");
-          button = document.getElementById("submit");
-          var submits = 0;
-          var attempts = 3;
-          document.addEventListener('submit', ()=> {
-            if(username.value !== 'admin' || password.value !== 'User@2023'){
-              form.action = "#";
-              password.value = null;
-              submits++;
-              attempts--;
-              if(submits >= 3){
-                alert("Too many atempts, account blocked!");
-                button.setAttribute('disabled', true);
-              }else{
-                alert(`Incorrect: ${attempts} attemps remaining`);
-              }
-            }else {
-              alert("                                                 Welcome!");
-              form.action = "/admin/adminHome";
-            }
-          });
+        script(src="/javascripts/admin.js") 
+        //- script.
+        //-   username = document.getElementById("username");
+        //-   password = document.getElementById("password");
+        //-   form = document.getElementById("myform");
+        //-   button = document.getElementById("submit");
+        //-   var submits = 0;
+        //-   var attempts = 3;
+        //-   document.addEventListener('submit', ()=> {
+        //-     if(username.value !== 'admin' || password.value !== 'User@2023'){
+        //-       form.action = "#";
+        //-       password.value = null;
+        //-       submits++;
+        //-       attempts--;
+        //-       if(submits >= 3){
+        //-         alert("Too many atempts, account blocked!");
+        //-         button.setAttribute('disabled', true);
+        //-       }else{
+        //-         alert(`Incorrect: ${attempts} attemps remaining`);
+        //-       }
+        //-     }else {
+        //-       alert("                                                 Welcome!");
+        //-       form.action = "/admin/adminHome";
+        //-     }
+        //-   });
 
 block content

@@ -1,30 +1,38 @@
-const { models: { User } } = require('../models');
+"use strict";
+
+var _require = require('../models'),
+    User = _require.models.User;
 
 module.exports = {
-    create: async (req, res) => {
-        console.log("Testing row insertion");
-        // const { username, password } = req.body;
-        
-        
-        await User.create({
-            superID: "superAdmin3",
-            userID: "adminID3",
-            username: "admin3",
-            password: "User@2023"
-        }).then(res => {
-            console.log("Testing row insertion");
-            console.log(res);
-            return User;
-        }).catch((error) => {
-            console.error("Failed to create a new record: ", error);
-        });
-        
-        // res.render('submit_form', { username }); 
-        
-    }
-}
+  create: function create(req, res) {
+    return regeneratorRuntime.async(function create$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            console.log("Testing row insertion"); // const { username, password } = req.body;
 
-// module.exports = (sequelize, DataTypes) => {
+            _context.next = 3;
+            return regeneratorRuntime.awrap(User.create({
+              superID: "superAdmin3",
+              userID: "adminID3",
+              username: "admin3",
+              password: "User@2023"
+            }).then(function (res) {
+              console.log("Testing row insertion");
+              console.log(res);
+              return User;
+            })["catch"](function (error) {
+              console.error("Failed to create a new record: ", error);
+            }));
+
+          case 3:
+          case "end":
+            return _context.stop();
+        }
+      }
+    });
+  }
+}; // module.exports = (sequelize, DataTypes) => {
 //     const user = sequelize.define('user', {
 //         superID: {
 //             type: DataTypes.STRING,
@@ -46,10 +54,8 @@ module.exports = {
 //     {
 //         freezeTableName: true
 //     });
-
 //     sequelize.sync().then(() => {
 //         console.log('adminUser table created successfully!');
-
 //         user.create({
 //                 superID: "superAdmin3",
 //                 userID: "adminID3",
@@ -60,11 +66,8 @@ module.exports = {
 //             }).catch((error) => {
 //                 console.error("Failed to create a new record: ", error);
 //             });
-
 //     }).catch((error) => {
 //         console.error('Unable to create table : ', error);
 //     });
-
 //     return user;
-    
 // }

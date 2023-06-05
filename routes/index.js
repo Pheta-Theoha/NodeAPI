@@ -91,28 +91,25 @@ router.get('/super/submit_form', function(req, res, next) {
   res.render('super/submit_form', { title: 'MalJusT Template' });
 });
 
-// router.post('/super/submit_form', function(req, res) {
-//   res.render('super/submit_form', { username: req.body.adminID })
-//   // res.send(`Authorized by ${req.body.superAdminID}, Your admin id is ${req.body.adminID} and your username is ${req.body.username} and your password is ${req.body.password}!`);
-// })
-
-router.post('/super/submit_form', (req, res) => {
-  const { superAdminID, adminID, username, password } = req.body; // Assuming the name and email are sent in the request body
-
-  // Insert the new row into the 'users' table
-  const query = `INSERT INTO user (superAdminID, adminID, username, password) VALUES (?, ?, ?, ?)`;
-  db.query(query, [superAdminID, adminID, username, password], (err, result) => {
-    if (err) {
-      console.error('Error inserting row:', err);
-      res.status(500).send('Error inserting row');
-    } else {
-      res.send('Row inserted successfully');
-    }
-  });
+router.post('/super/testing', function(req, res, next) {
+  res.render('super/testing', { title: 'MalJusT Template' });
 });
 
+// router.post('/super/submit_form')
 
-router.post('/super/profile', user.create);
+router.post('/super/submit_form', function(req, res, next) {
+  user.create();
+  next();
+  // res.render('super/submit_form', { username: req.body.username, userID: req.body.adminID, superID: req.body.superAdminID })
+  // res.send(`Authorized by ${req.body.superAdminID}, Your admin id is ${req.body.adminID} and your username is ${req.body.username} and your password is ${req.body.password}!`);
+}, (req, res) => {
+  console.log(user);
+  res.render('super/submit_form', { username: req.body.username, userID: req.body.adminID, superID: req.body.superAdminID })
+});
+
+ // router.get('/super/profile:');
+
+// router.post('/super/profile', user.create);
 
 //Admin routes
 router.get('/admin', function(req, res, next) {
