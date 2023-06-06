@@ -1,0 +1,11 @@
+extends superlayout
+
+block content
+    h1(class="welcome" style="text-shadow: 2px 2px #b83939") #{ owner } 's profile update
+    div(id="sbody")
+        div
+            h2(class="welcome3" style="font-size: 30px; text-shadow: 2px 2px #b83939") Owner: #{ owner }
+            h2(class="welcome3" style="font-size: 30px; text-shadow: 2px 2px #b83939") nodeID: #{ nodeID }
+            h2(class="welcome3" style="font-size: 30px; text-shadow: 2px 2px #b83939") Authorized by: #{ superID }
+        div
+            p(id="text").

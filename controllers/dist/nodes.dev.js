@@ -4,7 +4,7 @@ var _require = require('../app'),
     response = _require.response;
 
 var _require2 = require('../models'),
-    User = _require2.models.User;
+    Node = _require2.models.Node;
 
 module.exports = {
   create: function create(req, res) {
@@ -12,15 +12,19 @@ module.exports = {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            // const { username, password } = req.body;
-            console.log("Testing row insertion");
+            console.log("Testing row insertion"); // const { username, password } = req.body;
+
             _context.next = 3;
-            return regeneratorRuntime.awrap(User.create({
+            return regeneratorRuntime.awrap(Node.create({
               superID: superID,
-              userID: userID,
-              username: username,
-              institution: institution,
-              password: password
+              nodeID: nodeID,
+              owner: owner
+            }).then(function (res) {
+              console.log("Testing row insertion");
+              console.log(res);
+              return Node;
+            })["catch"](function (error) {
+              console.error("Failed to create a new record: ", error);
             }));
 
           case 3:
@@ -29,22 +33,7 @@ module.exports = {
         }
       }
     });
-  } // login: async(req, res) => {
-  //     if(req.body.username && req.body.password){
-  //         const { username, password } = req.body;
-  //         let user = await user.findOne({
-  //             where: {username, password}
-  //         });
-  //         if(user) {
-  //             // access = true;
-  //             console.log("User Found");
-  //             response.render('admin/adminHome', {username});
-  //         }else {
-  //             response.render("admin");
-  //         }
-  //     }
-  // }
-
+  }
 }; // module.exports = (sequelize, DataTypes) => {
 //     const user = sequelize.define('user', {
 //         superID: {

@@ -1,33 +1,25 @@
 "use strict";
 
 module.exports = function (sequelize, DataTypes) {
-  var User = sequelize.define('users', {
+  var Nodes = sequelize.define('nodes', {
     superID: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    userID: {
+    nodeID: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    institution: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    password: {
+    owner: {
       type: DataTypes.STRING,
       allowNull: false
     }
   }, {// freezeTableName: false
   });
   sequelize.sync().then(function () {
-    console.log('User table created successfully!');
+    console.log('Node table created successfully!');
   })["catch"](function (error) {
     console.error('Unable to create table : ', error);
   });
-  return User;
+  return Nodes;
 };

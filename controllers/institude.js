@@ -1,48 +1,27 @@
 const { response } = require('../app');
-const { models: { User } } = require('../models');
+const { models: { institude } } = require('../models');
 
 module.exports = {
     create: async (req, res) => {
-        // const { username, password } = req.body;
         console.log("Testing row insertion");
+        // const { username, password } = req.body;
         
         
-        await User.create({
+        await institude.create({
             superID,
-            userID,
-            username,
-            institution,
-            password
-        })
-        // .then(res => {
-        //     console.log("Testing row insertion");
-        //     console.log(res);
-        //     return User;
-        // }).catch((error) => {
-        //     console.error("Failed to create a new record: ", error);
-        // });
+            managingAdmin,
+            institudeName
+        }).then(res => {
+            console.log("Testing row insertion");
+            console.log(res);
+            return institude;
+        }).catch((error) => {
+            console.error("Failed to create a new record: ", error);
+        });
         
         // res.render('submit_form', { username }); 
         
-    },
-
-    // login: async(req, res) => {
-    //     if(req.body.username && req.body.password){
-    //         const { username, password } = req.body;
-
-    //         let user = await user.findOne({
-    //             where: {username, password}
-    //         });
-
-    //         if(user) {
-    //             // access = true;
-    //             console.log("User Found");
-    //             response.render('admin/adminHome', {username});
-    //         }else {
-    //             response.render("admin");
-    //         }
-    //     }
-    // }
+    }
 }
 
 // module.exports = (sequelize, DataTypes) => {

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { user } = require('../controllers')
+const { user, node, institude } = require('../controllers')
 const db = require("../models/index")
 // const sqlite3 = require('sqlite3').verbose();
 
@@ -83,12 +83,28 @@ router.get('/super/addUser', function(req, res, next) {
   res.render('super/addUser', { title: 'MalJusT Template' });
 });
 
+router.get('/super/addNode', function(req, res, next) {
+  res.render('super/addNode', { title: 'MalJusT Template' });
+});
+
+router.get('/super/addInstitude', function(req, res, next) {
+  res.render('super/addInstitude', { title: 'MalJusT Template' });
+});
+
 router.get('/super/profile', function(req, res, next) {
   res.render('super/profile', { title: 'MalJusT Template' });
 });
 
 router.get('/super/submit_form', function(req, res, next) {
   res.render('super/submit_form', { title: 'MalJusT Template' });
+});
+
+router.get('/super/submit_node', function(req, res, next) {
+  res.render('super/submit_node', { title: 'MalJusT Template' });
+});
+
+router.get('/super/submit_institude', function(req, res, next) {
+  res.render('super/submit_institude', { title: 'MalJusT Template' });
 });
 
 router.post('/super/testing', function(req, res, next) {
@@ -98,6 +114,11 @@ router.post('/super/testing', function(req, res, next) {
 // router.post('/super/submit_form')
 
 router.post('/super/submit_form', function(req, res, next) {
+  superID = req.body.superAdminID;
+  userID = req.body.adminID;
+  username = req.body.username;
+  password = req.body.password;
+  institution = req.body.institution;
   user.create();
   next();
   // res.render('super/submit_form', { username: req.body.username, userID: req.body.adminID, superID: req.body.superAdminID })
@@ -106,6 +127,34 @@ router.post('/super/submit_form', function(req, res, next) {
   console.log(user);
   res.render('super/submit_form', { username: req.body.username, userID: req.body.adminID, superID: req.body.superAdminID })
 });
+
+router.post('/super/submit_node', function(req, res, next) {
+  superID = req.body.superAdminID;
+  nodeID = req.body.nodeID;
+  owner = req.body.owner;
+  node.create();
+  next();
+  // res.render('super/submit_form', { username: req.body.username, userID: req.body.adminID, superID: req.body.superAdminID })
+  // res.send(`Authorized by ${req.body.superAdminID}, Your admin id is ${req.body.adminID} and your username is ${req.body.username} and your password is ${req.body.password}!`);
+}, (req, res) => {
+  console.log(node);
+  res.render('super/submit_node', { owner: req.body.owner, nodeID: req.body.nodeID, superID: req.body.superAdminID })
+});
+
+router.post('/super/submit_institude', function(req, res, next) {
+  superID = req.body.superAdminID;
+  institudeName = req.body.institudeName;
+  managingAdmin = req.body.managingAdmin;
+  institude.create();
+  next();
+  // res.render('super/submit_form', { username: req.body.username, userID: req.body.adminID, superID: req.body.superAdminID })
+  // res.send(`Authorized by ${req.body.superAdminID}, Your admin id is ${req.body.adminID} and your username is ${req.body.username} and your password is ${req.body.password}!`);
+}, (req, res) => {
+  console.log(institude);
+  console.log("Institude added successfully");
+  res.render('super/submit_institude', { managingAdmin: req.body.managingAdmin, institudeName: req.body.institudeName, superID: req.body.superAdminID })
+});
+
 
  // router.get('/super/profile:');
 
@@ -123,6 +172,20 @@ router.get('/newPassword', function(req, res, next) {
 router.get('/admin/adminHome', function(req, res, next) {
   res.render('admin/adminHome', { title: 'MalJusT Template' });
 });
+
+
+// router.post('/admin/adminHome', function(req, res, next) {
+//   user.login();
+//   next();
+// }, (req, res) => {
+//   if(user){
+//     console.log("Access Granted");
+//     res.render('admin/adminHome', { title: 'MalJusT Template' });
+//   }else{
+//     console.log("Denied");
+//     res.render('admin', { title: 'MalJusT Template' });
+//   }
+// });
 
 router.get('/admin/adminServices', function(req, res, next) {
   res.render('admin/adminServices', { title: 'MalJusT Template' });

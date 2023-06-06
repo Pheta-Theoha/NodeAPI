@@ -11,5 +11,7 @@ const db = {};
 db.sequelize = sequelize;
 db.models = {}
 db.models.User = require('./user')(sequelize, Sequelize.DataTypes);
+db.models.Node = require('./Nodes')(sequelize, Sequelize.DataTypes);
+db.models.institude = require('./institude')(sequelize, Sequelize.DataTypes);
 
 module.exports = db;

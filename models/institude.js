@@ -1,22 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define('users', {
+    const institude = sequelize.define('institude', {
         superID: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        userID: {
+        institudeName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        institution: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        password: {
+        managingAdmin: {
             type: DataTypes.STRING,
             allowNull: false
         }
@@ -26,11 +18,11 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     sequelize.sync().then(() => {
-        console.log('User table created successfully!');
+        console.log('Institude table created successfully!');
     }).catch((error) => {
         console.error('Unable to create table : ', error);
     });
 
-    return User;
+    return institude;
     
 }

@@ -13,21 +13,17 @@ html
                     a(href="/super/users" class="sbrand-logo") 
                         b MalJusT Template
     div(id="form")
-      form(id="myform" action="submit_form" method="post" style="background-color: #bd7d7d69;")
+      form(id="myform" action="submit_node" method="post" style="background-color: #bd7d7d69;")
         b 
-          a(href="/super/users" id="sclose" class='material-icons') close
+          a(href="/super/nodes" id="sclose" class='material-icons') close
         br
         input(type="text", placeholder="Super Admin ID #" class="sinput" id="spassword" name="superAdminID" autofocus required)
         br
-        input(type="text", placeholder="User ID #" class="sinput" id="spassword" name="adminID" required)
+        input(type="text", placeholder="Node ID" class="sinput" id="spassword" name="nodeID" required)
         br
-        input(type="text", placeholder="Username" class="sinput" id="spassword" name="username" required)
+        input(type="text", placeholder="Node Owner" class="sinput" id="spassword" name="owner" required)
         br
-        input(type="text", placeholder="Institution" class="sinput" id="password1" name="institution" required)
-        br
-        input(type="password", placeholder="User Password" class="sinput" id="password2" name="password" required)
-        br
-        input(type="submit" value="Add User" class="ssubmit" id="ssubmit")
+        input(type="submit" value="Add Node" class="ssubmit" id="ssubmit")
         <br>
 
         //- script.
