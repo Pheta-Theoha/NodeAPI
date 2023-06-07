@@ -12,6 +12,6 @@ h_db.models = {};
 // e_db.models.User = require('./user')(sequelize, Sequelize.DataTypes);
 // e_db.models.Node = require('./Nodes')(sequelize, Sequelize.DataTypes);
 // e_db.models.institude = require('./institude')(sequelize, Sequelize.DataTypes);
-h_db.models.candidate = require('./patient')(h_sequelize, Sequelize.DataTypes);
+h_db.models.patient = require('./patient')(h_sequelize, Sequelize.DataTypes);
 
 module.exports = h_db;

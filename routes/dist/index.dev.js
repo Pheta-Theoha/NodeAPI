@@ -9,13 +9,19 @@ var _require = require('../controllers'),
     node = _require.node,
     institude = _require.institude,
     candidate = _require.candidate,
-    patient = _require.patient;
+    patient = _require.patient,
+    student = _require.student,
+    tourism = _require.tourism;
 
 var db = require("../models/index");
 
 var e_db = require("../models/elections_model");
 
-var h_db = require("../models/hospitality_model"); // const sqlite3 = require('sqlite3').verbose();
+var h_db = require("../models/hospitality_model");
+
+var s_db = require("../models/student_model");
+
+var t_db = require("../models/tourism_model"); // const sqlite3 = require('sqlite3').verbose();
 
 
 var today = new Date();
@@ -310,7 +316,12 @@ router.post('/hospitality/hSubmit', function (req, res, next) {
   urgency = req.body.urgency;
   currentMedication = req.body.currentMedication;
   overnight = req.body.overnight;
-  diabetic = req.body.diabetic;
+  diabetic = req.body.diabetic; // if(!req.body.diabetic == null){
+  //   diabetic = "True";
+  // }else {
+  //   diabetic = "False";
+  // }
+
   patient.create();
   next();
 }, function (req, res) {
@@ -354,6 +365,39 @@ router.get('/studentReg/shome', function (req, res, next) {
     title: 'MalJusT Template'
   });
 });
+router.get('/studentReg/sSubmit', function (req, res, next) {
+  res.render('studentReg/sSubmit', {
+    title: 'MalJusT Template'
+  });
+});
+router.post('/studentReg/sSubmit', function (req, res, next) {
+  sfirstName = req.body.sfirstName;
+  slastName = req.body.slastName;
+  studentNum = req.body.studentNum;
+  enrolmentDate = req.body.enrolmentDate;
+  programme = req.body.programme;
+  yearOfStudy = req.body.yearOfStudy;
+  numOfModules = req.body.numOfModules;
+  modulesToBeRepeated = req.body.modulesToBeRepeated;
+  fullTime = req.body.fullTime; // console.log(fullTime)
+
+  student.create();
+  next();
+}, function (req, res) {
+  console.log(student);
+  console.log("Student added successfully!");
+  res.render('studentReg/sSubmit', {
+    sfirstName: req.body.sfirstName,
+    slastName: req.body.slastName,
+    studentNum: req.body.studentNum,
+    enrolmentDate: req.body.enrolmentDate,
+    programme: req.body.programme,
+    yearOfStudy: req.body.yearOfStudy,
+    numOfModules: req.body.numOfModules,
+    modulesToBeRepeated: req.body.modulesToBeRepeated,
+    fullTime: req.body.fullTime
+  });
+});
 router.get('/studentReg/sabout', function (req, res, next) {
   res.render('studentReg/sabout', {
     title: 'MalJusT Template'
@@ -373,6 +417,38 @@ router.get('/studentReg/scontact', function (req, res, next) {
 router.get('/tourismMan/tHome', function (req, res, next) {
   res.render('tourismMan/tHome', {
     title: 'MalJusT Template'
+  });
+});
+router.get('/tourismMan/tSubmit', function (req, res, next) {
+  res.render('tourismMan/tSubmit', {
+    title: 'MalJusT Template'
+  });
+});
+router.post('/tourismMan/tSubmit', function (req, res, next) {
+  tFirstName = req.body.tFirstName;
+  tLastName = req.body.tLastName;
+  nationality = req.body.nationality;
+  arrival = req.body.arrival;
+  departure = req.body.departure;
+  stay = req.body.stay;
+  places = req.body.places;
+  interest = req.body.interest;
+  international = req.body.international;
+  tourism.create();
+  next();
+}, function (req, res) {
+  console.log(tourism);
+  console.log("Tourist added successfully");
+  res.render('tourismMan/tSubmit', {
+    tFirstName: req.body.tFirstName,
+    tLastName: req.body.tLastName,
+    nationality: req.body.nationality,
+    arrival: req.body.arrival,
+    departure: req.body.departure,
+    stay: req.body.stay,
+    places: req.body.places,
+    interest: req.body.interest,
+    international: req.body.international
   });
 });
 router.get('/tourismMan/tservices', function (req, res, next) {

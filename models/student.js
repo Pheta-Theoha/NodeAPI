@@ -1,38 +1,38 @@
 module.exports = (sequelize, DataTypes) => {
-    const patient = sequelize.define('patient', {
-        firstName: {
+    const student = sequelize.define('student', {
+        sfirstName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        lastName: {
+        slastName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        bloodType: {
+        studentNum: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        dateOfBirth: {
+        enrolmentDate: {
             type: DataTypes.DATE,
             allowNull: false
         },
-        medicalCondition: {
+        programme: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        urgency: {
+        yearOfStudy: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        currentMedication: {
+        numOfModules: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        overnight: {
+        modulesToBeRepeated: {
             type: DataTypes.STRING,
             allowNull: true
         },
-        diabetic: {
+        fullTime: {
             type: DataTypes.STRING,
             allowNull: true
         }
@@ -43,11 +43,11 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     sequelize.sync().then(() => {
-        console.log('Patient table created successfully!');
+        console.log('Student table created successfully!');
     }).catch((error) => {
         console.error('Unable to create table : ', error);
     });
 
-    return patient;
+    return student;
     
 }

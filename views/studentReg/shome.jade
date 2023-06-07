@@ -5,30 +5,30 @@ block content
     h1(class="welcome") Welcome to MalJusT Student Registration
     h2(contenteditable="true" class="welcome3" style="font-size: 30px") Institute name(Editable)
     h3(class="welcome2") Please fill the form below to register
-    form(action="#" class="studentForm" id="studentForm")
-      input(type="text" placeholder="First Name" class="studentInput" autofocus required)
+    form(action="sSubmit" class="studentForm" id="studentForm" method="post")
+      input(type="text" placeholder="First Name" class="studentInput" name="sfirstName" autofocus required)
       <br> 
-      input(type="text" placeholder="Last Name" class="studentInput" required)
+      input(type="text" placeholder="Last Name" class="studentInput" name="slastName" required)
       <br> 
-      input(type="text" placeholder="Student #" class="studentInput" required) 
+      input(type="text" placeholder="Student #" class="studentInput" name="studentNum" required) 
       <br>
       label(style="font-size: 23px;")
         b.
           Enrolment Date
-      input(type="date" placeholder="Date of Birth" class="studentInput" required) 
+      input(type="date"  name="enrolmentDate" class="studentInput" required) 
       <br>
-      input(type="text" placeholder="Programme" class="studentInput" required) 
+      input(type="text" placeholder="Programme" class="studentInput" name="programme" required) 
       <br>
-      input(type="number" placeholder="Year of study" class="studentInput" required) 
+      input(type="number" placeholder="Year of study" class="studentInput" name="yearOfStudy" required) 
       <br>
-      input(type="number" placeholder="# of modules" class="studentInput" required) 
+      input(type="number" placeholder="# of modules" class="studentInput" name="numOfModules" required) 
       <br>
-      input(type="text" placeholder="Modules to be repeated" class="studentInput" required) 
+      input(type="text" placeholder="Modules to be repeated" class="studentInput" name="modulesToBeRepeated" required) 
       <br>
       label
       b.
         Full time enrolled 
-      input(type="checkbox" placeholder="Full time enrol" class="studentInput")
+      input(type="checkbox" placeholder="Full time enrol" class="studentInput" name="fullTime")
       
       <br>
       div(class='file-upload')

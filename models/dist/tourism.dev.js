@@ -1,49 +1,49 @@
 "use strict";
 
 module.exports = function (sequelize, DataTypes) {
-  var patient = sequelize.define('patient', {
-    firstName: {
+  var tourism = sequelize.define('tourism', {
+    tFirstName: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    lastName: {
+    tLastName: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    bloodType: {
+    nationality: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    dateOfBirth: {
+    arrival: {
       type: DataTypes.DATE,
       allowNull: false
     },
-    medicalCondition: {
+    departure: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    stay: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    urgency: {
+    places: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    currentMedication: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    overnight: {
+    interest: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    diabetic: {
+    international: {
       type: DataTypes.STRING,
       allowNull: true
     }
   }, {// freezeTableName: false
   });
   sequelize.sync().then(function () {
-    console.log('Patient table created successfully!');
+    console.log('Tourism table created successfully!');
   })["catch"](function (error) {
     console.error('Unable to create table : ', error);
   });
-  return patient;
+  return tourism;
 };

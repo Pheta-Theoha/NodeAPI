@@ -6,27 +6,27 @@ block content
     h2(contenteditable="true" class="welcome3" style="font-size: 30px")  Country name(Editable)
     p(style="margin-left: 540px; margin-top: -30px; margin-bottom: -40px; padding-bottom: -20px; font-size: 25px;" class="material-icons") flag flag flag
       h3(class="welcome2") Please fill the form below to register
-    form(action="#" class="studentForm" id="studentForm")
-      input(type="text" placeholder="First Name" class="studentInput" autofocus required)
+    form(action="tSubmit" class="studentForm" id="studentForm" method="post")
+      input(type="text" placeholder="First Name" class="studentInput" name="tFirstName" autofocus required)
       <br> 
-      input(type="text" placeholder="Last Name" class="studentInput" required)
+      input(type="text" placeholder="Last Name" class="studentInput" name="tLastName" required)
       <br> 
-      input(type="text" placeholder="Nationality" class="studentInput" required) 
+      input(type="text" placeholder="Nationality" class="studentInput" name="nationality" required) 
       <br>
       label Arrival Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      input(type="date" placeholder="Date of Birth" class="studentInput" required) 
+      input(type="date" name="arrival" class="studentInput" required) 
       <br>
       label Departure Date
-      input(type="date" placeholder="Date of Birth" class="studentInput" required) 
+      input(type="date"  name="departure" class="studentInput" required) 
       <br>
-      input(type="number" placeholder="# of weeks to stay" class="studentInput" required) 
+      input(type="number" placeholder="# of weeks to stay" class="studentInput" name="stay" required) 
       <br>
-      input(type="number" placeholder="# of places to visit" class="studentInput" required) 
+      input(type="number" placeholder="# of places to visit" class="studentInput" name="places" required) 
       <br>
-      input(type="text" placeholder="Primary place of interest" class="studentInput" required) 
+      input(type="text" placeholder="Primary place of interest" class="studentInput" name="interest" required) 
       <br>
       label International Tourist 
-      input(type="checkbox" placeholder="Full time enrol" class="studentInput")
+      input(type="checkbox" placeholder="Full time enrol" class="studentInput" name="international")
       
       <br>
       div(class='file-upload')
