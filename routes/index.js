@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const { user, node, institude } = require('../controllers')
-const db = require("../models/index")
+const { user, node, institude, candidate, patient } = require('../controllers')
+const db = require("../models/index");
+const e_db = require("../models/elections_model");
+const h_db = require("../models/hospitality_model");
 // const sqlite3 = require('sqlite3').verbose();
 
 
@@ -204,6 +206,34 @@ router.get('/voting/vHome', function(req, res, next) {
   res.render('voting/vHome', { title: 'MalJusT Template' });
 });
 
+router.get('/voting/vSubmit', function(req, res, next) {
+  res.render('voting/vSubmit', { title: 'MalJusT Template' });
+});
+
+router.post('/voting/vSubmit', function(req, res, next) {
+  fName = req.body.fName;
+  lName = req.body.lName;
+  department = req.body.department;
+  previousPos = req.body.previousPos;
+  numOfYears = req.body.numOfYears;
+  title = req.body.title;
+  statement = req.body.statement;
+  candidate.create();
+  next();
+}, (req, res) => {
+  console.log(candidate);
+  console.log("Candidate added successfully");
+  res.render('voting/vSubmit', { 
+    First_Name: req.body.fName, 
+    Last_Name: req.body.lName, 
+    department: req.body.department, 
+    previousPos: req.body.previousPos,
+    Number_of_Years: req.body.numOfYears,
+    title: req.body.title,
+    statement: req.body.statement
+   });
+});
+
 router.get('/vHome', function(req, res, next) {
   res.render('/vHome', { title: 'MalJusT Template' });
 });
@@ -222,6 +252,38 @@ router.get('/voting/vContact', function(req, res, next) {
 //Hospitality system routes
 router.get('/hospitality/hHome', function(req, res, next) {
   res.render('hospitality/hHome', { title: 'MalJusT Template' });
+});
+
+router.get('/hospitality/hSubmit', function(req, res, next) {
+  res.render('hospitality/hSubmit', { title: 'MalJusT Template' });
+});
+
+router.post('/hospitality/hSubmit', function(req, res, next) {
+  firstName = req.body.firstName;
+  lastName = req.body.lastName;
+  bloodType = req.body.bloodType;
+  dateOfBirth = req.body.dateOfBirth;
+  medicalCondition = req.body.medicalCondition;
+  urgency = req.body.urgency;
+  currentMedication = req.body.currentMedication;
+  overnight = req.body.overnight;
+  diabetic = req.body.diabetic;
+  patient.create();
+  next();
+}, (req, res) => {
+  console.log(patient);
+  console.log("Patient added successfully!");
+  res.render('hospitality/hSubmit', { 
+    firstName: req.body.firstName, 
+    lastName: req.body.lastName,
+    bloodType: req.body.bloodType,
+    dateOfBirth: req.body.dateOfBirth,
+    medicalCondition: req.body.medicalCondition,
+    urgency: req.body.urgency,
+    currentMedication: req.body.currentMedication,
+    overnight: req.body.overnight,
+    diabetic: req.body.diabetic
+  });
 });
 
 router.get('/hospitality/hservices', function(req, res, next) {

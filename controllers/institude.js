@@ -1,4 +1,4 @@
-const { response } = require('../app');
+const { res } = require('../app');
 const { models: { institude } } = require('../models');
 
 module.exports = {

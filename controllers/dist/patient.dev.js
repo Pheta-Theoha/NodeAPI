@@ -1,10 +1,10 @@
 "use strict";
 
 var _require = require('../app'),
-    res = _require.res;
+    response = _require.response;
 
-var _require2 = require('../models'),
-    institude = _require2.models.institude;
+var _require2 = require('../models/hospitality_model'),
+    patient = _require2.models.patient;
 
 module.exports = {
   create: function create(req, res) {
@@ -15,14 +15,20 @@ module.exports = {
             console.log("Testing row insertion"); // const { username, password } = req.body;
 
             _context.next = 3;
-            return regeneratorRuntime.awrap(institude.create({
-              superID: superID,
-              managingAdmin: managingAdmin,
-              institudeName: institudeName
+            return regeneratorRuntime.awrap(patient.create({
+              firstName: firstName,
+              lastName: lastName,
+              bloodType: bloodType,
+              dateOfBirth: dateOfBirth,
+              medicalCondition: medicalCondition,
+              urgency: urgency,
+              currentMedication: currentMedication,
+              overnight: overnight,
+              diabetic: diabetic
             }).then(function (res) {
               console.log("Testing row insertion");
               console.log(res);
-              return institude;
+              return patient;
             })["catch"](function (error) {
               console.error("Failed to create a new record: ", error);
             }));

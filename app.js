@@ -11,7 +11,8 @@ var usersRouter = require('./routes/users');
 const { resourceLimits } = require('worker_threads');
 // const MongoClient = require('mongodb').MongoClient
 const { query } = require('express-validator')
-const db = require('./models')
+const db = require('./models');
+const e_db = require('./models/candidate');
 
 var app = express();
 

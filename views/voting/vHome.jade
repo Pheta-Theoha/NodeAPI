@@ -5,26 +5,26 @@ block content
     h1(class="welcome") Welcome to the MalJusT Voting System
     h2(contenteditable="true" class="welcome3" style="font-size: 30px" ) Institute name(Editable)
       h3(class="welcome2") Please fill the form below to register for the election as a candidate
-    form(action="/vHome" class="votingForm" id="studentForm" method="get")
-      input(type="text" placeholder="Candidate First Name" class="studentInput" autofocus required)
+    form(action="vSubmit" class="votingForm" id="studentForm" method="post")
+      input(type="text" placeholder="Candidate First Name" class="studentInput" name="fName" autofocus required)
       label &nbsp;&nbsp;&nbsp;
-      input(type="text" placeholder="Candidate Last Name" class="studentInput" required)
+      input(type="text" placeholder="Candidate Last Name" class="studentInput" name="lName" required)
       <br>
-      input(type="text" placeholder="Candidate Department" class="studentInput" required)
+      input(type="text" placeholder="Candidate Department" class="studentInput" name="department" required)
       label &nbsp;&nbsp;&nbsp;
-      input(type="number" placeholder="# of years in the company" class="studentInput" required)
+      input(type="number" placeholder="# of years in the company" class="studentInput" name="numOfYears" required)
       <br>
-      input(type="text" placeholder="Previous position" class="studentInput" required)
+      input(type="text" placeholder="Previous position" class="studentInput" name="previousPos" required)
       label &nbsp;&nbsp;&nbsp;
-      input(type="text" placeholder="Candidate position/title" class="studentInput" required)
+      input(type="text" placeholder="Candidate position/title" class="studentInput" name="title" required)
       <br>
       <br>  
-      textarea(cols="55" rows="10" placeholder="Add your statement to the public as a candidate here....(50 Words)" class="publicStatement" required)
+      textarea(cols="55" rows="10" placeholder="Add your statement to the public as a candidate here....(50 Words)" class="publicStatement" name="statement" required)
       <br>First time candidate 
       input(type="checkbox" placeholder="Full time enrol" class="studentInput")
       <br>
       div(class='file-upload')
-        input(type="file", name="myFile", id="myFile" class="file-upload__input" required)
+        input(type="file", name="myFile", id="myFile" class="file-upload__input")
         button(type="button" class="file-upload__button") Written statement
         span(class="file-upload__label") No file selected
         script.

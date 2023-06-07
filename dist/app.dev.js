@@ -27,6 +27,8 @@ var _require2 = require('express-validator'),
 
 var db = require('./models');
 
+var e_db = require('./models/candidate');
+
 var app = express(); // view engine setup
 
 app.set('views', path.join(__dirname, 'views'));

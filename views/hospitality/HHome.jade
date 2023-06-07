@@ -5,28 +5,28 @@ block content
     h1(class="welcome") Welcome to the MalJusT Hospitality System
     h2(contenteditable="true" class="welcome3" style="font-size: 30px") Institute name(Editable)
       h3(class="welcome2") Please fill the form below to admit a patient
-    form(action="#" class="studentForm" id="studentForm")
-      input(type="text" placeholder="First Name" class="studentInput" autofocus required)
+    form(action="hSubmit" class="studentForm" id="studentForm")
+      input(type="text" placeholder="First Name" class="studentInput" name="firstName" autofocus required)
       <br> 
-      input(type="text" placeholder="Last Name" class="studentInput" required)
+      input(type="text" placeholder="Last Name" class="studentInput" name="lastName" required)
       <br> 
-      input(type="text" placeholder="Blood type" class="studentInput" required) 
+      input(type="text" placeholder="Blood type" class="studentInput" name="bloodType" required) 
       <br>
       label Date of Birth: &nbsp;&nbsp;&nbsp
-      input(type="date" placeholder="Date of Birth" class="studentInput" required) 
+      input(type="date" placeholder="Date of Birth" class="studentInput" name="dateOfBirth" required) 
       <br>
-      input(type="text" placeholder="Medical Condition" class="studentInput" required) 
+      input(type="text" placeholder="Medical Condition" class="studentInput" name="medicalCondition" required) 
       <br>
-      input(type="number" placeholder="Urgency 1-10" class="studentInput" required) 
+      input(type="number" placeholder="Urgency 1-10" class="studentInput" name="urgency" required) 
       <br>
       //- Number of medications the patient is currently taking (ie, diabities and blood pressure medication - 2)
-      input(type="number" placeholder="# of current medication" class="studentInput" required) 
+      input(type="text" placeholder="Current medication" class="studentInput" name="currentMedication" required) 
       <br>
       label Overnight admitted 
-      input(type="checkbox" class="studentInput") 
+      input(type="checkbox" class="studentInput" name="overnight") 
       <br>
       label Diebetic 
-      input(type="checkbox" class="studentInput")
+      input(type="checkbox" class="studentInput" name="diabetic")
       
       <br>
       div(class='file-upload')

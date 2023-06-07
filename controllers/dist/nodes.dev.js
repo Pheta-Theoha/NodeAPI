@@ -1,7 +1,7 @@
 "use strict";
 
 var _require = require('../app'),
-    response = _require.response;
+    res = _require.res;
 
 var _require2 = require('../models'),
     Node = _require2.models.Node;
