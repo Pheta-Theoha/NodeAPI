@@ -429,7 +429,7 @@ h1 {
 .brand-logo {
   font-family: lucida calligraphy;
   text-decoration: none;
-  font-size: 45px;
+  font-size: 43px;
   color: #212325;
   padding-left: 30px;
   /* color: linear-gradient(to right, rgb(255, 255, 255), rgb(143, 143, 143)); */
@@ -438,7 +438,7 @@ h1 {
 
 .brand-logo:hover {
   color: #516a70;
-  font-size: 48px;
+  font-size: 44px;
 }
 
 /* End of Logo Section     */
@@ -650,4 +650,40 @@ ul#demo{
   max-height: 100px;
   overflow-y: hidden;
   transition: all 1s;
+}
+
+.sHome1 {
+  border-style: groove;
+  border-color: grey;
+  border-radius: 20px;
+  margin-right: 50px;
+  margin-left: 70px;
+  background-color: #6a8f8f;
+  box-shadow: 5px 4px #1d1c1c;
+  margin-bottom: 40px;
+}
+
+#sbody2 {
+  column-count: 3;
+}
+
+.swelcome {
+  text-align: center;
+  font-size: 40px;
+  text-shadow: 2px 2px grey;
+  padding-bottom: 10px;
+}
+
+.button {
+  margin-left: 470px;
+  background-color: gray;
+  font-size: xx-large;
+  font-weight: bold;
+  border-style: double;
+  border-radius: 10px;
+  border-color: #099fb9;
+  color:rgba(0, 0, 0, 0.60);
+  text-decoration: none;
+  padding: 10px;
+  text-shadow: 2px 2px #099fb9;
 }

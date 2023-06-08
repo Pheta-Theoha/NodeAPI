@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title MalJusT Template
+    link(rel='stylesheet', href='/stylesheets/tstyle.css')
+    link(rel='stylesheet', href="https://fonts.googleapis.com/icon?family=Material+Icons")
+  body
+    header(class="header")
+      div(class="brand")
+        a(href="/tourismMan/tHome" class="brand-logo") 
+          b(style="padding-left: 250px;") MalJusT Tourism Management
+
+    div(id="Vbody")
+        h2(contenteditable="true" class="welcome" style="font-size: 32px; text-shadow: 1px 1px red;") You need Administrator Privilages to access the list of tourists!
+        h3(class="welcome2" style="color: darkred") YOU HAVE 3 ATTEMPTS REMAINING!
+        form(action="tourists" class="studentForm" id="studentForm" method="get")
+            b 
+                a(href="/tourismMan/tHome" id="close" class="material-icons" style="padding-left: 80px;") close
+            br
+            br
+            input(type="text" placeholder="Username" class="studentInput" name="sfirstName" autofocus required)
+            <br>
+            br 
+            input(type="password" placeholder="Password" class="studentInput" name="slastName" required)
+            <br>
+            <br>
+            input(type="submit" class="studentInput" class="submit" id="submit")
+        br
+        br

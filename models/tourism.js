@@ -21,11 +21,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         stay: {
-            type: DataTypes.STRING,
+            type: DataTypes.NUMBER,
             allowNull: false
         },
         places: {
-            type: DataTypes.STRING,
+            type: DataTypes.NUMBER,
             allowNull: false
         },
         interest: {

@@ -302,6 +302,16 @@ router.get('/hospitality/hHome', function (req, res, next) {
     title: 'MalJusT Template'
   });
 });
+router.get('/hospitality/hLogin', function (req, res, next) {
+  res.render('hospitality/hLogin', {
+    title: 'MalJusT Template'
+  });
+});
+router.get('/hospitality/patients', function (req, res, next) {
+  res.render('hospitality/patients', {
+    title: 'MalJusT Template'
+  });
+});
 router.get('/hospitality/hSubmit', function (req, res, next) {
   res.render('hospitality/hSubmit', {
     title: 'MalJusT Template'
@@ -403,6 +413,16 @@ router.get('/studentReg/sabout', function (req, res, next) {
     title: 'MalJusT Template'
   });
 });
+router.get('/studentReg/sLogin', function (req, res, next) {
+  res.render('studentReg/sLogin', {
+    title: 'MalJusT Template'
+  });
+});
+router.get('/studentReg/students', function (req, res, next) {
+  res.render('studentReg/students', {
+    title: 'MalJusT Template'
+  });
+});
 router.get('/studentReg/sservices', function (req, res, next) {
   res.render('studentReg/sservices', {
     title: 'MalJusT Template'
@@ -416,6 +436,16 @@ router.get('/studentReg/scontact', function (req, res, next) {
 
 router.get('/tourismMan/tHome', function (req, res, next) {
   res.render('tourismMan/tHome', {
+    title: 'MalJusT Template'
+  });
+});
+router.get('/tourismMan/tLogin', function (req, res, next) {
+  res.render('tourismMan/tLogin', {
+    title: 'MalJusT Template'
+  });
+});
+router.get('/tourismMan/tourists', function (req, res, next) {
+  res.render('tourismMan/tourists', {
     title: 'MalJusT Template'
   });
 });
