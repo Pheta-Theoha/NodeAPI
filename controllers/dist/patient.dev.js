@@ -39,6 +39,27 @@ module.exports = {
         }
       }
     });
+  },
+  access: function access(req, res) {
+    var patients;
+    return regeneratorRuntime.async(function access$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.prev = 0;
+            patients = patient.findAll();
+            return _context2.abrupt("return", patients);
+
+          case 5:
+            _context2.prev = 5;
+            _context2.t0 = _context2["catch"](0);
+
+          case 7:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, null, null, [[0, 5]]);
   }
 }; // module.exports = (sequelize, DataTypes) => {
 //     const user = sequelize.define('user', {

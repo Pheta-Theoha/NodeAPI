@@ -27,6 +27,14 @@ module.exports = {
         
         // res.render('submit_form', { username }); 
         
+    },
+    access: async(req, res) => {
+        try {
+            let patients = patient.findAll();
+            return patients;
+        } catch (error){
+            
+        }
     }
 }
 

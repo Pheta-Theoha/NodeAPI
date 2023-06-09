@@ -57,6 +57,22 @@ module.exports = {
         }
         
 
+    },
+
+    login: async (req, res) => {
+        try {
+            let usersAccess = await User.findOne({
+                where: {
+                    username: req.body.username
+                },
+            });
+            console.log("Trying...");
+            // console.log(usersAccess);
+            return usersAccess;
+        }
+        catch (error){
+            console.log(error);
+        }
     }
     // access: async (req, res) => {
     //     let display;

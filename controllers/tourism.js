@@ -27,6 +27,15 @@ module.exports = {
         
         // res.render('submit_form', { username }); 
         
+    },
+
+    access: async(req, res) =>{
+        try{
+            let tourists = tourism.findAll();
+            return tourists;
+        } catch(error){
+
+        }
     }
 }
 

@@ -6,21 +6,21 @@ block content
     h2(class="welcome3" style="font-size: 30px; text-shadow: 2px 2px #b83939") Documentation
       h3(class="welcome2") Please fill the form below to document all changes made
     form(action="/superAdminHome" class="votingForm" id="studentForm" method="get")
-      input(type="text" placeholder="User ID" class="sInput" autofocus required)
+      input(type="text" placeholder="User ID" class="sInput" name="userID" autofocus required)
       label &nbsp;&nbsp;&nbsp; Date of entry &nbsp;&nbsp;
-      input(type="date" class="sInput" required)
+      input(type="date" class="sInput" name="dateOfEntry" required)
       <br>
-      input(type="number" placeholder="Clearance level" class="sInput" required)
+      input(type="number" placeholder="Clearance level" class="sInput" name="clearanceLevel" required)
       label &nbsp;&nbsp;&nbsp; Time of entry &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      input(type="time" class="sInput" required)
+      input(type="time" class="sInput" name="timeOfEntry" required)
       <br>
-      input(type="text" placeholder="User position/title" class="sInput" required)
+      input(type="text" placeholder="User position/title" class="sInput" name="position" required)
       label &nbsp;&nbsp;&nbsp;&nbsp; Time of exit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      input(type="time" class="sInput" required)
+      input(type="time" class="sInput" name="timeOfExit" required)
       
       <br>
       <br>  
-      textarea(cols="55" rows="10" placeholder="Detailed information about all the modifications made are recorded here!" class="spublicStatement" required)
+      textarea(cols="55" rows="10" placeholder="Detailed information about all the modifications made are recorded here!" class="spublicStatement" name="publicStatement" required)
       <br> 
       input(type="submit" class="studentInput" class="ssubmit" id="submit")
 

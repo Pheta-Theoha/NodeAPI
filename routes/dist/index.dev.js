@@ -25,7 +25,43 @@ var t_db = require("../models/tourism_model");
 
 var _require2 = require('sequelize'),
     where = _require2.where; // const sqlite3 = require('sqlite3').verbose();
-// const result = user.access();
+// router.use('/admin/', authMiddleware, (req, res, next) => {
+//   console.log("Authenticating");
+//   // authenticate();
+//   next();
+// });
+// function redirect(res, page){
+//   res.render(page);
+// }
+// // Create a middleware function for authentication
+// async function authMiddleware(req, res, next) {
+//   // Check if the user is authenticated
+//   const approvedUser = await user.login(req);
+//   if (!approvedUser) {
+//     // Redirect the user to the login page if they are not authenticated
+//     console.log("Redirecting");
+//     res.redirect('/admin');
+//   } else {
+//     // Continue with the request if the user is authenticated
+//     next();
+//   }
+// }
+// // Protect the routes that require authentication with the authMiddleware function
+// router.get('/admin/:', authMiddleware, (req, res) => {
+//   // This route is protected and only authenticated users can access it
+//   console.log("Authenticated")
+// });
+// async function authenticate(req, res, next) {
+//   // Check if the user is authenticated
+//   approvedUser = await user.login(req);
+//   // console.log(checkUser);
+//   if (!approvedUser) {
+//     // Redirect the user to the login page if they are not authenticated
+//     redirect('admin');
+//   } else {
+//     next();
+//   }
+// }
 
 
 var today = new Date();
@@ -405,9 +441,50 @@ router.get('/vHome', function (req, res, next) {
     title: 'MalJusT Template'
   });
 });
-router.get('/voting/vServices', function (req, res, next) {
-  res.render('voting/vServices', {
-    title: 'MalJusT Template'
+router.get('/voting/vServices', function _callee7(req, res, next) {
+  return regeneratorRuntime.async(function _callee7$(_context7) {
+    while (1) {
+      switch (_context7.prev = _context7.next) {
+        case 0:
+          _context7.next = 2;
+          return regeneratorRuntime.awrap(candidate.access());
+
+        case 2:
+          candidates = _context7.sent;
+          next();
+
+        case 4:
+        case "end":
+          return _context7.stop();
+      }
+    }
+  });
+}, function _callee8(req, res) {
+  return regeneratorRuntime.async(function _callee8$(_context8) {
+    while (1) {
+      switch (_context8.prev = _context8.next) {
+        case 0:
+          res.render('voting/vServices', {
+            title: 'MalJusT Template',
+            candidate1: candidates[0].lName,
+            lCandidate1: candidates[0].fName,
+            candidate2: candidates[1].lName,
+            lCandidate2: candidates[1].fName,
+            candidate3: candidates[2].lName,
+            lCandidate3: candidates[2].fName // candidate4: candidates[3].lName,
+            // candidate5: candidates[4].lName,
+            // candidate6: candidates[5].lName,
+            // candidate7: candidates[6].lName,
+            // candidate8: candidates[7].lName,
+            // candidate9: candidates[8].lName,
+
+          });
+
+        case 1:
+        case "end":
+          return _context8.stop();
+      }
+    }
   });
 });
 router.get('/voting/vAbout', function (req, res, next) {
@@ -431,9 +508,36 @@ router.get('/hospitality/hLogin', function (req, res, next) {
     title: 'MalJusT Template'
   });
 });
-router.get('/hospitality/patients', function (req, res, next) {
+router.get('/hospitality/patients', function _callee9(req, res, next) {
+  return regeneratorRuntime.async(function _callee9$(_context9) {
+    while (1) {
+      switch (_context9.prev = _context9.next) {
+        case 0:
+          _context9.next = 2;
+          return regeneratorRuntime.awrap(patient.access());
+
+        case 2:
+          patients = _context9.sent;
+          next();
+
+        case 4:
+        case "end":
+          return _context9.stop();
+      }
+    }
+  });
+}, function (req, res) {
   res.render('hospitality/patients', {
-    title: 'MalJusT Template'
+    title: 'MalJusT Template',
+    patient1: patients[0].lastName,
+    patient2: patients[1].lastName // patient3: patients[2].lastName,
+    // patient4: patients[3].lastName,
+    // patient5: patients[4].lastName,
+    // patient6: patients[5].lastName,
+    // patient7: patients[6].lastName,
+    // patient8: patients[7].lastName,
+    // patient9: patients[8].lastName,
+
   });
 });
 router.get('/hospitality/hSubmit', function (req, res, next) {
@@ -542,9 +646,48 @@ router.get('/studentReg/sLogin', function (req, res, next) {
     title: 'MalJusT Template'
   });
 });
-router.get('/studentReg/students', function (req, res, next) {
-  res.render('studentReg/students', {
-    title: 'MalJusT Template'
+router.get('/studentReg/students', function _callee10(req, res, next) {
+  return regeneratorRuntime.async(function _callee10$(_context10) {
+    while (1) {
+      switch (_context10.prev = _context10.next) {
+        case 0:
+          next();
+
+        case 1:
+        case "end":
+          return _context10.stop();
+      }
+    }
+  });
+}, function _callee11(req, res) {
+  var students;
+  return regeneratorRuntime.async(function _callee11$(_context11) {
+    while (1) {
+      switch (_context11.prev = _context11.next) {
+        case 0:
+          _context11.next = 2;
+          return regeneratorRuntime.awrap(student.access());
+
+        case 2:
+          students = _context11.sent;
+          res.render('studentReg/students', {
+            title: 'MalJusT Template',
+            student1: students[0].slastName,
+            student2: students[1].slastName,
+            student3: students[2].slastName // student4: students[3].slastName,
+            // student5: students[4].slastName,
+            // student6: students[5].slastName,
+            // student7: students[6].slastName,
+            // student8: students[7].slastName,
+            // student9: students[8].slastName,
+
+          });
+
+        case 4:
+        case "end":
+          return _context11.stop();
+      }
+    }
   });
 });
 router.get('/studentReg/sservices', function (req, res, next) {
@@ -568,9 +711,48 @@ router.get('/tourismMan/tLogin', function (req, res, next) {
     title: 'MalJusT Template'
   });
 });
-router.get('/tourismMan/tourists', function (req, res, next) {
-  res.render('tourismMan/tourists', {
-    title: 'MalJusT Template'
+router.get('/tourismMan/tourists', function _callee12(req, res, next) {
+  return regeneratorRuntime.async(function _callee12$(_context12) {
+    while (1) {
+      switch (_context12.prev = _context12.next) {
+        case 0:
+          next();
+
+        case 1:
+        case "end":
+          return _context12.stop();
+      }
+    }
+  });
+}, function _callee13(req, res) {
+  var tourists;
+  return regeneratorRuntime.async(function _callee13$(_context13) {
+    while (1) {
+      switch (_context13.prev = _context13.next) {
+        case 0:
+          _context13.next = 2;
+          return regeneratorRuntime.awrap(tourism.access());
+
+        case 2:
+          tourists = _context13.sent;
+          res.render('tourismMan/tourists', {
+            title: 'MalJusT Template',
+            tname1: tourists[0].tLastName // tname2: tourists[1].tLastName,
+            // tname3: tourists[2].tLastName,
+            // tname4: tourists[3].tLastName,
+            // tname5: tourists[4].tLastName,
+            // tname6: tourists[5].tLastName,
+            // tname7: tourists[6].tLastName,
+            // tname8: tourists[7].tLastName,
+            // tname9: tourists[8].tLastName,
+
+          });
+
+        case 4:
+        case "end":
+          return _context13.stop();
+      }
+    }
   });
 });
 router.get('/tourismMan/tSubmit', function (req, res, next) {

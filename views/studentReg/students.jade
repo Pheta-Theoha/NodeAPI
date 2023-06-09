@@ -1,19 +1,19 @@
 extends slayout
 
 block content
-    div(id="sbody")
+    div(id="Vbody")
         div
             h1(class="welcome" style="text-shadow: 2px 2px orange") Registered Students
             div(id="sbody2") 
                 div(class="sHome1")
                     h1(class="swelcome" id="demo") 
-                        a(href="/super/profile/:User#1" style="text-Decoration: none; color: black;") Student #1
+                        a(href="/super/profile/:User#1" style="text-Decoration: none; color: black;") #{ student1 }
                 div(class="sHome1")
                     h1(class="swelcome" id="demo") 
-                        a(href="/super/profile/:User#2" style="text-Decoration: none; color: black;") Student #2
+                        a(href="/super/profile/:User#2" style="text-Decoration: none; color: black;") #{ student2 }
                 div(class="sHome1")
                     h1(class="swelcome" id="demo") 
-                        a(href="/super/profile/:User#3" style="text-Decoration: none; color: black;") Student #3
+                        a(href="/super/profile/:User#3" style="text-Decoration: none; color: black;") #{ student3 }
                 div(class="sHome1")
                     h1(class="swelcome" id="demo") 
                         a(href="/super/profile/:User#4" style="text-Decoration: none; color: black;") Student #4
@@ -33,4 +33,6 @@ block content
                     h1(class="swelcome" id="demo") 
                         a(href="/super/profile/:User#9" style="text-Decoration: none; color: black;") Student #9
         
-        a(href="#" class="button") Remove student
+        a(href="#" class="button") Remove student <br>
+        br
+        br

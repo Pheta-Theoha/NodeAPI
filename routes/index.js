@@ -9,8 +9,47 @@ const t_db = require("../models/tourism_model");
 const { where } = require('sequelize');
 // const sqlite3 = require('sqlite3').verbose();
 
-// const result = user.access();
+// router.use('/admin/', authMiddleware, (req, res, next) => {
+//   console.log("Authenticating");
+//   // authenticate();
+//   next();
+// });
 
+// function redirect(res, page){
+//   res.render(page);
+// }
+
+// // Create a middleware function for authentication
+// async function authMiddleware(req, res, next) {
+//   // Check if the user is authenticated
+//   const approvedUser = await user.login(req);
+//   if (!approvedUser) {
+//     // Redirect the user to the login page if they are not authenticated
+//     console.log("Redirecting");
+//     res.redirect('/admin');
+//   } else {
+//     // Continue with the request if the user is authenticated
+//     next();
+//   }
+// }
+
+// // Protect the routes that require authentication with the authMiddleware function
+// router.get('/admin/:', authMiddleware, (req, res) => {
+//   // This route is protected and only authenticated users can access it
+//   console.log("Authenticated")
+// });
+
+// async function authenticate(req, res, next) {
+//   // Check if the user is authenticated
+//   approvedUser = await user.login(req);
+//   // console.log(checkUser);
+//   if (!approvedUser) {
+//     // Redirect the user to the login page if they are not authenticated
+//     redirect('admin');
+//   } else {
+//     next();
+//   }
+// }
 
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -289,8 +328,25 @@ router.get('/vHome', function(req, res, next) {
   res.render('/vHome', { title: 'MalJusT Template' });
 });
 
-router.get('/voting/vServices', function(req, res, next) {
-  res.render('voting/vServices', { title: 'MalJusT Template' });
+router.get('/voting/vServices', async function(req, res, next) {
+  candidates = await candidate.access();
+  next();
+}, async (req, res) => {
+  res.render('voting/vServices', { 
+    title: 'MalJusT Template', 
+    candidate1: candidates[0].lName,
+    lCandidate1: candidates[0].fName,
+    candidate2: candidates[1].lName,
+    lCandidate2: candidates[1].fName,
+    candidate3: candidates[2].lName,
+    lCandidate3: candidates[2].fName,
+    // candidate4: candidates[3].lName,
+    // candidate5: candidates[4].lName,
+    // candidate6: candidates[5].lName,
+    // candidate7: candidates[6].lName,
+    // candidate8: candidates[7].lName,
+    // candidate9: candidates[8].lName,
+   });
 });
 
 router.get('/voting/vAbout', function(req, res, next) {
@@ -309,8 +365,22 @@ router.get('/hospitality/hLogin', function(req, res, next) {
   res.render('hospitality/hLogin', { title: 'MalJusT Template' });
 });
 
-router.get('/hospitality/patients', function(req, res, next) {
-  res.render('hospitality/patients', { title: 'MalJusT Template' });
+router.get('/hospitality/patients', async function(req, res, next) {
+  patients = await patient.access();
+  next();
+}, (req, res) => {
+  res.render('hospitality/patients', { 
+    title: 'MalJusT Template',
+    patient1: patients[0].lastName,
+    patient2: patients[1].lastName,
+    // patient3: patients[2].lastName,
+    // patient4: patients[3].lastName,
+    // patient5: patients[4].lastName,
+    // patient6: patients[5].lastName,
+    // patient7: patients[6].lastName,
+    // patient8: patients[7].lastName,
+    // patient9: patients[8].lastName,
+   });
 });
 
 router.get('/hospitality/hSubmit', function(req, res, next) {
@@ -412,8 +482,22 @@ router.get('/studentReg/sLogin', function(req, res, next) {
   res.render('studentReg/sLogin', { title: 'MalJusT Template' });
 });
 
-router.get('/studentReg/students', function(req, res, next) {
-  res.render('studentReg/students', { title: 'MalJusT Template' });
+router.get('/studentReg/students', async function(req, res, next) {
+  next();
+}, async (req, res) => {
+  let students = await student.access();
+  res.render('studentReg/students', { 
+    title: 'MalJusT Template',
+    student1: students[0].slastName,
+    student2: students[1].slastName,
+    student3: students[2].slastName,
+    // student4: students[3].slastName,
+    // student5: students[4].slastName,
+    // student6: students[5].slastName,
+    // student7: students[6].slastName,
+    // student8: students[7].slastName,
+    // student9: students[8].slastName,
+   });
 });
 
 router.get('/studentReg/sservices', function(req, res, next) {
@@ -433,8 +517,22 @@ router.get('/tourismMan/tLogin', function(req, res, next) {
   res.render('tourismMan/tLogin', { title: 'MalJusT Template' });
 });
 
-router.get('/tourismMan/tourists', function(req, res, next) {
-  res.render('tourismMan/tourists', { title: 'MalJusT Template' });
+router.get('/tourismMan/tourists', async function(req, res, next) {
+  next();
+}, async (req, res) => {
+  let tourists = await tourism.access();
+  res.render('tourismMan/tourists', { 
+    title: 'MalJusT Template',
+    tname1: tourists[0].tLastName,
+    // tname2: tourists[1].tLastName,
+    // tname3: tourists[2].tLastName,
+    // tname4: tourists[3].tLastName,
+    // tname5: tourists[4].tLastName,
+    // tname6: tourists[5].tLastName,
+    // tname7: tourists[6].tLastName,
+    // tname8: tourists[7].tLastName,
+    // tname9: tourists[8].tLastName,
+   });
 });
 
 router.get('/tourismMan/tSubmit', function(req, res, next) {

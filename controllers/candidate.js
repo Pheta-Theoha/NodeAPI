@@ -25,6 +25,14 @@ module.exports = {
         
         // res.render('submit_form', { username }); 
         
+    },
+    access: async (req, res) => {
+        try{
+            let candidates = candidate.findAll();
+            return candidates;
+        } catch(error){
+            
+        }
     }
 }
 

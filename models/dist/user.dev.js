@@ -1,5 +1,7 @@
 "use strict";
 
+var bcrypt = require('bcrypt');
+
 module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define('users', {
     superID: {
@@ -25,7 +27,8 @@ module.exports = function (sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: false
+      unique: false,
+      bcrypt: true
     }
   }, {// freezeTableName: false
   });

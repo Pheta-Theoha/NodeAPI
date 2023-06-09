@@ -54,6 +54,38 @@ module.exports = {
         }
       }
     }, null, null, [[0, 7]]);
+  },
+  login: function login(req, res) {
+    var usersAccess;
+    return regeneratorRuntime.async(function login$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.prev = 0;
+            _context3.next = 3;
+            return regeneratorRuntime.awrap(User.findOne({
+              where: {
+                username: req.body.username
+              }
+            }));
+
+          case 3:
+            usersAccess = _context3.sent;
+            console.log("Trying..."); // console.log(usersAccess);
+
+            return _context3.abrupt("return", usersAccess);
+
+          case 8:
+            _context3.prev = 8;
+            _context3.t0 = _context3["catch"](0);
+            console.log(_context3.t0);
+
+          case 11:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, null, null, [[0, 8]]);
   } // access: async (req, res) => {
   //     let display;
   //     await User.findOne({ where: { id: 1 } })
