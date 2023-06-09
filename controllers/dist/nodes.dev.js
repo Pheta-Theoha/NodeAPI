@@ -33,6 +33,31 @@ module.exports = {
         }
       }
     });
+  },
+  access: function access(req, res) {
+    var nodes;
+    return regeneratorRuntime.async(function access$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.prev = 0;
+            _context2.next = 3;
+            return regeneratorRuntime.awrap(Node.findAll());
+
+          case 3:
+            nodes = _context2.sent;
+            return _context2.abrupt("return", nodes);
+
+          case 7:
+            _context2.prev = 7;
+            _context2.t0 = _context2["catch"](0);
+
+          case 9:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, null, null, [[0, 7]]);
   }
 }; // module.exports = (sequelize, DataTypes) => {
 //     const user = sequelize.define('user', {

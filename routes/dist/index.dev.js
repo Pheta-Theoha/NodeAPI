@@ -21,7 +21,11 @@ var h_db = require("../models/hospitality_model");
 
 var s_db = require("../models/student_model");
 
-var t_db = require("../models/tourism_model"); // const sqlite3 = require('sqlite3').verbose();
+var t_db = require("../models/tourism_model");
+
+var _require2 = require('sequelize'),
+    where = _require2.where; // const sqlite3 = require('sqlite3').verbose();
+// const result = user.access();
 
 
 var today = new Date();
@@ -83,24 +87,144 @@ router.get('/super/superAdminHome', function (req, res, next) {
   res.render('super/superAdminHome', {
     title: 'MalJusT Template'
   });
-});
-router.get('superAdminHome', function (req, res, next) {
-  res.render('superAdminHome', {
-    title: 'MalJusT Template'
+}); // router.get('superAdminHome', function(req, res, next) {
+//   res.render('superAdminHome', { title: 'MalJusT Template' });
+// }),
+
+router.get('/super/users', function _callee(req, res, next) {
+  return regeneratorRuntime.async(function _callee$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          // user.userID;
+          next();
+
+        case 1:
+        case "end":
+          return _context.stop();
+      }
+    }
   });
-}), router.get('/super/users', function (req, res, next) {
-  res.render('super/users', {
-    title: 'MalJusT Template'
+}, function _callee2(req, res) {
+  var users;
+  return regeneratorRuntime.async(function _callee2$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return regeneratorRuntime.awrap(user.access());
+
+        case 2:
+          users = _context2.sent;
+          console.log(users);
+          res.render('super/users', {
+            title: 'MalJusT Template',
+            user1: users[0].userID,
+            user2: users[1].userID,
+            user3: users[2].userID,
+            user4: users[3].userID,
+            user5: users[4].userID,
+            user6: users[5].userID,
+            user7: users[6].userID,
+            user8: users[7].userID,
+            user9: users[8].userID
+          });
+
+        case 5:
+        case "end":
+          return _context2.stop();
+      }
+    }
   });
 });
-router.get('/super/nodes', function (req, res, next) {
-  res.render('super/nodes', {
-    title: 'MalJusT Template'
+router.get('/super/nodes', function _callee3(req, res, next) {
+  return regeneratorRuntime.async(function _callee3$(_context3) {
+    while (1) {
+      switch (_context3.prev = _context3.next) {
+        case 0:
+          next();
+
+        case 1:
+        case "end":
+          return _context3.stop();
+      }
+    }
+  });
+}, function _callee4(req, res) {
+  var nodes;
+  return regeneratorRuntime.async(function _callee4$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+          _context4.next = 2;
+          return regeneratorRuntime.awrap(node.access());
+
+        case 2:
+          nodes = _context4.sent;
+          console.log(nodes);
+          res.render('super/nodes', {
+            title: 'MalJusT Template',
+            node1: nodes[0].nodeID,
+            node2: nodes[1].nodeID,
+            node3: nodes[2].nodeID,
+            node4: nodes[3].nodeID,
+            node5: nodes[4].nodeID,
+            node6: nodes[5].nodeID,
+            node7: nodes[6].nodeID,
+            node8: nodes[7].nodeID,
+            node9: nodes[8].nodeID
+          });
+
+        case 5:
+        case "end":
+          return _context4.stop();
+      }
+    }
   });
 });
-router.get('/super/institutions', function (req, res, next) {
-  res.render('super/institutions', {
-    title: 'MalJusT Template'
+router.get('/super/institutions', function _callee5(req, res, next) {
+  return regeneratorRuntime.async(function _callee5$(_context5) {
+    while (1) {
+      switch (_context5.prev = _context5.next) {
+        case 0:
+          next();
+
+        case 1:
+        case "end":
+          return _context5.stop();
+      }
+    }
+  });
+}, function _callee6(req, res) {
+  var institutes;
+  return regeneratorRuntime.async(function _callee6$(_context6) {
+    while (1) {
+      switch (_context6.prev = _context6.next) {
+        case 0:
+          _context6.next = 2;
+          return regeneratorRuntime.awrap(institude.access());
+
+        case 2:
+          institutes = _context6.sent;
+          console.log(institutes);
+          res.render('super/institutions', {
+            title: 'MalJusT Template',
+            institute1: institutes[0].institudeName,
+            institute2: institutes[1].institudeName,
+            institute3: institutes[2].institudeName,
+            institute4: institutes[3].institudeName,
+            institute5: institutes[4].institudeName,
+            institute6: institutes[5].institudeName,
+            institute7: institutes[6].institudeName,
+            institute8: institutes[7].institudeName // institute9: institutes[8].institudeName,
+
+          });
+
+        case 5:
+        case "end":
+          return _context6.stop();
+      }
+    }
   });
 });
 router.get('/super/logs&docs', function (req, res, next) {

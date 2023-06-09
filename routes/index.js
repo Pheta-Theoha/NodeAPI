@@ -6,7 +6,10 @@ const e_db = require("../models/elections_model");
 const h_db = require("../models/hospitality_model");
 const s_db = require("../models/student_model");
 const t_db = require("../models/tourism_model");
+const { where } = require('sequelize');
 // const sqlite3 = require('sqlite3').verbose();
+
+// const result = user.access();
 
 
 var today = new Date();
@@ -63,20 +66,66 @@ router.get('/super/superAdminHome', function(req, res, next) {
   res.render('super/superAdminHome', { title: 'MalJusT Template' });
 });
 
-router.get('superAdminHome', function(req, res, next) {
-  res.render('superAdminHome', { title: 'MalJusT Template' });
-}),
+// router.get('superAdminHome', function(req, res, next) {
+//   res.render('superAdminHome', { title: 'MalJusT Template' });
+// }),
 
-router.get('/super/users', function(req, res, next) {
-  res.render('super/users', { title: 'MalJusT Template' });
+router.get('/super/users', async function(req, res, next) {
+  // user.userID;
+  next();
+}, async (req, res) => {
+  var users = await user.access();
+  console.log(users); 
+  res.render('super/users', { 
+    title: 'MalJusT Template',
+    user1: users[0].userID, 
+    user2: users[1].userID, 
+    user3: users[2].userID,
+    user4: users[3].userID,
+    user5: users[4].userID,
+    user6: users[5].userID,
+    user7: users[6].userID,
+    user8: users[7].userID,
+    user9: users[8].userID,
+  });
 });
 
-router.get('/super/nodes', function(req, res, next) {
-  res.render('super/nodes', { title: 'MalJusT Template' });
+router.get('/super/nodes', async function(req, res, next) {
+  next();
+}, async (req, res) => {
+  var nodes = await node.access();
+  console.log(nodes);
+  res.render('super/nodes', { 
+    title: 'MalJusT Template',
+    node1: nodes[0].nodeID,
+    node2: nodes[1].nodeID,
+    node3: nodes[2].nodeID,
+    node4: nodes[3].nodeID,
+    node5: nodes[4].nodeID,
+    node6: nodes[5].nodeID,
+    node7: nodes[6].nodeID,
+    node8: nodes[7].nodeID,
+    node9: nodes[8].nodeID,
+   });
 }); 
 
-router.get('/super/institutions', function(req, res, next) {
-  res.render('super/institutions', { title: 'MalJusT Template' });
+router.get('/super/institutions', async function(req, res, next) {
+  next();
+}, async (req, res) => {
+  var institutes = await institude.access();
+  console.log(institutes);
+  res.render('super/institutions', { 
+    title: 'MalJusT Template',
+    institute1: institutes[0].institudeName,
+    institute2: institutes[1].institudeName,
+    institute3: institutes[2].institudeName,
+    institute4: institutes[3].institudeName,
+    institute5: institutes[4].institudeName,
+    institute6: institutes[5].institudeName,
+    institute7: institutes[6].institudeName,
+    institute8: institutes[7].institudeName,
+    // institute9: institutes[8].institudeName,
+   });
 });
 
 router.get('/super/logs&docs', function(req, res, next) {

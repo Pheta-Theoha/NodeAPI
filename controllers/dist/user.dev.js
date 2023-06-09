@@ -29,7 +29,52 @@ module.exports = {
         }
       }
     });
-  } // login: async(req, res) => {
+  },
+  access: function access(req, res) {
+    var users;
+    return regeneratorRuntime.async(function access$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.prev = 0;
+            _context2.next = 3;
+            return regeneratorRuntime.awrap(User.findAll());
+
+          case 3:
+            users = _context2.sent;
+            return _context2.abrupt("return", users);
+
+          case 7:
+            _context2.prev = 7;
+            _context2.t0 = _context2["catch"](0);
+
+          case 9:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, null, null, [[0, 7]]);
+  } // access: async (req, res) => {
+  //     let display;
+  //     await User.findOne({ where: { id: 1 } })
+  //     .then(user => {
+  //         if (user) {
+  //             // console.log(user.toJSON());
+  //             // console.log(user.userID);
+  //             // const result = user.userID;
+  //             // console.log(user.userID);
+  //             display = user.userID;
+  //             // return user.userID;
+  //         } else {
+  //             console.log('User not found.');
+  //         }
+  //     })
+  //     .catch(error => {
+  //         console.error('Error:', error);
+  //     });
+  //     return display;
+  // }
+  // login: async(req, res) => {
   //     if(req.body.username && req.body.password){
   //         const { username, password } = req.body;
   //         let user = await user.findOne({

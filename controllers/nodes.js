@@ -21,6 +21,17 @@ module.exports = {
         
         // res.render('submit_form', { username }); 
         
+    },
+
+    access: async (req, res) => {
+        try{
+            
+            let nodes = await Node.findAll();
+            return nodes;
+
+        }catch(error){
+
+        }
     }
 }
 

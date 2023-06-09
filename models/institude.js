@@ -6,7 +6,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         institudeName: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true,
+            defaultValue: "Vacant"
         },
         managingAdmin: {
             type: DataTypes.STRING,
