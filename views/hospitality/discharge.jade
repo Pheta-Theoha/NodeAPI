@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title MalJusT Template
+    link(rel='stylesheet', href='/stylesheets/hstyle.css')
+    link(rel='stylesheet', href="https://fonts.googleapis.com/icon?family=Material+Icons")
+  body
+    header(class="header")
+      div(class="brand")
+        a(href="/hospitality/hHome" class="brand-logo") 
+          b(style="padding-left: 250px;") MalJusT Student Registration
+
+    div(id="Vbody")
+        h2(contenteditable="true" class="welcome" style="font-size: 32px; text-shadow: 1px 1px red;") Fill the form below to discharge patient!
+        h3(class="welcome2" style="color: darkred") Removed data cannot be recovered!
+        form(action="patients" class="studentForm" id="studentForm" method="get")
+            b 
+                a(href="/hospitality/patients" id="close" class="material-icons" style="padding-left: 80px;") close
+            br
+            br
+            input(type="text" placeholder="Petient First Name" class="studentInput" name="sfirstName" autofocus required)
+            <br>
+            br
+            input(type="text" placeholder="Patient Last name" class="studentInput" name="plastName" required)
+            <br>
+            br 
+            input(type="text" placeholder="adminID " class="studentInput" name="slastName" required)
+            <br>
+            br 
+            textarea(cols="26" rows="4" placeholder="Discharge Status (patient health status when discharged)" class="publicStatement" name="reason" required)
+            <br>
+            <br>
+            input(type="submit" class="studentInput" class="submit" id="submit")
+        br
+        br

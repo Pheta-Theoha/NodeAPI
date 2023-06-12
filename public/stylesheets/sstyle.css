@@ -435,7 +435,7 @@ h1 {
 
 .brand-logo:hover {
   color: #516a70;
-  font-size: 48px;
+  font-size: 45.3px;
 }
 
 /* End of Logo Section     */
@@ -683,4 +683,22 @@ ul#demo{
   text-decoration: none;
   padding: 10px;
   text-shadow: 2px 2px #b98109;
+}
+
+.button2 {
+  margin-left: 470px;
+  background-color: gray;
+  font-size: xx-large;
+  font-weight: bold;
+  border-style: double;
+  border-radius: 10px;
+  border-color: #664806;
+  color:rgba(0, 0, 0, 0.60);
+  text-decoration: none;
+  padding: 10px;
+  text-shadow: 2px 2px #b98109;
+}
+
+.button2:hover {
+  color: #b9a445;
 }

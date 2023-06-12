@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title MalJusT Template
+    link(rel='stylesheet', href='/stylesheets/Superstyle.css')
+    link(rel='stylesheet', href="https://fonts.googleapis.com/icon?family=Material+Icons")
+  body
+    header(class="ssheader")
+      div(class="brand")
+        a(href="/super/users" class="sbrand-logo") 
+          b(style="padding-left: 250px;") MalJusT Template
+
+    div(id="sbody")
+        h2(contenteditable="true" class="welcome" style="font-size: 32px; text-shadow: 1px 1px red;") Fill the form below to remove user from database!
+        h3(class="welcome2" style="color: darkred") Removed data cannot be recovered!
+        form(action="users" class="studentForm" id="studentForm" method="get")
+            b 
+                a(href="/super/users" id="sclose" class="material-icons" style="padding-left: 80px;") close
+            br
+            br
+            input(type="text" placeholder="SuperID" class="sInput" name="superID" autofocus required)
+            <br>
+            br 
+            input(type="text" placeholder="userID " class="sInput" name="userID" required)
+            <br>
+            br 
+            textarea(cols="26" rows="4" placeholder="ADD BRIEF REASON FOR REMOVAL(e.g User withdrew or Violated user policy)" class="publicStatement" name="reason" required)
+            <br>
+            <br>
+            input(type="submit" class="studentInput" class="ssubmit" id="submit")
+        br
+        br

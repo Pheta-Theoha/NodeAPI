@@ -15,7 +15,21 @@
 }
 
 .button {
-  margin-left: 520px;
+  margin-left: 400px;
+  background-color: gray;
+  font-size: xx-large;
+  font-weight: bold;
+  border-style: double;
+  border-radius: 10px;
+  border-color: rgb(185, 0, 0);
+  color:rgba(0, 0, 0, 0.60);
+  text-decoration: none;
+  padding: 10px;
+  text-shadow: 2px 2px rgb(19, 95, 158);
+}
+
+.button2 {
+  margin-left: 20px;
   background-color: gray;
   font-size: xx-large;
   font-weight: bold;
@@ -29,6 +43,11 @@
 }
 
 .button:hover {
+  color: rgb(30, 151, 167);
+  font-size: 35px;
+}
+
+.button2:hover {
   color: rgb(30, 151, 167);
   font-size: 35px;
 }

@@ -5,6 +5,7 @@ var path = require('path');
 var logger = require('morgan'); // used for logging HTTP requests in debugging
 // var mongoose = require('mongoose')
 var bodyParser = require('body-parser') //used to process data sent in an HTTP request body
+var session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -23,6 +24,12 @@ app.set('view engine', 'jade');
 (async () => {
   await db.sequelize.sync();
 })();
+
+app.use(session({
+  secret : 'usersession',
+  resave: true,
+  saveUninitialized: true
+}));
 
 app.use(logger('dev'));
 app.use(express.json());

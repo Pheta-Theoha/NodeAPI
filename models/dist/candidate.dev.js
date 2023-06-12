@@ -1,5 +1,8 @@
 "use strict";
 
+var _require = require("firebase-admin"),
+    database = _require.database;
+
 module.exports = function (sequelize, DataTypes) {
   var candidate = sequelize.define('candidate', {
     fName: {
@@ -31,7 +34,21 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     }
   }, {// freezeTableName: false
-  });
+  }); // const votes = sequelize.define('votes' {
+  //     voterID: {
+  //         type: dataTypes.STRING,
+  //         allowNull: false,
+  //     },
+  //     candidateNumber: {
+  //         type: database.STRING,
+  //         allowNull: false
+  //     },
+  //     position: {
+  //         type: database.STRING,
+  //         allowNull: false
+  //     }
+  // })
+
   sequelize.sync().then(function () {
     console.log('Candidate table created successfully!');
   })["catch"](function (error) {

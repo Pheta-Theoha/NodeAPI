@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MalJusT Template</title>
+    <link rel="stylesheet" href="/stylesheets/Superstyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body>
+    <header class="ssheader">
+      <div class="brand"><a class="sbrand-logo" href="/super/super"> <b style="padding-left: 250px;">MalJusT Template</b></a></div>
+    </header>
+    <div id="sbody">
+      <h2 class="welcome" contenteditable="true" style="font-size: 32px; text-shadow: 1px 1px red;">Fill the form below to remove institute from database!</h2>
+      <h3 class="welcome2" style="color: darkred">Removed data cannot be recovered!</h3>
+      <form class="studentForm" action="institutions" id="studentForm" method="get"><b> <a class="material-icons" href="/super/institutions" id="sclose" style="padding-left: 80px;">close</a></b><br><br>
+        <input class="sInput" type="text" placeholder="SuperID" name="superID" autofocus required><br><br>
+        <input class="sInput" type="text" placeholder="Institute Name " name="instituteName" required><br><br>
+        <textarea class="publicStatement" cols="26" rows="4" placeholder="ADD BRIEF REASON FOR REMOVAL(e.g Institute violated user policy)" name="reason" required></textarea><br>
+<br>
+        <input class="studentInput ssubmit" type="submit" id="submit">
+      </form><br><br>
+    </div>
+  </body>
+</html>

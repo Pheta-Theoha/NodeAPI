@@ -37,5 +37,8 @@ module.exports = function (sequelize, DataTypes) {
   })["catch"](function (error) {
     console.error('Unable to create table : ', error);
   });
+  User.beforeSave(function (user) {
+    user.password = bcrypt.hashSync(user.password, 10);
+  });
   return User;
 };

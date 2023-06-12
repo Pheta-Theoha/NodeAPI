@@ -14,6 +14,8 @@ var logger = require('morgan'); // used for logging HTTP requests in debugging
 var bodyParser = require('body-parser'); //used to process data sent in an HTTP request body
 
 
+var session = require('express-session');
+
 var indexRouter = require('./routes/index');
 
 var usersRouter = require('./routes/users');
@@ -50,6 +52,11 @@ app.set('view engine', 'jade');
   });
 })();
 
+app.use(session({
+  secret: 'usersession',
+  resave: true,
+  saveUninitialized: true
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({

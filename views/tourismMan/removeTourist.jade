@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title MalJusT Template
+    link(rel='stylesheet', href='/stylesheets/tstyle.css')
+    link(rel='stylesheet', href="https://fonts.googleapis.com/icon?family=Material+Icons")
+  body
+    header(class="header")
+      div(class="brand")
+        a(href="/tourismMan/tHome" class="brand-logo") 
+          b(style="padding-left: 250px;") MalJusT Tourism Management
+
+    div(id="Vbody")
+        h2(contenteditable="true" class="welcome" style="font-size: 32px; text-shadow: 1px 1px red;") Fill in the form below to remove a tourist from the database!
+        h3(class="welcome2" style="color: darkred; font-weight: bold; font-size: x-large; text-shadow: 1px 1px black") Removed data cannot be recovered!
+        form(action="tourists" class="studentForm" id="studentForm" method="get")
+            b 
+                a(href="/tourismMan/tourists" id="close" class="material-icons" style="padding-left: 80px;") close
+            br
+            br
+            input(type="text" placeholder="Tourist First Name" class="studentInput" name="TfirstName" autofocus required)
+            <br>
+            br 
+            input(type="text" placeholder="Tourist Last Name" class="studentInput" name="TlastName" required)
+            <br>
+            br 
+            input(type="text" placeholder="AdminID" class="studentInput" name="TadminID" required)
+            <br>
+            br 
+            textarea(cols="26" rows="4" placeholder="ADD BRIEF REASON FOR REMOVAL(e.g Tourist departed or Violated travel policy)" class="publicStatement" name="reason" required)
+            <br>
+            <br>
+            input(type="submit" class="studentInput" class="submit" id="submit")
+        br
+        br

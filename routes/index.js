@@ -7,7 +7,46 @@ const h_db = require("../models/hospitality_model");
 const s_db = require("../models/student_model");
 const t_db = require("../models/tourism_model");
 const { where } = require('sequelize');
+const bcrypt = require('bcrypt');
+// const popup = require('popups');
+const alert = require('alert');
 // const sqlite3 = require('sqlite3').verbose();
+
+router.use('/admin/:more', async (req, res, next) => {
+  try{
+    const { username, password } = req.body;
+    // console.log("Trying to authenticate");
+    // console.log(user.login(req.username));
+    // next();
+    // console.log(username)
+    // if( username && password ){
+    //   console.log(username);
+    // }else {
+    //   console.log("No Username")
+    // }
+    // next();
+      // const isValid = await user.findOne({
+      //     where: {
+      //         username: username,
+      //         // password: password
+      //       },
+      //     });
+    const isValid = await user.login(req);
+
+    if(isValid && bcrypt.compareSync(password, isValid.password)){
+      next();
+    }else {
+      // popup.alert({content: "Invalid credentials"});
+      alert("Invalid Credentials");
+      res.render('admin');
+      // return;
+      // res.render('admin');
+    }
+  }
+  catch (error) {
+    console.log(error);
+  }
+})
 
 // router.use('/admin/', authMiddleware, (req, res, next) => {
 //   console.log("Authenticating");
@@ -175,12 +214,24 @@ router.get('/super/addUser', function(req, res, next) {
   res.render('super/addUser', { title: 'MalJusT Template' });
 });
 
+router.get('/super/removeUser', function(req, res, next) {
+  res.render('super/removeUser', { title: 'MalJusT Template' });
+});
+
 router.get('/super/addNode', function(req, res, next) {
   res.render('super/addNode', { title: 'MalJusT Template' });
 });
 
+router.get('/super/removeNode', function(req, res, next) {
+  res.render('super/removeNode', { title: 'MalJusT Template' });
+});
+
 router.get('/super/addInstitude', function(req, res, next) {
   res.render('super/addInstitude', { title: 'MalJusT Template' });
+});
+
+router.get('/super/removeInstitute', function(req, res, next) {
+  res.render('super/removeInstitute', { title: 'MalJusT Template' });
 });
 
 router.get('/super/profile', function(req, res, next) {
@@ -266,18 +317,19 @@ router.get('/admin/adminHome', function(req, res, next) {
 });
 
 
-// router.post('/admin/adminHome', function(req, res, next) {
-//   user.login();
-//   next();
-// }, (req, res) => {
-//   if(user){
-//     console.log("Access Granted");
-//     res.render('admin/adminHome', { title: 'MalJusT Template' });
-//   }else{
-//     console.log("Denied");
-//     res.render('admin', { title: 'MalJusT Template' });
-//   }
-// });
+router.post('/admin/adminHome', function(req, res, next) {
+  console.log(req.body.username)
+  // user.login();
+  next();
+}, (req, res) => {
+  // console.log("Access Granted");
+  res.render('admin/adminHome', { title: 'MalJusT Template' });
+  // if(user){
+  // }else{
+    // console.log("Denied");
+    // res.render('admin', { title: 'MalJusT Template' });
+  // }
+});
 
 router.get('/admin/adminServices', function(req, res, next) {
   res.render('admin/adminServices', { title: 'MalJusT Template' });
@@ -432,6 +484,10 @@ router.get('/hospitality/hcontact', function(req, res, next) {
   res.render('hospitality/hcontact', { title: 'MalJusT Template' });
 });
 
+router.get('/hospitality/discharge', function(req, res, next) {
+  res.render('hospitality/discharge', { title: 'MalJusT Template' });
+});
+
 router.get('/hHome', function(req, res, next) {
   res.render('/hHome', { title: 'MalJusT Template' });
 });
@@ -483,6 +539,7 @@ router.get('/studentReg/sLogin', function(req, res, next) {
 });
 
 router.get('/studentReg/students', async function(req, res, next) {
+  let access = await user.access();
   next();
 }, async (req, res) => {
   let students = await student.access();
@@ -506,6 +563,10 @@ router.get('/studentReg/sservices', function(req, res, next) {
 
 router.get('/studentReg/scontact', function(req, res, next) {
   res.render('studentReg/scontact', { title: 'MalJusT Template' });
+});
+
+router.get('/studentReg/removeStudent', function(req, res, next) {
+  res.render('studentReg/removeStudent', { title: 'MalJusT Template' });
 });
 
 //tourism management routes
@@ -577,6 +638,10 @@ router.get('/tourismMan/tabout', function(req, res, next) {
 
 router.get('/tourismMan/tcontact', function(req, res, next) {
   res.render('tourismMan/tcontact', { title: 'MalJusT Template' });
+});
+
+router.get('/tourismMan/removeTourist', function(req, res, next) {
+  res.render('tourismMan/removeTourist', { title: 'MalJusT Template' });
 });
 
 module.exports = router;

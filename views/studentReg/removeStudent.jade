@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title MalJusT Template
+    link(rel='stylesheet', href='/stylesheets/sstyle.css')
+    link(rel='stylesheet', href="https://fonts.googleapis.com/icon?family=Material+Icons")
+  body
+    header(class="header")
+      div(class="brand")
+        a(href="/studentReg/shome" class="brand-logo") 
+          b(style="padding-left: 250px;") MalJusT Student Registration
+
+    div(id="Vbody")
+        h2(contenteditable="true" class="welcome" style="font-size: 32px; text-shadow: 1px 1px red;") Fill the form below to remove student from database!
+        h3(class="welcome2" style="color: darkred") Removed data cannot be recovered!
+        form(action="students" class="studentForm" id="studentForm" method="get")
+            b 
+                a(href="/studentReg/students" id="close" class="material-icons" style="padding-left: 80px;") close
+            br
+            br
+            input(type="text" placeholder="Student #" class="studentInput" name="sfirstName" autofocus required)
+            <br>
+            br 
+            input(type="text" placeholder="adminID " class="studentInput" name="slastName" required)
+            <br>
+            br 
+            textarea(cols="26" rows="4" placeholder="ADD BRIEF REASON FOR REMOVAL(e.g Student withdrew or Violated school policy)" class="publicStatement" name="reason" required)
+            <br>
+            <br>
+            input(type="submit" class="studentInput" class="submit" id="submit")
+        br
+        br

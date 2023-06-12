@@ -63,7 +63,7 @@ module.exports = {
         try {
             let usersAccess = await User.findOne({
                 where: {
-                    username: req.body.username
+                    username: req.body.username,
                 },
             });
             console.log("Trying...");
@@ -72,6 +72,19 @@ module.exports = {
         }
         catch (error){
             console.log(error);
+        }
+    },
+    delete: async (req, res) => {
+        try {
+            let userDel = await User.findOne({
+                where: {
+                    UserID: req.body.UserID,
+                }
+            })
+            return userDel;
+        }
+        catch (error) {
+
         }
     }
     // access: async (req, res) => {

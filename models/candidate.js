@@ -1,3 +1,5 @@
+const { database } = require("firebase-admin");
+
 module.exports = (sequelize, DataTypes) => {
     const candidate = sequelize.define('candidate', {
         fName: {
@@ -29,10 +31,26 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         }
     },
+
     
     {
         // freezeTableName: false
     });
+
+    // const votes = sequelize.define('votes' {
+    //     voterID: {
+    //         type: dataTypes.STRING,
+    //         allowNull: false,
+    //     },
+    //     candidateNumber: {
+    //         type: database.STRING,
+    //         allowNull: false
+    //     },
+    //     position: {
+    //         type: database.STRING,
+    //         allowNull: false
+    //     }
+    // })
 
     sequelize.sync().then(() => {
         console.log('Candidate table created successfully!');

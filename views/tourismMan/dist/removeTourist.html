@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MalJusT Template</title>
+    <link rel="stylesheet" href="/stylesheets/tstyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body>
+    <header class="header">
+      <div class="brand"><a class="brand-logo" href="/tourismMan/tHome"> <b style="padding-left: 250px;">MalJusT Tourism Management</b></a></div>
+    </header>
+    <div id="Vbody">
+      <h2 class="welcome" contenteditable="true" style="font-size: 32px; text-shadow: 1px 1px red;">Fill in the form below to remove a tourist from the database!</h2>
+      <h3 class="welcome2" style="color: darkred; font-weight: bold; font-size: x-large; text-shadow: 1px 1px black">Removed data cannot be recovered!</h3>
+      <form class="studentForm" action="tourists" id="studentForm" method="get"><b> <a class="material-icons" href="/tourismMan/tourists" id="close" style="padding-left: 80px;">close</a></b><br><br>
+        <input class="studentInput" type="text" placeholder="Tourist First Name" name="TfirstName" autofocus required><br><br>
+        <input class="studentInput" type="text" placeholder="Tourist Last Name" name="TlastName" required><br><br>
+        <input class="studentInput" type="text" placeholder="AdminID" name="TadminID" required><br><br>
+        <textarea class="publicStatement" cols="26" rows="4" placeholder="ADD BRIEF REASON FOR REMOVAL(e.g Tourist departed or Violated travel policy)" name="reason" required></textarea><br>
+<br>
+        <input class="studentInput submit" type="submit" id="submit">
+      </form><br><br>
+    </div>
+  </body>
+</html>
