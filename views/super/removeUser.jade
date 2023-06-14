@@ -13,7 +13,7 @@ html
     div(id="sbody")
         h2(contenteditable="true" class="welcome" style="font-size: 32px; text-shadow: 1px 1px red;") Fill the form below to remove user from database!
         h3(class="welcome2" style="color: darkred") Removed data cannot be recovered!
-        form(action="users" class="studentForm" id="studentForm" method="get")
+        form(action="removedUser" class="studentForm" id="studentForm" method="post")
             b 
                 a(href="/super/users" id="sclose" class="material-icons" style="padding-left: 80px;") close
             br

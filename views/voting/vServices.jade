@@ -27,12 +27,13 @@ block content
       div(id="Vbody2")
         h1(class="welcome") Vote Here!
         h3(class="welcome2") Please fill the form below to vote
-        form(action="/vHome" class="votingForm" id="studentForm" method="get")
-          input(type="text" placeholder="Voter ID Number" class="studentInput" required)
-          input(type="text" placeholder="Candidate #" class="studentInput" required)
+        form(action="votes" class="votingForm" id="studentForm" method="post")
+          input(type="text" placeholder="Voter Last Name" class="studentInput" name="vLastName" required)
+          input(type="text" placeholder="Candidate Last Name" class="studentInput" name="cLastName" required)
           <br>
-          input(type="text" placeholder="Position" class="studentInput" required)
+          input(type="text" placeholder="Position" class="studentInput" name="cPosition" required)
           <br>
           <br> 
           input(type="submit" class="studentInput" class="Vsubmit" id="submit")
 
+                                             

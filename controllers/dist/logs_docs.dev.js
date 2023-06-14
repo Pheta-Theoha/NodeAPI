@@ -1,13 +1,17 @@
 "use strict";
 
-var _require = require('../app'),
-    response = _require.response;
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var _require2 = require('../models/hospitality_model'),
-    patient = _require2.models.patient;
+var _require = require('../app'),
+    res = _require.res;
+
+var _require2 = require('../models'),
+    logs_docs = _require2.models.logs_docs;
 
 module.exports = {
   create: function create(req, res) {
+    var _logs_docs$create;
+
     return regeneratorRuntime.async(function create$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -15,20 +19,17 @@ module.exports = {
             console.log("Testing row insertion"); // const { username, password } = req.body;
 
             _context.next = 3;
-            return regeneratorRuntime.awrap(patient.create({
-              firstName: firstName,
-              lastName: lastName,
-              bloodType: bloodType,
-              dateOfBirth: dateOfBirth,
-              medicalCondition: medicalCondition,
-              urgency: urgency,
-              currentMedication: currentMedication,
-              overnight: overnight,
-              diabetic: diabetic
-            }).then(function (res) {
+            return regeneratorRuntime.awrap(logs_docs.create((_logs_docs$create = {
+              superID: superID,
+              clearanceLevel: clearanceLevel,
+              position: position,
+              documentation: documentation,
+              dateOfEntry: dateOfEntry,
+              timeOfEntry: timeOfEntry
+            }, _defineProperty(_logs_docs$create, "position", position), _defineProperty(_logs_docs$create, "timeOfExit", timeOfExit), _logs_docs$create)).then(function (res) {
               console.log("Testing row insertion");
               console.log(res);
-              return patient;
+              return logs_docs;
             })["catch"](function (error) {
               console.error("Failed to create a new record: ", error);
             }));
@@ -41,53 +42,30 @@ module.exports = {
     });
   },
   access: function access(req, res) {
-    var patients;
+    var _logs_docs;
+
     return regeneratorRuntime.async(function access$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.prev = 0;
-            patients = patient.findAll();
-            return _context2.abrupt("return", patients);
+            _context2.next = 3;
+            return regeneratorRuntime.awrap(_logs_docs.findAll());
 
-          case 5:
-            _context2.prev = 5;
-            _context2.t0 = _context2["catch"](0);
+          case 3:
+            _logs_docs = _context2.sent;
+            return _context2.abrupt("return", _logs_docs);
 
           case 7:
+            _context2.prev = 7;
+            _context2.t0 = _context2["catch"](0);
+
+          case 9:
           case "end":
             return _context2.stop();
         }
       }
-    }, null, null, [[0, 5]]);
-  },
-  "delete": function _delete(req, res) {
-    return regeneratorRuntime.async(function _delete$(_context3) {
-      while (1) {
-        switch (_context3.prev = _context3.next) {
-          case 0:
-            _context3.prev = 0;
-            _context3.next = 3;
-            return regeneratorRuntime.awrap(patient.destroy({
-              where: {
-                lastName: req.body.lastName
-              }
-            }));
-
-          case 3:
-            _context3.next = 7;
-            break;
-
-          case 5:
-            _context3.prev = 5;
-            _context3.t0 = _context3["catch"](0);
-
-          case 7:
-          case "end":
-            return _context3.stop();
-        }
-      }
-    }, null, null, [[0, 5]]);
+    }, null, null, [[0, 7]]);
   }
 }; // module.exports = (sequelize, DataTypes) => {
 //     const user = sequelize.define('user', {

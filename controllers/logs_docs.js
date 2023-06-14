@@ -1,26 +1,25 @@
-const { response } = require('../app');
-const { models: { patient } } = require('../models/hospitality_model');
+const { res } = require('../app');
+const { models: { logs_docs } } = require('../models');
 
 module.exports = {
     create: async (req, res) => {
         console.log("Testing row insertion");
         // const { username, password } = req.body;
         
-        
-        await patient.create({
-            firstName,
-            lastName,
-            bloodType,
-            dateOfBirth,
-            medicalCondition,
-            urgency,
-            currentMedication,
-            overnight,
-            diabetic
+         
+        await logs_docs.create({
+            superID,
+            clearanceLevel,
+            position,
+            documentation,
+            dateOfEntry,
+            timeOfEntry,
+            position,   
+            timeOfExit
         }).then(res => {
             console.log("Testing row insertion");
             console.log(res);
-            return patient;
+            return logs_docs;
         }).catch((error) => {
             console.error("Failed to create a new record: ", error);
         });
@@ -28,23 +27,12 @@ module.exports = {
         // res.render('submit_form', { username }); 
         
     },
-    access: async(req, res) => {
-        try {
-            let patients = patient.findAll();
-            return patients;
-        } catch (error){
-            
-        }
-    },
-    delete: async(req, res) => {
+
+    access: async(req, res) =>{
         try{
-            await patient.destroy({
-                where: {
-                    lastName: req.body.lastName
-                }
-            })
-        }
-        catch(error){
+            let logs_docs = await logs_docs.findAll();
+            return logs_docs;
+        } catch(error){
 
         }
     }

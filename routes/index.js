@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { user, node, institude, candidate, patient, student, tourism } = require('../controllers')
+const { user, node, institude, candidate, patient, student, tourism, logs_docs, votes } = require('../controllers')
 const db = require("../models/index");
 const e_db = require("../models/elections_model");
 const h_db = require("../models/hospitality_model");
@@ -10,43 +10,44 @@ const { where } = require('sequelize');
 const bcrypt = require('bcrypt');
 // const popup = require('popups');
 const alert = require('alert');
+// const logs_docs = require('../models/logs_docs');
 // const sqlite3 = require('sqlite3').verbose();
 
-router.use('/admin/:more', async (req, res, next) => {
-  try{
-    const { username, password } = req.body;
-    // console.log("Trying to authenticate");
-    // console.log(user.login(req.username));
-    // next();
-    // console.log(username)
-    // if( username && password ){
-    //   console.log(username);
-    // }else {
-    //   console.log("No Username")
-    // }
-    // next();
-      // const isValid = await user.findOne({
-      //     where: {
-      //         username: username,
-      //         // password: password
-      //       },
-      //     });
-    const isValid = await user.login(req);
+// router.use('/admin/adminHome', async (req, res, next) => {
+//   try{
+//     const { username, password } = req.body;
+//     // console.log("Trying to authenticate");
+//     // console.log(user.login(req.username));
+//     // next();
+//     // console.log(username)
+//     // if( username && password ){
+//     //   console.log(username);
+//     // }else {
+//     //   console.log("No Username")
+//     // }
+//     // next();
+//       // const isValid = await user.findOne({
+//       //     where: {
+//       //         username: username,
+//       //         // password: password
+//       //       },
+//       //     });
+//     const isValid = await user.login(req);
 
-    if(isValid && bcrypt.compareSync(password, isValid.password)){
-      next();
-    }else {
-      // popup.alert({content: "Invalid credentials"});
-      alert("Invalid Credentials");
-      res.render('admin');
-      // return;
-      // res.render('admin');
-    }
-  }
-  catch (error) {
-    console.log(error);
-  }
-})
+//     if(isValid && bcrypt.compareSync(password, isValid.password)){
+//       next();
+//     }else {
+//       // popup.alert({content: "Invalid credentials"});
+//       alert("Invalid Credentials");
+//       res.render('admin');
+//       // return;
+//       // res.render('admin');
+//     }
+//   }
+//   catch (error) {
+//     console.log(error);
+//   }
+// })
 
 // router.use('/admin/', authMiddleware, (req, res, next) => {
 //   console.log("Authenticating");
@@ -138,7 +139,8 @@ router.get('/super/super', function(req, res, next) {
 
 router.get('/super/superAdminHome', function(req, res, next) {
   // res.render('super/superAdminHome', { title: 'MalJusT Template' });
-  console.log("Date:", date, "\nTime:", time);
+  var entry_time = time;
+  console.log("Date:", date, "\nTime:", entry_time);
   next();
 }, function(req, res, next){
   res.render('super/superAdminHome', { title: 'MalJusT Template' });
@@ -207,7 +209,7 @@ router.get('/super/institutions', async function(req, res, next) {
 });
 
 router.get('/super/logs&docs', function(req, res, next) {
-  res.render('super/logs&docs', { time: time });
+  res.render('super/logs&docs', { date: date });
 });
 
 router.get('/super/addUser', function(req, res, next) {
@@ -230,6 +232,37 @@ router.get('/super/addInstitude', function(req, res, next) {
   res.render('super/addInstitude', { title: 'MalJusT Template' });
 });
 
+router.get('/super/documentation', function(req, res, next) {
+  res.render('super/documentation', { title: 'MalJusT Template' });
+});
+
+router.post('/super/logs_submit', async function(req, res, next) {
+  superID = req.body.superID
+  dateOfEntry = req.body.dateOfEntry
+  clearanceLevel = req.body.clearanceLevel
+  timeOfEntry = req.body.timeOfEntry
+  position = req.body.position
+  timeOfExit = req.body.timeOfExit
+  documentation = req.body.documentation
+  logs_docs.create();
+  const a_logs_docs = await logs_docs.access();
+  next();
+}, (req, res) => {
+  res.render('super/documentation', { 
+    title: 'MalJusT Template', 
+    superID: superID, 
+    clearanceLevel: clearanceLevel, 
+    position: position, 
+    date: date, 
+    time: time, 
+    documentation: documentation
+  });
+});
+
+router.get('/super/logs_submit', function(req, res, next) {
+  res.render('super/logs_submit', { title: 'MalJusT Template' });
+});
+
 router.get('/super/removeInstitute', function(req, res, next) {
   res.render('super/removeInstitute', { title: 'MalJusT Template' });
 });
@@ -250,8 +283,15 @@ router.get('/super/submit_institude', function(req, res, next) {
   res.render('super/submit_institude', { title: 'MalJusT Template' });
 });
 
-router.post('/super/testing', function(req, res, next) {
-  res.render('super/testing', { title: 'MalJusT Template' });
+router.post('/super/removedUser', async function(req, res, next) {
+  await user.delete(req);
+  // await user.destroy({
+  //   where: {
+  //     userID: req.body.userID
+  //   }
+  // });
+  userID = req.body.userID;
+  res.render('super/removedUser', { title: 'MalJusT Template' });
 });
 
 // router.post('/super/submit_form')
@@ -268,7 +308,11 @@ router.post('/super/submit_form', function(req, res, next) {
   // res.send(`Authorized by ${req.body.superAdminID}, Your admin id is ${req.body.adminID} and your username is ${req.body.username} and your password is ${req.body.password}!`);
 }, (req, res) => {
   console.log(user);
-  res.render('super/submit_form', { username: req.body.username, userID: req.body.adminID, superID: req.body.superAdminID })
+  res.render('super/submit_form', { 
+    username: req.body.username, 
+    userID: req.body.adminID, 
+    superID: req.body.superAdminID
+  })
 });
 
 router.post('/super/submit_node', function(req, res, next) {
@@ -317,19 +361,19 @@ router.get('/admin/adminHome', function(req, res, next) {
 });
 
 
-router.post('/admin/adminHome', function(req, res, next) {
-  console.log(req.body.username)
-  // user.login();
-  next();
-}, (req, res) => {
-  // console.log("Access Granted");
-  res.render('admin/adminHome', { title: 'MalJusT Template' });
-  // if(user){
-  // }else{
-    // console.log("Denied");
-    // res.render('admin', { title: 'MalJusT Template' });
-  // }
-});
+// router.post('/admin/adminHome', function(req, res, next) {
+//   console.log(req.body.username)
+//   // user.login();
+//   next();
+// }, (req, res) => {
+//   // console.log("Access Granted");
+//   res.render('admin/adminHome', { title: 'MalJusT Template' });
+//   // if(user){
+//   // }else{
+//     // console.log("Denied");
+//     // res.render('admin', { title: 'MalJusT Template' });
+//   // }
+// });
 
 router.get('/admin/adminServices', function(req, res, next) {
   res.render('admin/adminServices', { title: 'MalJusT Template' });
@@ -339,8 +383,31 @@ router.get('/admin/adminAbout', function(req, res, next) {
   res.render('admin/adminAbout', { title: 'MalJusT Template' });
 });
 
-router.get('/adminHome', function(req, res, next) {
+// router.get('/adminHome', function(req, res, next) {
+//   res.render('adminHome', { title: 'MalJusT Template' });
+// });
+
+router.post('/admin/adminHome', async function(req, res, next) {
+  try {
+    const { username, password } = req.body;
+
+    const isValid = await user.login(req);
+
+    if(isValid && bcrypt.compareSync(password, isValid.password)){
+      next();
+    }else {
+      // popup.alert({content: "Invalid credentials"});
+      console.log("Invalid Credentials");
+      res.render('admin');
+      // return;
+      // res.render('admin');
+    }
+  }catch(error){
+    console.log(error);
+  }
   res.render('adminHome', { title: 'MalJusT Template' });
+}, (req, res) => {
+  res.render('admin/adminHome');
 });
 
 //Voting system routes
@@ -380,6 +447,29 @@ router.get('/vHome', function(req, res, next) {
   res.render('/vHome', { title: 'MalJusT Template' });
 });
 
+router.get('/voting/votes', function(req, res, next) {
+  res.render('voting/votes', { title: 'MalJusT Template' });
+});
+
+router.post('/voting/votes', function(req, res, next) {
+  vLastName = req.body.vLastName;
+  cLastName = req.body.cLastName;
+  cPosition = req.body.cPosition;
+  votes.create();
+  // const votes = await votes.access();
+  // votes = await votes.access()
+  next();
+}, async(req, res, next) => {
+  console.log("Vote successful");
+  res.render('voting/votes', { 
+    title: 'MalJusT Template', 
+    vLastName: vLastName, 
+    cLastName: cLastName, 
+    cPosition: cPosition 
+  });
+  // next();
+});
+
 router.get('/voting/vServices', async function(req, res, next) {
   candidates = await candidate.access();
   next();
@@ -417,11 +507,48 @@ router.get('/hospitality/hLogin', function(req, res, next) {
   res.render('hospitality/hLogin', { title: 'MalJusT Template' });
 });
 
-router.get('/hospitality/patients', async function(req, res, next) {
-  patients = await patient.access();
-  next();
-}, (req, res) => {
-  res.render('hospitality/patients', { 
+// router.get('/hospitality/patients', async function(req, res, next) {
+//   next();
+// }, (req, res) => {
+//   patients = await patient.access();
+//   res.render('hospitality/patients', { 
+//     title: 'MalJusT Template',
+//     patient1: patients[0].lastName,
+//     patient2: patients[1].lastName,
+//     // patient3: patients[2].lastName,
+//     // patient4: patients[3].lastName,
+//     // patient5: patients[4].lastName,
+//     // patient6: patients[5].lastName,
+//     // patient7: patients[6].lastName,
+//     // patient8: patients[7].lastName,
+//     // patient9: patients[8].lastName,
+//    });
+// });
+
+router.post('/hospitality/patients', async function(req, res, next) {
+  try {
+    const { username, password } = req.body;
+
+    const isValid = await user.login(req);
+
+    // await user.delete(req);
+
+    if(isValid && bcrypt.compareSync(password, isValid.password)){
+      next();
+    }else {
+      // popup.alert({content: "Invalid credentials"});
+      console.log("Invalid Credentials");
+      res.render('hospitality/hLogin');
+      // return;
+      // res.render('admin');
+    }
+  }catch(error){
+    console.log(error);
+  }
+  // res.render('adminHome', { title: 'MalJusT Template' });
+}, async (req, res) => {
+    patients = await patient.access();
+    res.render('hospitality/patients', { 
     title: 'MalJusT Template',
     patient1: patients[0].lastName,
     patient2: patients[1].lastName,
@@ -437,6 +564,10 @@ router.get('/hospitality/patients', async function(req, res, next) {
 
 router.get('/hospitality/hSubmit', function(req, res, next) {
   res.render('hospitality/hSubmit', { title: 'MalJusT Template' });
+});
+
+router.post('/hospitality/removed', function(req, res, next) {
+  res.render('hospitality/removed', { title: 'MalJusT Template' });
 });
 
 router.post('/hospitality/hSubmit', function(req, res, next) {
@@ -538,10 +669,46 @@ router.get('/studentReg/sLogin', function(req, res, next) {
   res.render('studentReg/sLogin', { title: 'MalJusT Template' });
 });
 
-router.get('/studentReg/students', async function(req, res, next) {
-  let access = await user.access();
-  next();
+// router.get('/studentReg/students', async function(req, res, next) {
+//   next();
+// }, async (req, res) => {
+//   let access = await user.access();
+//   let students = await student.access();
+//   res.render('studentReg/students', { 
+//     title: 'MalJusT Template',
+//     student1: students[0].slastName,
+//     student2: students[1].slastName,
+//     student3: students[2].slastName,
+//     // student4: students[3].slastName,
+//     // student5: students[4].slastName,
+//     // student6: students[5].slastName,
+//     // student7: students[6].slastName,
+//     // student8: students[7].slastName,
+//     // student9: students[8].slastName,
+//    });
+// });
+
+router.post('/studentReg/students', async function(req, res, next) {
+  try {
+    const { username, password } = req.body;
+
+    const isValid = await user.login(req);
+
+    if(isValid && bcrypt.compareSync(password, isValid.password)){
+      next();
+    }else {
+      // popup.alert({content: "Invalid credentials"});
+      console.log("Invalid Credentials");
+      res.render('studentReg/sLogin');
+      // return;
+      // res.render('admin');
+    }
+  }catch(error){
+    console.log(error);
+  }
+  // res.render('adminHome', { title: 'MalJusT Template' });
 }, async (req, res) => {
+  let access = await user.access();
   let students = await student.access();
   res.render('studentReg/students', { 
     title: 'MalJusT Template',
@@ -578,9 +745,46 @@ router.get('/tourismMan/tLogin', function(req, res, next) {
   res.render('tourismMan/tLogin', { title: 'MalJusT Template' });
 });
 
-router.get('/tourismMan/tourists', async function(req, res, next) {
-  next();
+// router.get('/tourismMan/tourists', async function(req, res, next) {
+//   next();
+// }, async (req, res) => {
+//   let tourists = await tourism.access();
+//   res.render('tourismMan/tourists', { 
+//     title: 'MalJusT Template',
+//     tname1: tourists[0].tLastName,
+//     // tname2: tourists[1].tLastName,
+//     // tname3: tourists[2].tLastName,
+//     // tname4: tourists[3].tLastName,
+//     // tname5: tourists[4].tLastName,
+//     // tname6: tourists[5].tLastName,
+//     // tname7: tourists[6].tLastName,
+//     // tname8: tourists[7].tLastName,
+//     // tname9: tourists[8].tLastName,
+//    });
+// });
+
+router.post('/tourismMan/tourists', async function(req, res, next) {
+  try {
+    const { username, password } = req.body;
+
+    const isValid = await user.login(req);
+
+    if(isValid && bcrypt.compareSync(password, isValid.password)){
+      next();
+    }else {
+      // popup.alert({content: "Invalid credentials"});
+      console.log("Invalid Credentials");
+      res.render('tourismMan/tLogin');
+      // return;
+      // res.render('admin');
+    }
+  }catch(error){
+    console.log(error);
+  }
+  // res.render('adminHome', { title: 'MalJusT Template' });
 }, async (req, res) => {
+  let access = await user.access();
+  let students = await student.access();
   let tourists = await tourism.access();
   res.render('tourismMan/tourists', { 
     title: 'MalJusT Template',

@@ -13,5 +13,6 @@ e_db.models = {};
 // e_db.models.Node = require('./Nodes')(sequelize, Sequelize.DataTypes);
 // e_db.models.institude = require('./institude')(sequelize, Sequelize.DataTypes);
 e_db.models.candidate = require('./candidate')(e_sequelize, Sequelize.DataTypes);
+e_db.models.votes = require('./votes')(e_sequelize, Sequelize.DataTypes);
 
 module.exports = e_db;

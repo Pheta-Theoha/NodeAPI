@@ -1,0 +1,17 @@
+extends superlayout 
+
+block content 
+    div(id="sbody") 
+        h1(class="welcome" style="text-shadow: 2px 2px #b83939") Logs & Documentation
+        div(class="votingForm" id="studentForm" style="border-style: solid; border-radius: 10px; background-color: #93adcf5d;")
+            h2(class="welcome3" style="font-size: 30px; text-shadow: 2px 2px #b83939") Entry Logs
+            p(id="sInput" style="font-size: 30px; text-align: center;") Super User ID&nbsp&nbsp&nbsp&nbsp: #{ superID }
+            p(id="sInput" style="font-size: 30px; text-align: center;") &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPosition&nbsp&nbsp&nbsp&nbsp: #{ position }
+            p(id="sInput" style="font-size: 30px; text-align: center;") Clearance Level&nbsp&nbsp&nbsp&nbsp: #{ clearanceLevel }&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            p(id="sInput" style="font-size: 30px; text-align: center;") Date of Entry&nbsp&nbsp&nbsp&nbsp: #{ date }
+            p(id="sInput" style="font-size: 30px; text-align: center;") Time of Entry&nbsp&nbsp&nbsp&nbsp: #{ time }&nbsp&nbsp&nbsp&nbsp&nbsp
+            p(id="sInput" style="font-size: 30px; text-align: center;") Time of Exit&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: #{ time }&nbsp&nbsp&nbsp&nbsp
+            p(id="sInput" style="font-size: 30px; text-align: center;") Date of Entry&nbsp&nbsp&nbsp&nbsp: #{ date }
+        div(class="votingForm" id="studentForm" style="border-style: solid; border-radius: 10px; background-color: #93adcf5d;")
+            h2(class="welcome3" style="font-size: 30px; text-shadow: 2px 2px #b83939") Documentation
+            p(id="sInput" style="font-size: 30px; text-align: center;") #{ documentation }

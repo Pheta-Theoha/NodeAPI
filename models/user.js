@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('users', {
-        superID: {
+        superID: { 
             type: DataTypes.STRING,
             allowNull: false,
             unique: false

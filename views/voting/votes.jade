@@ -1,0 +1,11 @@
+extends vlayout
+
+block content
+  div(id="Vbody")
+    div(class="Vbody1")
+      h1(class="welcome") Votes!
+        div(class="votingForm" id="studentForm" style="border-style: solid; border-radius: 10px; background-color: #93adcf5d;")
+          h2(class="welcome3" style="font-size: 30px; text-shadow: 2px 2px white;") 1 vote to candidate "#{ cLastName }"
+          p(id="sInput" style="font-size: 30px; text-align: center;") Candidate&nbsp&nbsp&nbsp&nbsp: #{ cLastName }
+          p(id="sInput" style="font-size: 30px; text-align: center;") Voter&nbsp&nbsp&nbsp&nbsp: #{ vLastName }
+          p(id="sInput" style="font-size: 30px; text-align: center;") &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPosition&nbsp&nbsp&nbsp&nbsp: #{ cPosition }

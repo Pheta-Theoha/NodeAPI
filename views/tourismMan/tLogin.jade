@@ -13,15 +13,15 @@ html
     div(id="Vbody")
         h2(contenteditable="true" class="welcome" style="font-size: 32px; text-shadow: 1px 1px red;") You need Administrator Privilages to access the list of tourists!
         h3(class="welcome2" style="color: darkred") YOU HAVE 3 ATTEMPTS REMAINING!
-        form(action="tourists" class="studentForm" id="studentForm" method="get")
+        form(action="tourists" class="studentForm" id="studentForm" method="post")
             b 
                 a(href="/tourismMan/tHome" id="close" class="material-icons" style="padding-left: 80px;") close
             br
             br
-            input(type="text" placeholder="Username" class="studentInput" name="sfirstName" autofocus required)
+            input(type="text" placeholder="Username" class="studentInput" name="username" autofocus required)
             <br>
             br 
-            input(type="password" placeholder="Password" class="studentInput" name="slastName" required)
+            input(type="password" placeholder="Password" class="studentInput" name="password" required)
             <br>
             <br>
             input(type="submit" class="studentInput" class="submit" id="submit")

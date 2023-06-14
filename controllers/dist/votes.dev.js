@@ -1,10 +1,10 @@
 "use strict";
 
 var _require = require('../app'),
-    response = _require.response;
+    res = _require.res;
 
-var _require2 = require('../models/hospitality_model'),
-    patient = _require2.models.patient;
+var _require2 = require('../models/elections_model'),
+    votes = _require2.models.votes;
 
 module.exports = {
   create: function create(req, res) {
@@ -15,20 +15,14 @@ module.exports = {
             console.log("Testing row insertion"); // const { username, password } = req.body;
 
             _context.next = 3;
-            return regeneratorRuntime.awrap(patient.create({
-              firstName: firstName,
-              lastName: lastName,
-              bloodType: bloodType,
-              dateOfBirth: dateOfBirth,
-              medicalCondition: medicalCondition,
-              urgency: urgency,
-              currentMedication: currentMedication,
-              overnight: overnight,
-              diabetic: diabetic
+            return regeneratorRuntime.awrap(votes.create({
+              vLastName: vLastName,
+              cLastName: cLastName,
+              cPosition: cPosition
             }).then(function (res) {
               console.log("Testing row insertion");
               console.log(res);
-              return patient;
+              return votes;
             })["catch"](function (error) {
               console.error("Failed to create a new record: ", error);
             }));
@@ -41,14 +35,15 @@ module.exports = {
     });
   },
   access: function access(req, res) {
-    var patients;
+    var _votes;
+
     return regeneratorRuntime.async(function access$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.prev = 0;
-            patients = patient.findAll();
-            return _context2.abrupt("return", patients);
+            _votes = _votes.findAll();
+            return _context2.abrupt("return", _votes);
 
           case 5:
             _context2.prev = 5;
@@ -57,34 +52,6 @@ module.exports = {
           case 7:
           case "end":
             return _context2.stop();
-        }
-      }
-    }, null, null, [[0, 5]]);
-  },
-  "delete": function _delete(req, res) {
-    return regeneratorRuntime.async(function _delete$(_context3) {
-      while (1) {
-        switch (_context3.prev = _context3.next) {
-          case 0:
-            _context3.prev = 0;
-            _context3.next = 3;
-            return regeneratorRuntime.awrap(patient.destroy({
-              where: {
-                lastName: req.body.lastName
-              }
-            }));
-
-          case 3:
-            _context3.next = 7;
-            break;
-
-          case 5:
-            _context3.prev = 5;
-            _context3.t0 = _context3["catch"](0);
-
-          case 7:
-          case "end":
-            return _context3.stop();
         }
       }
     }, null, null, [[0, 5]]);

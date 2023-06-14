@@ -3,31 +3,28 @@ extends superlayout
 block content
   div(id="sbody")
     h1(class="welcome" style="text-shadow: 2px 2px #b83939") Logs & Documentation
-    h2(class="welcome3" style="font-size: 30px; text-shadow: 2px 2px #b83939") Documentation
+    h2(class="welcome3" style="font-size: 30px; text-shadow: 2px 2px #b83939") Logs
       h3(class="welcome2") Please fill the form below to document all changes made
-    form(action="/superAdminHome" class="votingForm" id="studentForm" method="get")
-      input(type="text" placeholder="User ID" class="sInput" name="userID" autofocus required)
+    form(action="logs_submit" class="votingForm" id="studentForm" method="post")
+      input(type="text" placeholder="User ID" class="sInput" name="superID" autofocus required)
       label &nbsp;&nbsp;&nbsp; Date of entry &nbsp;&nbsp;
-      input(type="date" class="sInput" name="dateOfEntry" required)
+      input(type="date" class="sInput" name="dateOfEntry" value= "#{ date }")
       <br>
       input(type="number" placeholder="Clearance level" class="sInput" name="clearanceLevel" required)
       label &nbsp;&nbsp;&nbsp; Time of entry &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      input(type="time" class="sInput" name="timeOfEntry" required)
+      input(type="time" class="sInput" name="timeOfEntry")
       <br>
       input(type="text" placeholder="User position/title" class="sInput" name="position" required)
       label &nbsp;&nbsp;&nbsp;&nbsp; Time of exit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      input(type="time" class="sInput" name="timeOfExit" required)
+      input(type="time" class="sInput" name="timeOfExit")
       
       <br>
       <br>  
-      textarea(cols="55" rows="10" placeholder="Detailed information about all the modifications made are recorded here!" class="spublicStatement" name="publicStatement" required)
+      textarea(cols="55" rows="10" placeholder="Detailed information about all the modifications made are recorded here!" class="spublicStatement" name="documentation" required)
       <br> 
       input(type="submit" class="studentInput" class="ssubmit" id="submit")
 
-    div 
-        h2(class="welcome3" style="font-size: 30px; text-shadow: 2px 2px #b83939") Logs
-        div(class="votingForm" id="studentForm" style="border-style: solid; border-radius: 10px; background-color: #93adcf5d;")
-            p(id="sInput") Logs
+    
 
 
     script.
