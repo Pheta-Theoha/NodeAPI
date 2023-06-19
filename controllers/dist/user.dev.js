@@ -88,105 +88,41 @@ module.exports = {
     }, null, null, [[0, 8]]);
   },
   "delete": function _delete(req, res) {
-    var userDel;
     return regeneratorRuntime.async(function _delete$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
-            _context4.prev = 0;
-            _context4.next = 3;
-            return regeneratorRuntime.awrap(User.findOne({
-              where: {
-                UserID: req.body.UserID
-              }
-            }));
+            User.destroy(User);
 
-          case 3:
-            userDel = _context4.sent;
-            return _context4.abrupt("return", userDel);
-
-          case 7:
-            _context4.prev = 7;
-            _context4.t0 = _context4["catch"](0);
-
-          case 9:
+          case 1:
           case "end":
             return _context4.stop();
         }
       }
-    }, null, null, [[0, 7]]);
-  } // access: async (req, res) => {
-  //     let display;
-  //     await User.findOne({ where: { id: 1 } })
-  //     .then(user => {
-  //         if (user) {
-  //             // console.log(user.toJSON());
-  //             // console.log(user.userID);
-  //             // const result = user.userID;
-  //             // console.log(user.userID);
-  //             display = user.userID;
-  //             // return user.userID;
-  //         } else {
-  //             console.log('User not found.');
+    });
+  } // delete: async (req, res) => {
+  //     const userID = await User.findOne({
+  //         where: {
+  //             userID: req.body.userID
   //         }
   //     })
-  //     .catch(error => {
-  //         console.error('Error:', error);
-  //     });
-  //     return display;
-  // }
-  // login: async(req, res) => {
-  //     if(req.body.username && req.body.password){
-  //         const { username, password } = req.body;
-  //         let user = await user.findOne({
-  //             where: {username, password}
-  //         });
-  //         if(user) {
-  //             // access = true;
-  //             console.log("User Found");
-  //             response.render('admin/adminHome', {username});
-  //         }else {
-  //             response.render("admin");
-  //         }
-  //     }
+  //     return userID; 
+  //     // User.findOne({
+  //     //     where: {
+  //     //         userID: userID,
+  //     //     },
+  //     // }).then (user => {
+  //     //     user.destroy().then(()=> {
+  //     //     res.redirect('/users');
+  //     // });
+  //     // });
+  //     // if(req.method === 'post') {
+  //     // } else {
+  //     //     res.status(405).send('Method not allowed');
+  //     // }
+  //     // // const deleteUser = (req, res) => {
+  //     // // }
+  //     // return deleteUser
   // }
 
-}; // module.exports = (sequelize, DataTypes) => {
-//     const user = sequelize.define('user', {
-//         superID: {
-//             type: DataTypes.STRING,
-//             allowNull: false
-//         },
-//         userID: {
-//             type: DataTypes.STRING,
-//             allowNull: false
-//         },
-//         username: {
-//             type: DataTypes.STRING,
-//             allowNull: false
-//         },
-//         password: {
-//             type: DataTypes.STRING,
-//             allowNull: false
-//         },
-//     }, 
-//     {
-//         freezeTableName: true
-//     });
-//     sequelize.sync().then(() => {
-//         console.log('adminUser table created successfully!');
-//         user.create({
-//                 superID: "superAdmin3",
-//                 userID: "adminID3",
-//                 username: "admin3",
-//                 password: "User@2023"
-//             }).then(res => {
-//                 console.log(res);
-//             }).catch((error) => {
-//                 console.error("Failed to create a new record: ", error);
-//             });
-//     }).catch((error) => {
-//         console.error('Unable to create table : ', error);
-//     });
-//     return user;
-// }
+};

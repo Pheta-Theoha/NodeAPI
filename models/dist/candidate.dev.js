@@ -32,6 +32,10 @@ module.exports = function (sequelize, DataTypes) {
     statement: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    votes: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
     }
   }, {// freezeTableName: false
   }); // const votes = sequelize.define('votes' {

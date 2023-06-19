@@ -1,6 +1,7 @@
 "use strict";
 
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt'); // const sequelize = require('sequelize');
+
 
 module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define('users', {
@@ -39,6 +40,13 @@ module.exports = function (sequelize, DataTypes) {
   });
   User.beforeSave(function (user) {
     user.password = bcrypt.hashSync(user.password, 10);
-  });
+  }); // const beforeDelete = User.findOne({
+  //     where: {
+  //         userID: "adminID1",
+  //     }
+  // });
+  // beforeDelete.destroy();
+  // sequelize.commit();
+
   return User;
 };

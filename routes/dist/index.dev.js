@@ -409,26 +409,53 @@ router.get('/super/submit_institude', function (req, res, next) {
     title: 'MalJusT Template'
   });
 });
+router.get('/super/removedUser', function (req, res, next) {
+  res.render('super/removedUser', {
+    title: 'MalJusT Template'
+  });
+});
 router.post('/super/removedUser', function _callee8(req, res, next) {
+  var userDel;
   return regeneratorRuntime.async(function _callee8$(_context8) {
     while (1) {
       switch (_context8.prev = _context8.next) {
         case 0:
-          _context8.next = 2;
-          return regeneratorRuntime.awrap(user["delete"](req));
-
-        case 2:
+          userID = req.body.userID;
+          superID = req.body.superID;
+          reason = req.body.reason; // user.access();
+          // await user.delete(req);
           // await user.destroy({
           //   where: {
           //     userID: req.body.userID
           //   }
           // });
-          userID = req.body.userID;
+          // user.create();
+          // super
+          // await user.destroy();
+
+          _context8.next = 5;
+          return regeneratorRuntime.awrap(user.access());
+
+        case 5:
+          userDel = _context8.sent;
+          // userDel.forEach(element => {
+          //   if(userID === req.body.userID){
+          //     user.delete()
+          //   }
+          // });
+          // if(userDel.userID === userID){
+          //   console.log(user)
+          // }
+          // await user.delete()
+          console.log("Removed user");
           res.render('super/removedUser', {
-            title: 'MalJusT Template'
+            title: 'MalJusT Template',
+            userID: userID,
+            superID: superID,
+            reason: reason
           });
 
-        case 4:
+        case 8:
         case "end":
           return _context8.stop();
       }
@@ -618,18 +645,39 @@ router.get('/voting/votes', function (req, res, next) {
     title: 'MalJusT Template'
   });
 });
-router.post('/voting/votes', function (req, res, next) {
-  vLastName = req.body.vLastName;
-  cLastName = req.body.cLastName;
-  cPosition = req.body.cPosition;
-  votes.create(); // const votes = await votes.access();
-  // votes = await votes.access()
-
-  next();
-}, function _callee10(req, res, next) {
+router.post('/voting/votes', function _callee10(req, res, next) {
   return regeneratorRuntime.async(function _callee10$(_context10) {
     while (1) {
       switch (_context10.prev = _context10.next) {
+        case 0:
+          vLastName = req.body.vLastName;
+          cLastName = req.body.cLastName;
+          cPosition = req.body.cPosition;
+          votes.create(); // const votes = await votes.access();
+          // votes = await votes.access()
+
+          _context10.next = 6;
+          return regeneratorRuntime.awrap(candidate.access());
+
+        case 6:
+          candidates = _context10.sent;
+
+          if (cLastName === candidates[0].lName) {
+            candidates[0].votes += 1;
+          }
+
+          next();
+
+        case 9:
+        case "end":
+          return _context10.stop();
+      }
+    }
+  });
+}, function _callee11(req, res, next) {
+  return regeneratorRuntime.async(function _callee11$(_context11) {
+    while (1) {
+      switch (_context11.prev = _context11.next) {
         case 0:
           console.log("Vote successful");
           res.render('voting/votes', {
@@ -641,33 +689,33 @@ router.post('/voting/votes', function (req, res, next) {
 
         case 2:
         case "end":
-          return _context10.stop();
-      }
-    }
-  });
-});
-router.get('/voting/vServices', function _callee11(req, res, next) {
-  return regeneratorRuntime.async(function _callee11$(_context11) {
-    while (1) {
-      switch (_context11.prev = _context11.next) {
-        case 0:
-          _context11.next = 2;
-          return regeneratorRuntime.awrap(candidate.access());
-
-        case 2:
-          candidates = _context11.sent;
-          next();
-
-        case 4:
-        case "end":
           return _context11.stop();
       }
     }
   });
-}, function _callee12(req, res) {
+});
+router.get('/voting/vServices', function _callee12(req, res, next) {
   return regeneratorRuntime.async(function _callee12$(_context12) {
     while (1) {
       switch (_context12.prev = _context12.next) {
+        case 0:
+          _context12.next = 2;
+          return regeneratorRuntime.awrap(candidate.access());
+
+        case 2:
+          candidates = _context12.sent;
+          next();
+
+        case 4:
+        case "end":
+          return _context12.stop();
+      }
+    }
+  });
+}, function _callee13(req, res) {
+  return regeneratorRuntime.async(function _callee13$(_context13) {
+    while (1) {
+      switch (_context13.prev = _context13.next) {
         case 0:
           res.render('voting/vServices', {
             title: 'MalJusT Template',
@@ -687,7 +735,7 @@ router.get('/voting/vServices', function _callee11(req, res, next) {
 
         case 1:
         case "end":
-          return _context12.stop();
+          return _context13.stop();
       }
     }
   });
@@ -730,20 +778,20 @@ router.get('/hospitality/hLogin', function (req, res, next) {
 //    });
 // });
 
-router.post('/hospitality/patients', function _callee13(req, res, next) {
+router.post('/hospitality/patients', function _callee14(req, res, next) {
   var _req$body2, _username2, _password2, isValid;
 
-  return regeneratorRuntime.async(function _callee13$(_context13) {
+  return regeneratorRuntime.async(function _callee14$(_context14) {
     while (1) {
-      switch (_context13.prev = _context13.next) {
+      switch (_context14.prev = _context14.next) {
         case 0:
-          _context13.prev = 0;
+          _context14.prev = 0;
           _req$body2 = req.body, _username2 = _req$body2.username, _password2 = _req$body2.password;
-          _context13.next = 4;
+          _context14.next = 4;
           return regeneratorRuntime.awrap(user.login(req));
 
         case 4:
-          isValid = _context13.sent;
+          isValid = _context14.sent;
 
           // await user.delete(req);
           if (isValid && bcrypt.compareSync(_password2, isValid.password)) {
@@ -755,30 +803,30 @@ router.post('/hospitality/patients', function _callee13(req, res, next) {
             // res.render('admin');
           }
 
-          _context13.next = 11;
+          _context14.next = 11;
           break;
 
         case 8:
-          _context13.prev = 8;
-          _context13.t0 = _context13["catch"](0);
-          console.log(_context13.t0);
+          _context14.prev = 8;
+          _context14.t0 = _context14["catch"](0);
+          console.log(_context14.t0);
 
         case 11:
         case "end":
-          return _context13.stop();
+          return _context14.stop();
       }
     }
   }, null, null, [[0, 8]]);
-}, function _callee14(req, res) {
-  return regeneratorRuntime.async(function _callee14$(_context14) {
+}, function _callee15(req, res) {
+  return regeneratorRuntime.async(function _callee15$(_context15) {
     while (1) {
-      switch (_context14.prev = _context14.next) {
+      switch (_context15.prev = _context15.next) {
         case 0:
-          _context14.next = 2;
+          _context15.next = 2;
           return regeneratorRuntime.awrap(patient.access());
 
         case 2:
-          patients = _context14.sent;
+          patients = _context15.sent;
           res.render('hospitality/patients', {
             title: 'MalJusT Template',
             patient1: patients[0].lastName,
@@ -794,7 +842,7 @@ router.post('/hospitality/patients', function _callee13(req, res, next) {
 
         case 4:
         case "end":
-          return _context14.stop();
+          return _context15.stop();
       }
     }
   });
@@ -933,20 +981,20 @@ router.get('/studentReg/sLogin', function (req, res, next) {
 //    });
 // });
 
-router.post('/studentReg/students', function _callee15(req, res, next) {
+router.post('/studentReg/students', function _callee16(req, res, next) {
   var _req$body3, _username3, _password3, isValid;
 
-  return regeneratorRuntime.async(function _callee15$(_context15) {
+  return regeneratorRuntime.async(function _callee16$(_context16) {
     while (1) {
-      switch (_context15.prev = _context15.next) {
+      switch (_context16.prev = _context16.next) {
         case 0:
-          _context15.prev = 0;
+          _context16.prev = 0;
           _req$body3 = req.body, _username3 = _req$body3.username, _password3 = _req$body3.password;
-          _context15.next = 4;
+          _context16.next = 4;
           return regeneratorRuntime.awrap(user.login(req));
 
         case 4:
-          isValid = _context15.sent;
+          isValid = _context16.sent;
 
           if (isValid && bcrypt.compareSync(_password3, isValid.password)) {
             next();
@@ -957,36 +1005,36 @@ router.post('/studentReg/students', function _callee15(req, res, next) {
             // res.render('admin');
           }
 
-          _context15.next = 11;
+          _context16.next = 11;
           break;
 
         case 8:
-          _context15.prev = 8;
-          _context15.t0 = _context15["catch"](0);
-          console.log(_context15.t0);
+          _context16.prev = 8;
+          _context16.t0 = _context16["catch"](0);
+          console.log(_context16.t0);
 
         case 11:
         case "end":
-          return _context15.stop();
+          return _context16.stop();
       }
     }
   }, null, null, [[0, 8]]);
-}, function _callee16(req, res) {
+}, function _callee17(req, res) {
   var access, students;
-  return regeneratorRuntime.async(function _callee16$(_context16) {
+  return regeneratorRuntime.async(function _callee17$(_context17) {
     while (1) {
-      switch (_context16.prev = _context16.next) {
+      switch (_context17.prev = _context17.next) {
         case 0:
-          _context16.next = 2;
+          _context17.next = 2;
           return regeneratorRuntime.awrap(user.access());
 
         case 2:
-          access = _context16.sent;
-          _context16.next = 5;
+          access = _context17.sent;
+          _context17.next = 5;
           return regeneratorRuntime.awrap(student.access());
 
         case 5:
-          students = _context16.sent;
+          students = _context17.sent;
           res.render('studentReg/students', {
             title: 'MalJusT Template',
             student1: students[0].slastName,
@@ -1002,7 +1050,7 @@ router.post('/studentReg/students', function _callee15(req, res, next) {
 
         case 7:
         case "end":
-          return _context16.stop();
+          return _context17.stop();
       }
     }
   });
@@ -1050,20 +1098,20 @@ router.get('/tourismMan/tLogin', function (req, res, next) {
 //    });
 // });
 
-router.post('/tourismMan/tourists', function _callee17(req, res, next) {
+router.post('/tourismMan/tourists', function _callee18(req, res, next) {
   var _req$body4, _username4, _password4, isValid;
 
-  return regeneratorRuntime.async(function _callee17$(_context17) {
+  return regeneratorRuntime.async(function _callee18$(_context18) {
     while (1) {
-      switch (_context17.prev = _context17.next) {
+      switch (_context18.prev = _context18.next) {
         case 0:
-          _context17.prev = 0;
+          _context18.prev = 0;
           _req$body4 = req.body, _username4 = _req$body4.username, _password4 = _req$body4.password;
-          _context17.next = 4;
+          _context18.next = 4;
           return regeneratorRuntime.awrap(user.login(req));
 
         case 4:
-          isValid = _context17.sent;
+          isValid = _context18.sent;
 
           if (isValid && bcrypt.compareSync(_password4, isValid.password)) {
             next();
@@ -1074,41 +1122,41 @@ router.post('/tourismMan/tourists', function _callee17(req, res, next) {
             // res.render('admin');
           }
 
-          _context17.next = 11;
+          _context18.next = 11;
           break;
 
         case 8:
-          _context17.prev = 8;
-          _context17.t0 = _context17["catch"](0);
-          console.log(_context17.t0);
+          _context18.prev = 8;
+          _context18.t0 = _context18["catch"](0);
+          console.log(_context18.t0);
 
         case 11:
         case "end":
-          return _context17.stop();
+          return _context18.stop();
       }
     }
   }, null, null, [[0, 8]]);
-}, function _callee18(req, res) {
+}, function _callee19(req, res) {
   var access, students, tourists;
-  return regeneratorRuntime.async(function _callee18$(_context18) {
+  return regeneratorRuntime.async(function _callee19$(_context19) {
     while (1) {
-      switch (_context18.prev = _context18.next) {
+      switch (_context19.prev = _context19.next) {
         case 0:
-          _context18.next = 2;
+          _context19.next = 2;
           return regeneratorRuntime.awrap(user.access());
 
         case 2:
-          access = _context18.sent;
-          _context18.next = 5;
+          access = _context19.sent;
+          _context19.next = 5;
           return regeneratorRuntime.awrap(student.access());
 
         case 5:
-          students = _context18.sent;
-          _context18.next = 8;
+          students = _context19.sent;
+          _context19.next = 8;
           return regeneratorRuntime.awrap(tourism.access());
 
         case 8:
-          tourists = _context18.sent;
+          tourists = _context19.sent;
           res.render('tourismMan/tourists', {
             title: 'MalJusT Template',
             tname1: tourists[0].tLastName // tname2: tourists[1].tLastName,
@@ -1124,7 +1172,7 @@ router.post('/tourismMan/tourists', function _callee17(req, res, next) {
 
         case 10:
         case "end":
-          return _context18.stop();
+          return _context19.stop();
       }
     }
   });

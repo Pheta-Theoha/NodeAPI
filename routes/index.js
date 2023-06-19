@@ -165,7 +165,7 @@ router.get('/super/users', async function(req, res, next) {
     user5: users[4].userID,
     user6: users[5].userID,
     user7: users[6].userID,
-    user8: users[7].userID,
+    user8: users[7].userID, 
     user9: users[8].userID,
   });
 });
@@ -283,15 +283,41 @@ router.get('/super/submit_institude', function(req, res, next) {
   res.render('super/submit_institude', { title: 'MalJusT Template' });
 });
 
+router.get('/super/removedUser', function(req, res, next) {
+  res.render('super/removedUser', { title: 'MalJusT Template' });
+});
+
 router.post('/super/removedUser', async function(req, res, next) {
-  await user.delete(req);
+  userID = req.body.userID;
+  superID = req.body.superID;
+  reason = req.body.reason;
+  // user.access();
+  // await user.delete(req);
   // await user.destroy({
   //   where: {
   //     userID: req.body.userID
   //   }
   // });
-  userID = req.body.userID;
-  res.render('super/removedUser', { title: 'MalJusT Template' });
+  // user.create();
+  // super
+  // await user.destroy();
+  let userDel = await user.access(); 
+  // userDel.forEach(element => {
+  //   if(userID === req.body.userID){
+  //     user.delete()
+  //   }
+  // });
+  // if(userDel.userID === userID){
+  //   console.log(user)
+  // }
+  // await user.delete()
+  console.log("Removed user");
+  res.render('super/removedUser', { 
+    title: 'MalJusT Template',
+    userID: userID,
+    superID: superID,
+    reason: reason
+  });
 });
 
 // router.post('/super/submit_form')
@@ -451,13 +477,18 @@ router.get('/voting/votes', function(req, res, next) {
   res.render('voting/votes', { title: 'MalJusT Template' });
 });
 
-router.post('/voting/votes', function(req, res, next) {
+router.post('/voting/votes', async function(req, res, next) {
   vLastName = req.body.vLastName;
   cLastName = req.body.cLastName;
   cPosition = req.body.cPosition;
   votes.create();
   // const votes = await votes.access();
   // votes = await votes.access()
+  candidates = await candidate.access();
+  if(cLastName === candidates[0].lName)
+  {
+    candidates[0].votes+= 1;
+  }
   next();
 }, async(req, res, next) => {
   console.log("Vote successful");

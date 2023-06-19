@@ -23,6 +23,7 @@ app.set('view engine', 'jade');
 
 (async () => {
   await db.sequelize.sync();
+  // await e_db.sequelize.sync();
 })();
 
 app.use(session({

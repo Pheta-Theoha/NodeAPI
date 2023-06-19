@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+// const sequelize = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('users', {
@@ -43,6 +44,14 @@ module.exports = (sequelize, DataTypes) => {
         user.password = bcrypt.hashSync(user.password, 10);
     });
 
-    return User;
-    
+    // const beforeDelete = User.findOne({
+    //     where: {
+    //         userID: "adminID1",
+    //     }
+    // });
+
+    // beforeDelete.destroy();
+    // sequelize.commit();
+
+    return User;    
 }
