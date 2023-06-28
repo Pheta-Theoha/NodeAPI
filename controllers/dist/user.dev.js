@@ -88,18 +88,39 @@ module.exports = {
     }, null, null, [[0, 8]]);
   },
   "delete": function _delete(req, res) {
+    var userDel;
     return regeneratorRuntime.async(function _delete$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
-            User.destroy(User);
+            _context4.prev = 0;
+            _context4.next = 3;
+            return regeneratorRuntime.awrap(User.findOne({
+              where: {
+                username: req.body.username
+              }
+            }));
 
-          case 1:
+          case 3:
+            userDel = _context4.sent;
+            _context4.next = 6;
+            return regeneratorRuntime.awrap(userDel.destroy());
+
+          case 6:
+            console.log("Trying to delete...");
+            return _context4.abrupt("return", userDel);
+
+          case 10:
+            _context4.prev = 10;
+            _context4.t0 = _context4["catch"](0);
+            console.log(_context4.t0);
+
+          case 13:
           case "end":
             return _context4.stop();
         }
       }
-    });
+    }, null, null, [[0, 10]]);
   } // delete: async (req, res) => {
   //     const userID = await User.findOne({
   //         where: {

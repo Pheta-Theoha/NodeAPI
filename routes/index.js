@@ -271,6 +271,32 @@ router.get('/super/profile', function(req, res, next) {
   res.render('super/profile', { title: 'MalJusT Template' });
 });
 
+router.get('/super/entries', function(req, res, next) {
+  next();
+}, async (req, res) => {
+  var entries = await logs_docs.access();
+  // entries1 = entries[0];
+  console.log(entries[0]);
+  res.render('super/entries', { 
+    title: 'MalJusT Template',
+    eSuper1: entries[0].superID,
+    entry1: entries[0].createdAt,
+    entries1: entries[0].documentation,
+    eSuper2: entries[1].superID,
+    entry2: entries[1].createdAt,
+    entries2: entries[1].documentation,
+    eSuper3: entries[2].superID,
+    entry3: entries[2].createdAt,
+    entries3: entries[2].documentation,
+    eSuper4: entries[3].superID,
+    entry4: entries[3].createdAt,
+    entries4: entries[3].documentation,
+    eSuper5: entries[4].superID,
+    entry5: entries[4].createdAt,
+    entries5: entries[4].documentation,
+  });
+});
+
 router.get('/super/submit_form', function(req, res, next) {
   res.render('super/submit_form', { title: 'MalJusT Template' });
 });
@@ -301,7 +327,7 @@ router.post('/super/removedUser', async function(req, res, next) {
   // user.create();
   // super
   // await user.destroy();
-  let userDel = await user.access(); 
+  await user.delete(req); 
   // userDel.forEach(element => {
   //   if(userID === req.body.userID){
   //     user.delete()
@@ -310,7 +336,7 @@ router.post('/super/removedUser', async function(req, res, next) {
   // if(userDel.userID === userID){
   //   console.log(user)
   // }
-  // await user.delete()
+  // console.log(userDel);
   console.log("Removed user");
   res.render('super/removedUser', { 
     title: 'MalJusT Template',
@@ -365,7 +391,11 @@ router.post('/super/submit_institude', function(req, res, next) {
 }, (req, res) => {
   console.log(institude);
   console.log("Institude added successfully");
-  res.render('super/submit_institude', { managingAdmin: req.body.managingAdmin, institudeName: req.body.institudeName, superID: req.body.superAdminID })
+  res.render('super/submit_institude', { 
+    managingAdmin: req.body.managingAdmin, 
+    institudeName: req.body.institudeName, 
+    superID: req.body.superAdminID 
+  })
 });
 
 
@@ -378,7 +408,20 @@ router.get('/admin', function(req, res, next) {
   res.render('admin', { title: 'MalJusT Template' });
 });
 
+router.post('/admin', async function(req, res, next) {
+  var resetID = req.body.resetID;
+  var resetEmail = req.body.resetEmail;
+  var resetPassword = req.body.resetPassword;
+  next();
+}, async (req, res) => {
+  res.render('admin', { title: 'MalJusT Template' });
+});
+
 router.get('/newPassword', function(req, res, next) {
+  res.render('newPassword', { title: 'MalJusT Template' });
+});
+
+router.post('/newPassword', function(req, res, next) {
   res.render('newPassword', { title: 'MalJusT Template' });
 });
 
@@ -695,6 +738,10 @@ router.post('/studentReg/sSubmit', function(req, res, next) {
 router.get('/studentReg/sabout', function(req, res, next) {
   res.render('studentReg/sabout', { title: 'MalJusT Template' });
 });
+
+// router.get('/studentReg/students', function(req, res, next) {
+  // res.render('studentReg/students', { title: 'MalJusT Template' });
+// });
 
 router.get('/studentReg/sLogin', function(req, res, next) {
   res.render('studentReg/sLogin', { title: 'MalJusT Template' });

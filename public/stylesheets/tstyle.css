@@ -429,7 +429,7 @@ h1 {
 .brand-logo {
   font-family: lucida calligraphy;
   text-decoration: none;
-  font-size: 43px;
+  font-size: 41px;
   color: #212325;
   padding-left: 30px;
   /* color: linear-gradient(to right, rgb(255, 255, 255), rgb(143, 143, 143)); */
@@ -438,7 +438,7 @@ h1 {
 
 .brand-logo:hover {
   color: #516a70;
-  font-size: 44px;
+  font-size: 41px;
 }
 
 /* End of Logo Section     */

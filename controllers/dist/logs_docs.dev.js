@@ -42,25 +42,25 @@ module.exports = {
     });
   },
   access: function access(req, res) {
-    var _logs_docs;
-
+    var a_logs_docs;
     return regeneratorRuntime.async(function access$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.prev = 0;
             _context2.next = 3;
-            return regeneratorRuntime.awrap(_logs_docs.findAll());
+            return regeneratorRuntime.awrap(logs_docs.findAll());
 
           case 3:
-            _logs_docs = _context2.sent;
-            return _context2.abrupt("return", _logs_docs);
+            a_logs_docs = _context2.sent;
+            return _context2.abrupt("return", a_logs_docs);
 
           case 7:
             _context2.prev = 7;
             _context2.t0 = _context2["catch"](0);
+            console.log(_context2.t0);
 
-          case 9:
+          case 10:
           case "end":
             return _context2.stop();
         }

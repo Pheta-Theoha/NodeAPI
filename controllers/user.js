@@ -27,7 +27,6 @@ module.exports = {
         
 
     },
-
     login: async (req, res) => {
         try {
             let usersAccess = await User.findOne({
@@ -44,7 +43,20 @@ module.exports = {
         }
     },
     delete: async (req, res) => {
-        User.destroy(User);
+        // User.destroy(User);
+        try {
+            let userDel = await User.findOne({
+                where: {
+                    username: req.body.username,
+                },
+            });
+            await userDel.destroy();
+            console.log("Trying to delete...");
+            return userDel;
+        }
+        catch(error){
+            console.log(error);
+        }
     }
     // delete: async (req, res) => {
     //     const userID = await User.findOne({

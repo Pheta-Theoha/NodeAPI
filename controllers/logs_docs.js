@@ -28,12 +28,12 @@ module.exports = {
         
     },
 
-    access: async(req, res) =>{
+    access: async(req, res) => {
         try{
-            let logs_docs = await logs_docs.findAll();
-            return logs_docs;
+            let a_logs_docs = await logs_docs.findAll();
+            return a_logs_docs;
         } catch(error){
-
+            console.log(error);
         }
     }
 }
